@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+/* 전체선택자(*)를 선택하지 않고 태그를 선택하여 초기화 한다 */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+/* 본문내용에 줄간격 설정 */
+body {
+  line-height:1; /*1은 100%*/
+}
+/* 구형브라우저에서는 html5태그를 인식하지 못하니까 블럭요소로 강제로 인식하게 한다 */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+  display:block;
+}
+/* 목록앞에 기호 숨기기 */
+nav ul, li, ol {list-style:none;}
+/* 인용문 기호 숨기기 */
+blockquote, q {
+  quotes:none;
+}
+/* 인용문 기호 앞, 뒤에 빈 공백을 삽입 */
+blockquote:before, blockquote:after, q:before, q:after {
+  content:'';
+  content:none;
+}
+/* 하이퍼링크 a요소에 여백을 초기화 */
+a {
+  margin:0;
+  padding:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+/* change colours to suit your needs, insert의 약자로 수정/삽입된 글자가 있는 경우 사용 */
+ins {
+  background-color:#ff9;
+  color:#000;
+  text-decoration:none;
+}
+/* change colours to suit your needs */
+mark {
+  background-color:#ff9;
+  color:#000; 
+  font-style:italic;
+  font-weight:bold;
+}
+del { /*삭제, 취소된 경우 사용되는 태그서식*/
+  text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+  border-bottom:1px dotted;
+  cursor:help;
+}
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+/* change border colour to suit your needs */
+hr {
+  display:block;
+  height:1px;
+  border:0; 
+  border-top:1px solid #cccccc;
+  margin:1em 0;
+  padding:0;
+}
+/* 양식태그에 글자가 가로중앙정렬 하도록 함. */
+input, select {
+  vertical-align:middle;
+}
