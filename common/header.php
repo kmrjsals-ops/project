@@ -1,0 +1,63 @@
+<?php session_start();?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- reset.css -->
+  <link href="./css/reset.css" rel="stylesheet" type="text/css">
+  <!-- 헤더서식 -->
+  <link href="./css/header.css" rel="stylesheet" type="text/css">
+  <!-- 푸터서식 -->
+  <link rel="stylesheet" href="./css/footer.css" type="text/css">
+  <title>웹젠</title>
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="index.html" title="메인페이지 바로가기">
+        <img src="./images/header_logo.png" alt="메인로고">
+      </a>
+    </h1>
+<!-- 상단메뉴 -->
+    <nav>
+      <ul>
+        <li>
+          <a href="" title="게임">
+            GAME<span class="under_bar"></span>
+          </a>
+        </li>
+        <li>
+          <a href="" title="뉴스">
+            NEWS<span class="under_bar"></span>
+          </a>
+        </li>
+        <li>
+          <a href="" title="라운지">
+            LOUNGE<span class="under_bar"></span>
+          </a>
+        </li>
+        <li>
+          <a href="" title="서포트">
+            SUPPORT<span class="under_bar"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- 헤더 우측 로그인/비로그인 -->
+    <div class="user_info">
+  <?php if(isset($_SESSION['user_id'])){?>
+<!-- 로그인 상태-->
+      <ul>
+        <li><a href="" title="마이페이지 바로가기">프로필닉네임</a></li>
+        <li><a href="" title="마이페이지 바로가기">로그아웃</a></li>
+      </ul>
+      <?php }else{?>
+<!-- 비로그인 상태 -->
+      <ul>
+        <li><a href="" title="로그인하기">로그인</a></li>
+        <li><a href="" title="회원가입">회원가입</a></li>
+      <?php }?>
+      </div>
+      </ul>
+  </header>

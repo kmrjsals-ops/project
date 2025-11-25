@@ -1,0 +1,64 @@
+header{
+
+  background: #1d1d1d;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  nav{
+    transform: translateX(-300px);
+    // 상단메뉴 언더바 서식
+    .under_bar{
+      display: block;
+      opacity: 0;
+      border: 2px solid #E60012;
+      top: 48px; left: 50%;
+      position: absolute;
+      width: 2%;
+      transition: 0.4s;
+    }
+    ul{
+      display: flex;
+      justify-content: space-around;
+      gap: 50px;
+      li{
+        >a{
+          color: #fff;
+          text-decoration: none;
+          position: relative;
+          transition: 0.4s;
+        }
+        >a:hover{
+          color: #E60012;
+          .under_bar{
+            display: block;
+            opacity: 100;
+            border: 2px solid #E60012;
+            top: 48px;
+            position: absolute;
+            width: 100%;
+            left: -2px;
+          }
+        }
+      }
+    }
+  }
+  .user_info{
+    ul{
+      display: flex;
+      gap: 10px;
+      li:first-child{
+        border-right: 1px solid #fff;
+        padding-right: 10px;
+      }
+      li{
+        a{
+          color: #fff;
+          text-decoration: none;
+        }
+        >a:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
