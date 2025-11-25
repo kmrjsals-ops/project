@@ -10,7 +10,7 @@
   <link href="./css/header.css" rel="stylesheet" type="text/css">
   <!-- 푸터서식 -->
   <link rel="stylesheet" href="./css/footer.css" type="text/css">
-  <title>웹젠</title>
+  <title>webzen</title>
 </head>
 <body>
   <header>
