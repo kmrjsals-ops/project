@@ -60,10 +60,10 @@
     <div class="user_info">
   <!-- <?php if(isset($_SESSION['user_id'])){?> -->
 <!-- 로그인 상태-->
-      <ul>
+      <!-- <ul>
         <li><a href="" title="마이페이지 바로가기">프로필닉네임</a></li>
         <li><a href="" title="마이페이지 바로가기">로그아웃</a></li>
-      </ul>
+      </ul> -->
       <!-- <?php }else{?> -->
 <!-- 비로그인 상태 -->
       <ul>
@@ -75,21 +75,57 @@
   </header>
   <!-- 메인 영역 시작 -->
   <main>
-    <section>
-      <!-- 1 메인 슬라이드 영역  -->
-    </section>
+<!-- 1 메인 슬라이드 영역  -->
+<section id="visual_area">
+<!-- 메인비주얼  -->
+  <div class="visual_main">
+    <a id="main_link" href="#" target="_self">
+      <img id="main_img" src="./images/index/1_game1.png" alt="메인 이미지">
+      <div class="visual_text" id="main_text">
+        <h2>게임 제목 또는 설명</h2>
+        <p>이미지에 따라 바뀌는 상세 설명 텍스트</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- 썸네일 영역 -->
+  <div class="visual_thumbs">
+    <ul>
+      <li data-img="./images/index/1_game1.png" data-title="테르비스" data-desc="&#34꿈의 여정에서, 기적을 만드는 이야기&#34" data-link="해당 상세페이지 경로">
+        <img src="./images/index/1_game1.png" alt="">
+      </li>
+      <li data-img="./images/index/1_game2.png" data-title="R2 오리진" data-desc="&#34혼돈의 대지에서 펼쳐지는 하드코어 전투&#34" data-link="해당 상세페이지 경로">
+        <img src="./images/index/1_game2.png" alt="">
+      </li>
+      <li data-img="./images/index/1_game3.png" data-title="뮤 포켓 나이츠" data-desc="&#34손안에서 즐기는 뮤력뮤력 방치형 RPG&#34" data-link="해당 상세페이지 경로">
+        <img src="./images/index/1_game3.png" alt="">
+      </li>
+      <li data-img="./images/index/1_game4.png" data-title="드래곤 소드" data-desc="&#34드래곤소드를 꿈꾸는 영웅들의 스토리&#34" data-link="해당 상세페이지 경로">
+        <img src="./images/index/1_game4.png" alt="">
+      </li>
+      <li data-img="./images/index/1_game5.png" data-title="뮤 온라인" data-desc="&#34전설이 시작된 뮤 대륙의 본격 판타지 MMORPG&#34" data-link="gameview.html"> 
+        <img src="./images/index/1_game5.png" alt="">
+      </li>
+    </ul>
+  </div>
+</section>
+
     <section>
       <!-- 2 신규출시게임 영역 -->
     </section>
+
     <section>
       <!-- 3 top3 영역 -->
     </section>
+
     <section>
       <!-- 4 전체게임 영역  -->
     </section>
+
     <section>
       <!-- 5 신규또는 월간 프로모션 영상 영역  -->
     </section>
+
     <section>
       <!-- 6 최신 커뮤니티 슬라이드  -->
     </section>
@@ -126,5 +162,61 @@
   <script src="./script/jquery.prettyPhoto.js"></script>
   <!-- swiper.js  -->
   <script src="./script/swiper.js"></script>
+
+  <!-- SECTION 1 스크립트 -->
+  <script>
+  const mainImg = document.getElementById('main_img');
+  const mainText = document.getElementById('main_text');
+  const thumbs = document.querySelectorAll('.visual_thumbs li');
+  const mainLink = document.getElementById('main_link');
+
+  let currentIndex = 0;
+  let autoSlide;
+
+  // 슬라이드 변경 함수
+  function changeSlide(index) {
+    thumbs.forEach(t => t.classList.remove('active')); //thums안에 들어간 li개수 값 만큼 active라는 서식을 반복 제거 함
+    thumbs[index].classList.add('active'); //선택 또는 활성화할에 active 클래스 부여 
+
+    // li에 작성한 변경할 텍스트 +이미지 + 이동 경로 가져와서 변수 처리 해준닷
+    const img = thumbs[index].dataset.img;
+    const title = thumbs[index].dataset.title;
+    const desc = thumbs[index].dataset.desc;
+
+    //메인에서 가져온 빈 변수를 썸네일에서 가져와 활성화된 값을 넣어준다 
+    mainLink.href = thumbs[index].dataset.link;
+    mainImg.src = img;
+    mainText.innerHTML = `
+      <h2>${title}</h2>
+      <p>${desc}</p>
+    `;
+    currentIndex = index;
+  }
+
+  // 자동 슬라이드 시작
+  function startAutoSlide(){
+    autoSlide = setInterval(() => {
+      let nextIndex = (currentIndex + 1) % thumbs.length;
+      changeSlide(nextIndex);
+    }, 3000);
+  }
+
+  // 자동 슬라이드 정지
+  function stopAutoSlide(){
+    clearInterval(autoSlide);
+  }
+
+  // 클릭 이벤트
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      stopAutoSlide();
+      changeSlide(index);
+      startAutoSlide();
+    });
+  });
+
+  changeSlide(0);
+  startAutoSlide();
+  </script>
 </body>
 </html>

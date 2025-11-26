@@ -32,6 +32,7 @@ header{
         }
         >a:hover{
           color: #E60012;
+          text-decoration: none;
           .under_bar{
             display: block;
             opacity: 100;
@@ -40,6 +41,7 @@ header{
             position: absolute;
             width: 100%;
             left: -2px;
+            
           }
         }
       }

@@ -21,6 +21,7 @@ $line_color_g:#D9D9D9;
 $t_size_s:12px;
 $t_size_ss:14px;
 $t_size_m:16px;
+$t_size_l:18px;
 
 $t_size_t1:20px;
 $t_size_t2:22px;
@@ -31,11 +32,12 @@ $box_center:0 auto;
 
 // 기본 글꼴
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
 body{
   font-family: "Noto Sans KR", sans-serif;
-  font-size: $t_size_s;
-  color: $txt_color1;
-  background-color: $txt_color2;
+  font-size: $t_size_ss;
+  color: $txt_color2;
+  background-color: $bg_color_1;
   // overflow-x: hidden;
 }
 
