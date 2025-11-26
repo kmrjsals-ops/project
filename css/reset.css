@@ -43,6 +43,7 @@ a {
   font-size:100%;
   vertical-align:baseline;
   background:transparent;
+  text-decoration: none;
 }
 /* change colours to suit your needs, insert의 약자로 수정/삽입된 글자가 있는 경우 사용 */
 ins {
