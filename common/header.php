@@ -17,7 +17,7 @@
 <body>
   <header>
     <h1>
-      <a href="index.html" title="메인페이지 바로가기">
+      <a href="../index.html" title="메인페이지 바로가기">
         <img src="../images/header_logo.png" alt="메인로고">
       </a>
     </h1>
@@ -35,7 +35,7 @@
           </a>
         </li>
         <li>
-          <a href="" title="라운지">
+          <a href="../user/community.php" title="라운지">
             LOUNGE<span class="under_bar"></span>
           </a>
         </li>
