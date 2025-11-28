@@ -5,18 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- reset.css -->
-  <link href="./css/reset.css" rel="stylesheet" type="text/css">
-  <!-- 헤더서식 -->
-  <link href="./css/header.css" rel="stylesheet" type="text/css">
-  <!-- 푸터서식 -->
-  <link rel="stylesheet" href="./css/footer.css" type="text/css">
+  <link href="../css/reset.css" rel="stylesheet" type="text/css">
+  <!-- 기본서식 -->
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
+    <!-- 레이아웃 서식 (헤더,푸터)-->
+    <link rel="stylesheet" href="../css/layout.css" type="text/css">
+    <!-- 서브서식 -->
+  <link rel="stylesheet" href="../css/sub.css" type="text/css">
   <title>webzen</title>
 </head>
 <body>
   <header>
     <h1>
       <a href="index.html" title="메인페이지 바로가기">
-        <img src="./images/header_logo.png" alt="메인로고">
+        <img src="../images/header_logo.png" alt="메인로고">
       </a>
     </h1>
 <!-- 상단메뉴 -->

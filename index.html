@@ -7,18 +7,17 @@
   <link href="./css/reset.css" rel="stylesheet" type="text/css">
   <!-- 폰트어썸 cdn -->
   <link rel="stylesheet" href="./css/font-awesome.min.css">
-  <!-- 부트스트랩 -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
+
   <!-- 애니메이션 -->
   <link rel="stylesheet" href="./css/animate.css">
   <!-- 스와이퍼 슬라이드  -->
   <link rel="stylesheet" href="./css/swiper.css">
-  <!-- 레이아웃 서식 (헤더,푸터)-->
-  <link rel="stylesheet" href="./css/layout.css" type="text/css">
   <!-- 프리티 포토 css -->
   <link rel="stylesheet" href="./css/prettyPhoto.css">
   <!-- 기본서식 -->
   <link rel="stylesheet" href="./css/common.css" type="text/css">
+  <!-- 레이아웃 서식 (헤더,푸터)-->
+  <link rel="stylesheet" href="./css/layout.css" type="text/css">
   <!-- 메인서식 -->
   <link rel="stylesheet" href="./css/main.css" type="text/css">
   <title>webzen</title>
@@ -110,12 +109,98 @@
   </div>
 </section>
 
-    <section>
+<section class="newgame">
       <!-- 2 신규출시게임 영역 -->
-    </section>
+      <h2>신규 출시 게임</h2>
+      <div class="swiper newGameSwiper">
+        <div class="swiper-wrapper">
 
-    <section>
+        <!-- 슬라이드 1영역  -->
+        <div class="swiper-slide">
+            <a href="해당상세페이지" title="게이트오브게이츠" class="game_card">
+              <img src="./images/index/2_game1.png" alt="게이트오브 게이츠">
+              <h3>게이트 오브 게이츠</h3>
+              <p> 전략 디펜스</p>
+              <div class="icons">
+                <img src="./images/index/android.png" alt="모바일안드로이드">
+                <img src="./images/index/ios.png" alt="모바일애플">
+              </div>
+            </a>
+        </div>
+        <!-- 슬라이드 2영역  -->
+        <div class="swiper-slide">
+            <a href="해당상세페이지" title="R2 Origin" class="game_card">
+              <img src="./images/index/2_game2.png" alt="R2 Origin">
+              <h3>R2 Origin</h3>
+              <p> MMORPG</p>
+              <div class="icons">
+                <img src="./images/index/android.png" alt="모바일안드로이드">
+                <img src="./images/index/ios.png" alt="모바일애플">
+              </div>
+            </a>
+        </div>
+        <!-- 슬라이드 3영역  -->
+        <div class="swiper-slide">
+            <a href="해당상세페이지" title="테르비스" class="game_card">
+              <img src="./images/index/2_game3.png" alt="테르비스">
+              <h3>테르비스</h3>
+              <p> RPG</p>
+              <div class="icons">
+                <img src="./images/index/android.png" alt="모바일안드로이드">
+                <img src="./images/index/ios.png" alt="모바일애플">
+              </div>
+            </a>
+        </div>
+        <!-- 슬라이드 4영역  -->
+        <div class="swiper-slide">
+            <a href="해당상세페이지" title="드래곤소드" class="game_card">
+              <img src="./images/index/2_game4.png" alt="드래곤소드">
+              <h3>드래곤소드</h3>
+              <p>오픈월드 RPG</p>
+              <div class="icons">
+                <img src="./images/index/android.png" alt="모바일안드로이드">
+                <img src="./images/index/ios.png" alt="모바일애플">
+              </div>
+            </a>
+        </div>
+        <!-- 슬라이드 5영역  -->
+        <div class="swiper-slide">
+            <a href="해당상세페이지" title="뮤포켓나이츠" class="game_card">
+              <img src="./images/index/2_game5.png" alt="뮤포켓나이츠">
+              <h3>뮤 포켓 나이츠</h3>
+              <p>오픈월드 RPG</p>
+              <div class="icons">
+                <img src="./images/index/android.png" alt="모바일안드로이드">
+                <img src="./images/index/ios.png" alt="모바일애플">
+              </div>
+            </a>
+        </div>
+      </div>
+      
+      <!-- 좌우 스크롤 버튼  -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      </div>
+</section>
+
+    <section class="top3">
+      <h2>모두가 선택한 웹젠의 하이라이트</h2>
+      <p>웹젠을 대표하는 불멸의 top3</p>
+
       <!-- 3 top3 영역 -->
+      <div class="top3_wrapper">
+        <ul>
+          <li><a href="해당 상세 페이지 주소 " title="뮤 온라인">
+            <img src="./images/index/3_game1.png" alt="뮤 온라인" data-default="./images/index/3_game1.png" data-hover="./images/index/3_game1_hover.png" class="top3_img">
+          </a></li>
+          <li><a href="해당 상세 페이지 주소 " title="뮤 포켓 나이츠" >
+            <img src="./images/index/3_game2.png" alt="뮤 포켓 나이츠" data-default="./images/index/3_game2.png" data-hover="./images/index/3_game2_hover.png" class="top3_img">
+          </a></li>
+          <li><a href="해당 상세 페이지 주소 " title="R2 ORIGIN" >
+            <img src="./images/index/3_game3.png" alt="R2 ORIGIN" data-default="./images/index/3_game3.png" data-hover="./images/index/3_game3_hover.png" class="top3_img">
+          </a></li>
+        </ul>
+      </div>
     </section>
 
     <section>
@@ -144,14 +229,14 @@
       </a>
       <span class="location">
         <a href="https://maps.app.goo.gl/zyh4ZD2e4ZCoW8gd8" title="위치 알아보기" target="_blank">
-          KOREA &nbsp;&nbsp;&nbsp;37.402652, 127.101576
+          KOREA &nbsp;37.402652, 127.101576
         </a>
       </span>
     </div>
   </footer>
   <!-- 스크립트 관련  -->
   <!-- jquery -->
-  <script src="./script/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
   <!-- 쿠키생성 js -->
   <script src="./script/jquery.cookie.js"></script>
   <!-- 화면 스크롤시 동작하는 애니메이션 플러그인 -->
@@ -217,6 +302,37 @@
 
   changeSlide(0);
   startAutoSlide();
+  </script>
+
+  <!-- 섹션2 스크립트 -->
+  <script>
+    const newGameSwiper = new Swiper(".newGameSwiper", {
+  slidesPerView: 4,
+  spaceBetween: 20,
+  loop: false,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  }
+});
+  </script>
+  <!-- 섹션 3 스크립트 -->
+  <script>
+    $(document).ready(function(){
+      $('.top3_img').hover( //tpo3 이미지 오버시 
+        function(){
+          $(this).attr('src', $(this).data('hover')); //이미지 주소값 변경
+          $(this).css('transform', 'scale(1.1)'); //css 이미지 스케일 업 
+          $(this).addClass('hover-effect');
+        },
+        function(){
+          //마우스 아웃시 원본 이미지로 돌아가기
+          $(this).attr('src', $(this).data('default'));
+          $(this).css('transform','scale(1)');
+          $(this).removeClass('hover-effect');
+        }
+      );
+    });
   </script>
 </body>
 </html>

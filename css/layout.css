@@ -189,6 +189,7 @@ footer ul li a {
 }
 footer ul li a:hover {
   color: #fff;
+  text-decoration: none;
 }
 footer .f_logo {
   padding: 40px 0px 40px 90px;

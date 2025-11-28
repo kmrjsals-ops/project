@@ -7,7 +7,7 @@
     </ul>
     <div class="f_logo">
       <a href="" title="페이지 상단 바로가기">
-        <img src="./images/footer_logo.png" alt="푸터 로고">
+        <img src="../images/footer_logo.png" alt="푸터 로고">
       </a>
       <span class="location">
         <a href="https://maps.app.goo.gl/zyh4ZD2e4ZCoW8gd8" title="위치 알아보기" target="_blank">
