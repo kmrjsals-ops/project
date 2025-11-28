@@ -175,8 +175,8 @@
   p{
     position: absolute;
     left: 50%;
-    top: 20%;
-    transform: translate(-50%, -20%);
+    top: 15%;
+    transform: translate(-50%, -15%);
     font-size: $t_size_l;
   }
   .top3_wrapper{
@@ -184,8 +184,8 @@
     margin: 0 auto;
     position: absolute;
     left: 50%;
-    top: 80%;
-    transform: translate(-50%, -80%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     >ul{
       display: flex;
       justify-content: center;
