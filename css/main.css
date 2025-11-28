@@ -161,6 +161,7 @@ body {
   left: 50%;
   top: 10%;
   transform: translate(-50%, -10%);
+  font-size: 28px;
 }
 .top3 p {
   position: absolute;
