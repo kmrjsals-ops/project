@@ -1,0 +1,62 @@
+@use 'common' as *;
+
+a{text-decoration: none;}
+// 커뮤니티 서식
+// 카테고리 스와이퍼 
+.lounge-category-bar {
+  /* 헤더 바로 아래 바 전체 */
+  .d-flex.align-items-center {
+    position: relative; // 화살표 기준점
+  }
+
+  /* Swiper 컨테이너가 내용만큼 넓어지지 않게 고정 */
+  .categorySwiper {
+    width: 100% !important;     //바 전체 너비 안에서만 존재
+    overflow: hidden;           // 넘치는 건 내부에서만 스크롤
+
+    .swiper-wrapper {
+      display: flex !important;   // 슬라이드 가로 나열
+      flex-wrap: nowrap !important; // 줄바꿈 절대 금지
+    }
+
+    .swiper-slide {
+      width: auto !important;     // 버튼 길이만큼만 차지
+      flex: 0 0 auto !important;  // 컨테이너 크기에 영향 안 줌
+    }
+  }
+
+  /* 버튼 스타일 – 혹시라도 block / width:100% 들어가 있으면 안 됨 */
+  .cat-btn {
+    display: inline-flex;      // block 금지
+    align-items: center;
+    justify-content: center;
+    padding: 6px 16px;
+    border-radius: 16px;
+    background: #222;
+    border: 1px solid #333;
+    color: #fff;
+    white-space: nowrap;
+    &.active {
+      background: #ff3b30;
+      border-color: #ff3b30;
+    }
+  }
+
+  .cat-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #111;
+    color: #ff3b30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 6px;
+    cursor: pointer;
+  }
+}
+// 커뮤니티 배경 
+.community_bg{
+  width: 100%;
+}

@@ -16,5 +16,34 @@
       </span>
     </div>
   </footer>
+  <!-- 부트스트랩 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+  <!-- 스와이퍼 js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const catSwiper = new Swiper('.categorySwiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      freeMode: true,
+      navigation: {
+        nextEl: '.swiper-cat-next',
+        prevEl: '.swiper-cat-prev',
+      },
+    });
+  });
+  document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('cat-btn')) {
+
+    // 기존 active 제거
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // 클릭한 버튼에 active 추가
+    e.target.classList.add('active');
+  }
+});
+  </script>
 </body>
 </html>

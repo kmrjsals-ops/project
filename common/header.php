@@ -6,12 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- reset.css -->
   <link href="../css/reset.css" rel="stylesheet" type="text/css">
+  <!-- 부트스트랩 서식  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 폰트어썸 서식 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+  <!-- 스와이퍼 서식 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <!-- 기본서식 -->
   <link rel="stylesheet" href="../css/common.css" type="text/css">
     <!-- 레이아웃 서식 (헤더,푸터)-->
     <link rel="stylesheet" href="../css/layout.css" type="text/css">
     <!-- 서브서식 -->
   <link rel="stylesheet" href="../css/sub.css" type="text/css">
+
   <title>webzen</title>
 </head>
 <body>
