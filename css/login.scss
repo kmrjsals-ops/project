@@ -1,0 +1,55 @@
+  .hr-sect {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgb(255, 255, 255, .75);
+    margin: 5% 0px;
+  }
+  .hr-sect::before,
+  .hr-sect::after {
+    content: "";
+    flex-grow: 1;
+    background: rgb(255, 255, 255, .75);
+    height: 1px;
+    margin: 0px 3%;
+  }
+  .log_btn_etc button{
+    color: #fff; transition: 0.3s;
+
+    &:first-child {background-color: #1EC545; border:none;}
+    &:nth-child(2) {background-color: #4267B2; border:none;}
+    &:last-child {background-color: #dd4b39; border:none;}
+
+    &:hover {filter: brightness(1.13);}
+  }
+
+  .btn_red, .btn_gray{
+    color: #fff; transition: 0.3s;
+    &:hover {filter: brightness(1.13);}
+  }
+  .btn_red {
+    background: #ED1C24;
+    &:hover {background: #ED1C24;}
+  }
+  .btn_gray {
+    background: #888;
+    &:hover {background: #888;}
+  }
+
+  .find_account a {
+    text-decoration: none;
+    &:hover {text-decoration: underline;}
+  }
+
+  .img_upload {
+    margin: 10% 0%;
+    display: flex; justify-content: center;
+    position: relative;
+
+    & > img{
+      width: 20vh; height: 20vh;
+      left: 50%;
+      cursor: pointer;
+    }
+    & > input{display: none;}
+  }
