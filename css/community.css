@@ -1,0 +1,65 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  background-color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+.lounge-category-bar {
+  /* 헤더 바로 아래 바 전체 */
+  /* Swiper 컨테이너가 내용만큼 넓어지지 않게 고정 */
+  /* 버튼 스타일 – 혹시라도 block / width:100% 들어가 있으면 안 됨 */
+}
+.lounge-category-bar .d-flex.align-items-center {
+  position: relative;
+}
+.lounge-category-bar .categorySwiper {
+  width: 100% !important;
+  overflow: hidden;
+}
+.lounge-category-bar .categorySwiper .swiper-wrapper {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+.lounge-category-bar .categorySwiper .swiper-slide {
+  width: auto !important;
+  flex: 0 0 auto !important;
+}
+.lounge-category-bar .cat-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 16px;
+  background: #222;
+  border: 1px solid #333;
+  color: #fff;
+  white-space: nowrap;
+}
+.lounge-category-bar .cat-btn.active {
+  background: #ff3b30;
+  border-color: #ff3b30;
+}
+.lounge-category-bar .cat-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #111;
+  color: #ff3b30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.community_bg {
+  width: 100%;
+}/*# sourceMappingURL=community.css.map */
