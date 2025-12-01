@@ -1,6 +1,6 @@
 <?
 // 커뮤니티 글쓰기 
-
+session_start();
   include('../common/header.php');
 ?>
 

@@ -208,9 +208,221 @@
 }
   
 // <!-- 4 전체게임 영역  -->
-    
+.gamelist{
+  width: 1200px;
+  margin: 0 auto;
+  h2{
+    font-size: $t_size_t3;
+    margin: 15px auto;
+    text-align: center;
+  }
+  h2+p{
+    font-size: $t_size_m;
+    margin: 15px auto;
+    margin-bottom: 100px;
+    text-align: center;
+  }
+
+  // 영역공통서식
+  .layer01, .layer02, .layer03, .layer04{
+    display: flex;
+    justify-content: center;
+    >img{
+      position: relative;
+      top: 500px;
+      transition: 2s;
+    }
+  }
+  // 그리드 공통서식
+  .grid01, .grid02, .grid03, .grid04{
+    display: grid;
+    grid-template-columns:1fr 1fr ;
+    grid-template-rows: 190px 190px;
+    gap: 20px;
+    img{border-radius: 10px};
+    h3{
+      font-size: $t_size_m;
+      color: $txt_color2;
+      margin-top: 5px;
+    }
+    figcaption{
+      font-size: $t_size_s;
+      color: $txt_color2;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+    figure{position: relative;}
+    figure .icon_array{
+      display: flex;
+      justify-content: space-between;
+      span{
+        right: 0px;
+        bottom: -5px;
+        position: absolute;
+      }
+
+    }
+  }
+  //그리드 1,3번 서식
+  .grid01, .grid03{
+    position: relative;
+    left: 1000px;
+    transition: 2s;
+  }
+  //그리드 2,4번 서식
+  .grid02, .grid04{
+    position: relative;
+    right: 1000px;
+    transition: 2s;
+  }
+}
   
 // <!-- 5 신규또는 월간 프로모션 영상 영역  -->
-    
+.promotion{
+  position: relative;
+  height: 100vh;
+  >img{
+    position: absolute;
+    height: 100%;
+  }
+  >video{
+    position: absolute;
+    z-index: 100;
+    width: 756px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  video[poster]{ 
+	/* 포스터 이미지의 크기를 비디오 영상에 꽉차도록 */
+    height:100%;
+    width:100%;
+    }
+}
 // <!-- 6 최신 커뮤니티 슬라이드  -->
-    
+.community{
+  width: 1200px;
+  height: 45vh;
+  margin: 30px auto;
+  color: $txt_color3;
+  position: relative;
+  h2{
+    text-indent: 15px;
+    font-size: $t_size_t3;
+    color: $txt_color2;
+  }
+  .commu_container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    top: 25%;
+  }
+  .commu_box{
+    border: 1px solid $bg_color_1;
+    border-radius: 10px;
+    background: $txt_color2;
+    padding: 10px 15px;
+    padding-bottom: 20px;
+    position: relative;
+    width: 380px;
+    box-sizing: border-box;
+
+    pre{
+      margin: 0 auto;
+      border: 1px solid $line_color_g;
+      background: $line_color_g;
+      height: 132px;
+      white-space: pre-wrap;
+      word-break: break-all;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .commu_title{
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0px;
+      h3{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 70%;
+      font-size: $t_size_m;
+      }
+    }
+
+    .commu_name{
+      display: flex;
+      align-items: center;
+      margin: 5px 0px;
+      p:last-child{
+        border-left: 2px solid $txt_color3;
+      }
+      img{
+        border-radius: 100%;
+        width: 23px; height: 23px;
+        object-fit: cover;
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+
+    .fa-heart{
+      margin-right: 5px;
+    }
+    .fa-message{
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+  }
+// 스와이퍼서식
+  .mySwiper{
+    overflow: hidden;
+// 슬라이드 컨테이너 서식
+  .swiper-wrapper{
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    }
+  }
+  }
+  
+// 화살표 서식
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: absolute;
+    bottom: 0%;
+    z-index: 10;
+    color: $txt_color1;
+    background: $nav_color1;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+  }
+  .swiper-button-prev{
+      left: -5% !important;
+  }
+  .swiper-button-next{
+    right: -5% !important;
+  }
+  >button .swiper-button-prev::after,
+  >button .swiper-button-next::after{
+    font-size: 16px !important;
+    font-weight: bold !important;
+    content: "" !important;
+  }
+// 페이지네이션 서식
+  .swiper-pagination{
+    .swiper-pagination-bullet{
+      background: #fff;
+    }
+    .swiper-pagination-bullet-active{
+      width: 50px;
+      background: $txt_color1;
+      border-radius: 10px;
+    }
+  }
+}

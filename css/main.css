@@ -190,4 +190,210 @@ body {
 
 .top3_img.hover-effect {
   filter: drop-shadow(0 0 35px rgb(255, 255, 255));
+}
+
+.gamelist {
+  width: 1200px;
+  margin: 0 auto;
+}
+.gamelist h2 {
+  font-size: 28px;
+  margin: 15px auto;
+  text-align: center;
+}
+.gamelist h2 + p {
+  font-size: 16px;
+  margin: 15px auto;
+  margin-bottom: 100px;
+  text-align: center;
+}
+.gamelist .layer01, .gamelist .layer02, .gamelist .layer03, .gamelist .layer04 {
+  display: flex;
+  justify-content: center;
+}
+.gamelist .layer01 > img, .gamelist .layer02 > img, .gamelist .layer03 > img, .gamelist .layer04 > img {
+  position: relative;
+  top: 500px;
+  transition: 2s;
+}
+.gamelist .grid01, .gamelist .grid02, .gamelist .grid03, .gamelist .grid04 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 190px 190px;
+  gap: 20px;
+}
+.gamelist .grid01 img, .gamelist .grid02 img, .gamelist .grid03 img, .gamelist .grid04 img {
+  border-radius: 10px;
+}
+.gamelist .grid01 h3, .gamelist .grid02 h3, .gamelist .grid03 h3, .gamelist .grid04 h3 {
+  font-size: 16px;
+  color: #fff;
+  margin-top: 5px;
+}
+.gamelist .grid01 figcaption, .gamelist .grid02 figcaption, .gamelist .grid03 figcaption, .gamelist .grid04 figcaption {
+  font-size: 12px;
+  color: #fff;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+.gamelist .grid01 figure, .gamelist .grid02 figure, .gamelist .grid03 figure, .gamelist .grid04 figure {
+  position: relative;
+}
+.gamelist .grid01 figure .icon_array, .gamelist .grid02 figure .icon_array, .gamelist .grid03 figure .icon_array, .gamelist .grid04 figure .icon_array {
+  display: flex;
+  justify-content: space-between;
+}
+.gamelist .grid01 figure .icon_array span, .gamelist .grid02 figure .icon_array span, .gamelist .grid03 figure .icon_array span, .gamelist .grid04 figure .icon_array span {
+  right: 0px;
+  bottom: -5px;
+  position: absolute;
+}
+.gamelist .grid01, .gamelist .grid03 {
+  position: relative;
+  left: 1000px;
+  transition: 2s;
+}
+.gamelist .grid02, .gamelist .grid04 {
+  position: relative;
+  right: 1000px;
+  transition: 2s;
+}
+
+.promotion {
+  position: relative;
+  height: 100vh;
+}
+.promotion > img {
+  position: absolute;
+  height: 100%;
+}
+.promotion > video {
+  position: absolute;
+  z-index: 100;
+  width: 756px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.promotion video[poster] {
+  /* 포스터 이미지의 크기를 비디오 영상에 꽉차도록 */
+  height: 100%;
+  width: 100%;
+}
+
+.community {
+  width: 1200px;
+  height: 45vh;
+  margin: 30px auto;
+  color: #333;
+  position: relative;
+}
+.community h2 {
+  text-indent: 15px;
+  font-size: 28px;
+  color: #fff;
+}
+.community .commu_container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  top: 25%;
+}
+.community .commu_box {
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px 15px;
+  padding-bottom: 20px;
+  position: relative;
+  width: 380px;
+  box-sizing: border-box;
+}
+.community .commu_box pre {
+  margin: 0 auto;
+  border: 1px solid #D9D9D9;
+  background: #D9D9D9;
+  height: 132px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.community .commu_box .commu_title {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+}
+.community .commu_box .commu_title h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 70%;
+  font-size: 16px;
+}
+.community .commu_box .commu_name {
+  display: flex;
+  align-items: center;
+  margin: 5px 0px;
+}
+.community .commu_box .commu_name p:last-child {
+  border-left: 2px solid #333;
+}
+.community .commu_box .commu_name img {
+  border-radius: 100%;
+  width: 23px;
+  height: 23px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+  display: inline-block;
+}
+.community .commu_box .fa-heart {
+  margin-right: 5px;
+}
+.community .commu_box .fa-message {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.community .mySwiper {
+  overflow: hidden;
+}
+.community .mySwiper .swiper-wrapper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.community .swiper-button-next,
+.community .swiper-button-prev {
+  position: absolute;
+  bottom: 0%;
+  z-index: 10;
+  color: #ED1C24;
+  background: #1d1d1d;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  padding: 6px;
+}
+.community .swiper-button-prev {
+  left: -5% !important;
+}
+.community .swiper-button-next {
+  right: -5% !important;
+}
+.community > button .swiper-button-prev::after,
+.community > button .swiper-button-next::after {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  content: "" !important;
+}
+.community .swiper-pagination .swiper-pagination-bullet {
+  background: #fff;
+}
+.community .swiper-pagination .swiper-pagination-bullet-active {
+  width: 50px;
+  background: #ED1C24;
+  border-radius: 10px;
 }/*# sourceMappingURL=main.css.map */
