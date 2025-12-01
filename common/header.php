@@ -1,4 +1,4 @@
-<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -55,7 +55,7 @@
     </nav>
     <!-- 헤더 우측 로그인/비로그인 -->
     <div class="user_info">
-  <?php if(isset($_SESSION['user_id'])){?>
+  <?php if(isset($_SESSION['mb_id'])){?>
 <!-- 로그인 상태-->
       <ul>
         <li><a href="" title="마이페이지 바로가기">프로필닉네임</a></li>
