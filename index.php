@@ -1,3 +1,6 @@
+<?
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,7 +9,7 @@
   <!-- reset.css -->
   <link href="./css/reset.css" rel="stylesheet" type="text/css">
   <!-- 폰트어썸 cdn -->
-<<<<<<< HEAD
+
   <link rel="stylesheet" href="./css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -14,13 +17,18 @@
   <link rel="stylesheet" href="./css/animate.css">
   <!-- 스와이퍼 슬라이드  -->
   <link rel="stylesheet" href="./css/swiper.css">
+<<<<<<< HEAD:index.html
 =======
+=======
+  <!-- 섹션 6 스와이퍼 -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+>>>>>>> d940efd104f962ced545cf5a1d8ea224f489bdb0:index.php
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
   <!-- 애니메이션 -->
   <link rel="stylesheet" href="./css/animate.css">
   <!-- 스와이퍼 슬라이드  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
->>>>>>> e7ae73ab9ef1245d3ab53aa6c440c0bceeda7c24
   <!-- 프리티 포토 css -->
   <link rel="stylesheet" href="./css/prettyPhoto.css">
   <!-- 기본서식 -->
@@ -36,7 +44,7 @@
   <!-- 헤더 영역 시작 -->
   <header>
     <h1>
-      <a href="index.html" title="메인페이지 바로가기">
+      <a href="index.php" title="메인페이지 바로가기">
         <img src="./images/header_logo.png" alt="메인로고">
       </a>
     </h1>
@@ -66,21 +74,28 @@
       </ul>
     </nav>
     <!-- 헤더 우측 로그인/비로그인 -->
-    <div class="user_info">
-  <!-- <?php if(isset($_SESSION['user_id'])){?> -->
-<!-- 로그인 상태-->
-      <!-- <ul>
-        <li><a href="" title="마이페이지 바로가기">프로필닉네임</a></li>
-        <li><a href="" title="마이페이지 바로가기">로그아웃</a></li>
-      </ul> -->
-      <!-- <?php }else{?> -->
-<!-- 비로그인 상태 -->
-      <ul>
-        <li><a href="" title="로그인하기">로그인</a></li>
-        <li><a href="" title="회원가입">회원가입</a></li>
-      <!-- <?php }?> -->
-      </ul>
-      </div>
+    <!-- 로그인/비로그인 표시 -->
+  <div class="user_info">
+    <ul>
+      <?php if(isset($_SESSION['mb_id'])) { ?>
+      
+        <!-- 로그인 상태 -->
+        <li><a href="./user/user.php" title="마이페이지"><?=$_SESSION['mb_nick']?></a></li>
+        <li><a href="./php/logout.php" title="로그아웃">로그아웃</a></li>
+
+        <?php if($_SESSION['mb_role'] == 'admin'){ ?>
+          <li><a href="./admin/" title="관리자페이지">| 관리자페이지</a></li>
+        <?php } ?>
+
+      <?php } else { ?>
+
+        <!-- 비로그인 -->
+        <li><a href="./php/login.php" title="로그인하기">로그인</a></li>
+        <li><a href="./php/register.php" title="회원가입">회원가입</a></li>
+
+      <?php } ?>
+    </ul>
+  </div>
   </header>
   <!-- 메인 영역 시작 -->
   <main>
@@ -445,7 +460,9 @@
 <section class="promotion">
 <!-- 5 신규또는 월간 프로모션 영상 영역  -->
   <img src="./images/index/5_promotion_bg.png" alt="" style="width: 100%;">
-  <video src="./images/index/5_video.mp4" controls></video>
+  <video src="./images/index/5_video.mp4" controls poster="./images/index/5_thumbnail.jpg">
+
+  </video>
 </section>
 
 <section class="community">

@@ -1,4 +1,5 @@
-<?
+<?php
+session_start();
   include('../common/header.php');
 ?>
 
@@ -97,6 +98,6 @@
 <section>
   
 </section>
-<?
+<?php
   include('../common/footer.php');
 ?>
