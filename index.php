@@ -8,6 +8,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- reset.css -->
   <link href="./css/reset.css" rel="stylesheet" type="text/css">
+<<<<<<< HEAD
   <!-- 폰트어썸 cdn -->
 
   <link rel="stylesheet" href="./css/font-awesome.min.css">
@@ -24,13 +25,16 @@ session_start();
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 >>>>>>> d940efd104f962ced545cf5a1d8ea224f489bdb0:index.php
+=======
+  <!-- 섹션 6 스와이퍼 -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- 폰트 어썸 서식 -->
+>>>>>>> 2aa1b85383ee071425bd197e5a048e281859266c
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
   <!-- 애니메이션 -->
   <link rel="stylesheet" href="./css/animate.css">
   <!-- 스와이퍼 슬라이드  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <!-- 프리티 포토 css -->
-  <link rel="stylesheet" href="./css/prettyPhoto.css">
   <!-- 기본서식 -->
   <link rel="stylesheet" href="./css/common.css" type="text/css">
   <!-- 레이아웃 서식 (헤더,푸터)-->
@@ -535,8 +539,7 @@ session_start();
   <script src="./script/jquery.cookie.js"></script>
   <!-- 화면 스크롤시 동작하는 애니메이션 플러그인 -->
   <script src="./script/jquery.scrollUp.min.js"></script>
-  <!-- 사진앨범 관련  -->
-  <script src="./script/jquery.prettyPhoto.js"></script>
+
   <!-- swiper.js  -->
 <<<<<<< HEAD
   <script src="./script/swiper.js"></script>

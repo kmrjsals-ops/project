@@ -50,7 +50,7 @@
         <li><a href="../php/logout.php" title="로그아웃">로그아웃</a></li>
 
         <?php if($_SESSION['mb_role'] == 'admin'){ ?>
-          <li><a href="../admin/" title="관리자페이지">관리자</a></li>
+          <li><a href="../admin/" title="관리자페이지">관리자페이지</a></li>
         <?php } ?>
 
       <?php } else { ?>
