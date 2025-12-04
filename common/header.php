@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // 모든 세션값 안전한 방식으로 불러오기
 $mb_id   = $_SESSION['mb_id'] ?? null;
@@ -60,7 +59,7 @@ $login_nick = $mb_nick ?: $mb_name; // 닉네임 없으면 이름 사용
     <li><a href="../php/logout.php">로그아웃</a></li>
 
     <?php if ($mb_role === 'admin') { ?>
-        <li><a href="./admin/">관리자페이지</a></li>
+        <li><a href="../admin/">관리자페이지</a></li>
     <?php } ?>
 
     <?php } else { ?>

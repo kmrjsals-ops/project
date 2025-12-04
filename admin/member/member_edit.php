@@ -28,7 +28,7 @@ $row = mysqli_fetch_assoc($result);
         </div>
 
         <div class="mb-3">
-          <label>회원 권한</label>
+          <label>회원 권한</label> <!-- 마이페이지에서 등급에 쓸 예정 -->
           <select name="user_role" class="form-select">
             <option value="user" <?= ($row['user_role']=="user"?"selected":"")?>>일반회원</option>
             <option value="admin" <?= ($row['user_role']=="user"?"selected":"")?>>관리자</option>
