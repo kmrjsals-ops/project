@@ -1,0 +1,170 @@
+
+
+        .notice_view{
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0a0a0a; /* 전체 배경: 리스트 페이지와 동일한 딥 블랙 */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 2. 메인 컨테이너 */
+        .main-container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 60px 20px 100px; /* 상단 여백 확보 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 3. 상단 네비게이션 (공지사항 타이틀 - 목록 버튼) */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* 텍스트 베이스라인 정렬 */
+            margin-bottom: 20px;
+        }
+
+        .page-category {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .btn-list {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn-list:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* 4. 게시글 헤더 영역 */
+        .post-header {
+            width: 100%;
+            border-top: 2px solid #ffffff; /* 최상단 굵은 흰색 선 */
+        }
+
+        .post-title {
+            padding: 30px 0;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-bottom: 1px solid #333; /* 타이틀 아래 얇은 선 */
+            color: #fff;
+        }
+
+        .post-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            border-bottom: 1px solid #ffffff; /* 정보 영역 아래 흰색 선 */
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+
+        .info-left {
+            font-weight: bold;
+            color: #eee;
+        }
+
+        .info-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* 첨부파일 폴더 아이콘 (SVG) */
+        .icon-folder {
+            width: 20px;
+            height: 20px;
+            fill: #cccccc;
+        }
+
+        /* 5. 게시글 본문 영역 */
+        .post-body {
+            padding: 50px 0;
+            min-height: 300px;
+            text-align: center;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        .post-banner {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+
+        .text-highlight {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .text-sub {
+            font-size: 1rem;
+            color: #bbb;
+        }
+
+        /* 6. 이전글/다음글 네비게이션 */
+        .post-nav-list {
+            border-top: 1px solid #ffffff; /* 네비게이션 시작 선 */
+            margin-top: 50px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 10px;
+            border-bottom: 1px solid #333; /* 아이템 사이 얇은 선 */
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-arrow {
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            color: #888;
+        }
+        
+        /* 화살표 모양 CSS로 구현 */
+        .arrow-up::before { content: ''; display: block; width: 10px; height: 10px; border-top: 1px solid #aaa; border-left: 1px solid #aaa; transform: rotate(45deg); margin-top: 4px;}
+        .arrow-down::before { content: ''; display: block; width: 10px; height: 10px; border-bottom: 1px solid #aaa; border-right: 1px solid #aaa; transform: rotate(45deg); margin-bottom: 4px;}
+
+        .nav-title {
+            flex-grow: 1;
+            padding-left: 10px;
+            font-size: 0.95rem;
+            color: #ddd;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .nav-date {
+            width: 100px;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* 반응형 모바일 대응 */
+        @media screen and (max-width: 768px) {
+            .page-category { font-size: 1.2rem; }
+            .post-title { font-size: 1rem; padding: 20px 0; }
+            .post-info { font-size: 0.8rem; }
+            .nav-date { display: none; /* 모바일에서 날짜 숨김 */ }
+        }

@@ -19,7 +19,7 @@
       </li>
 
       <li>
-        <a href="/webzen/admin/support/inquiry_list.php" class="nav-link text-white">문의관리</a>
+        <a href="/webzen/admin/inquiry/inquiry_list.php" class="nav-link text-white">문의관리</a>
       </li>
 
       <li>

@@ -1,0 +1,147 @@
+.notice {
+		font-family: 'Noto Sans KR', sans-serif;
+		background-color: #0a0a0a; /* 전체 배경색: 아주 어두운 검정 */
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-height: 100vh;
+}
+/* 2. 상단 히어로 영역 (배경 이미지 및 타이틀) */
+.hero-section {
+		width: 100%;
+		height: 300px;
+		background: linear-gradient(rgba(0, 0, 0, 0.3), #0a0a0a), 
+								url('https://via.placeholder.com/1920x600/333333/ffffff?text=Background+Image') center/cover no-repeat;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 20px;
+		background: url(../images/notice/notice_bg.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+}
+.page-title {
+		font-size: 2rem;
+		font-weight: bold;
+		text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+		margin-top: 50px; 
+		border-bottom: 2px solid white;
+		padding-bottom: 5px;
+}
+/* 3. 메인 콘텐츠 컨테이너 */
+.main-container {
+		width: 100%;
+		max-width: 1000px;
+		padding: 0 20px;
+		display: flex;
+		flex-direction: column;
+}
+/* 4. 검색 바 영역 */
+.search-section {
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 20px;
+}
+
+.search-box {
+		position: relative;
+		width: 300px;
+		border-bottom: 2px solid #ffffff;
+}
+.search-input {
+		width: 100%;
+		padding: 10px 40px 10px 5px;
+		background: transparent;
+		border: none;
+		color: #fff;
+		font-size: 1rem;
+		outline: none;
+}
+
+.search-icon {
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		fill: #fff; 
+}
+/* 5. 공지사항 리스트 (테이블 스타일) */
+.notice-list {
+		width: 100%;
+		border-top: 1px solid #555; 
+}
+
+.list-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 18px 10px;
+		border-bottom: 1px solid #333;
+		cursor: pointer;
+		transition: background-color 0.2s;
+}
+.list-item:hover {
+		background-color: rgba(255, 255, 255, 0.05); /* 호버 시 살짝 밝아짐 */
+}
+
+.item-title {
+		font-size: 0.95rem;
+		color: #e0e0e0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: 80%;
+}
+.item-date {
+		font-size: 0.85rem;
+		color: #888; /* 날짜는 조금 더 어둡게 */
+		font-family: sans-serif;
+}
+
+/* 6. 페이지네이션 */
+.pagination {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		margin-top: 50px;
+		margin-bottom: 80px;
+}
+.page-link {
+		color: #888;
+		font-size: 1.1rem;
+		cursor: pointer;
+		text-decoration: none;
+		transition: color 0.2s;
+		border: none;
+		background: none;
+}
+
+.page-link:hover {
+background: none;
+color: #fff;
+}
+
+.page-link.active {
+		color: #ed1c24;
+		font-weight: bold;
+		background: none;
+}
+
+.page-arrow {
+		color: #ed1c24; /* 화살표 붉은색 */
+		font-size: 1.2rem;
+		cursor: pointer;
+		padding: 0 10px;
+}
+/* 반응형 처리 */
+@media (max-width: 768px) {
+		.hero-section { height: 200px; }
+		.search-box { width: 100%; }
+		.item-date { font-size: 0.75rem; }
+		.item-title { font-size: 0.9rem; max-width: 70%; }
+}
