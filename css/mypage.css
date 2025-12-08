@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  background-color: #333;
+}
+
+.mypage-nav {
+  margin-top: 5rem;
+  margin-left: 15rem;
+  width: 25%;
+  position: sticky;
+  top: 100px;
+}
+@media (min-width: 992px) {
+  .mypage-nav {
+    margin-left: 15rem;
+    width: 25%;
+    position: sticky;
+    top: 100px;
+  }
+}
+.mypage-nav ul li a {
+  display: block;
+  padding: 0.5rem 0.8rem;
+  font-size: 16px;
+  color: #D9D9D9;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.mypage-nav ul li a:hover, .mypage-nav ul li a.active, .mypage-nav ul li a.active_nav {
+  border-bottom: 0.3rem solid #ED1C24;
+  color: #fff;
+  background-color: transparent;
+  padding: 0.5rem 0;
+}
+
+.mypage-section {
+  width: 85%;
+  background: #fff;
+  border-radius: 1rem;
+}
+@media (min-width: 992px) {
+  .mypage-section {
+    width: 85%;
+  }
+}
+.mypage-section h3 {
+  width: 13%;
+  background: #ED1C24;
+  font-size: 20px;
+  margin-bottom: 2rem;
+  padding: 0.6rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.mypage-section a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem;
+}
+
+h2 {
+  position: relative;
+  left: 9rem;
+}
+@media (min-width: 992px) {
+  h2 {
+    position: relative;
+    left: 9rem;
+    text-align: left;
+  }
+}
+
+#my_writing tr > td, #inquiries tr > td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#my_writing tr > td:nth-child(2):hover, #inquiries tr > td:nth-child(2):hover {
+  cursor: pointer;
+}
+
+#info {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  #info {
+    padding-left: 15%;
+  }
+}
+
+.info-table-wrapper {
+  padding-left: 15%;
+}
+
+.p_img {
+  width: 8rem;
+  border: 0.1rem solid #D9D9D9;
+}
+
+#inquiries tbody tr:hover {
+  cursor: pointer;
+}
+#inquiries tbody tr > td:last-child:hover {
+  background: none !important;
+}
+
+.answer {
+  border-bottom: 1px solid #333;
+  display: none;
+}
+.answer :hover {
+  background-color: transparent;
+  --bs-table-hover-bg: transparent;
+  cursor: auto;
+}
+.answer td {
+  padding: 1% 5%;
+  background: #fff !important;
+}
+
+.inquiry-table tr.question.active .fa-sort-down {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+
+.inquiry-table tr.question .fa-sort-down {
+  transition: transform 0.3s;
+}
+
+.btn_wrap {
+  text-align: end;
+  margin-bottom: 1%;
+}
+
+.btn_inquiries {
+  padding: 0.5% 1% 0.5% 1%;
+  border: none;
+  border-radius: 0.3rem;
+  background: #ED1C24;
+  font-size: 16px;
+  color: #fff;
+  transition: 0.3s;
+}
+.btn_inquiries:hover {
+  filter: brightness(1.13);
+}
+
+.page_wrap {
+  text-align: center;
+}
+
+.pagination_modal {
+  list-style: none;
+  display: inline-flex;
+  padding: 0;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+.pagination_modal li {
+  display: inline;
+  text-align: center;
+  margin: 0 5px;
+}
+.pagination_modal .num {
+  display: block;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  color: #333;
+  border-radius: 100%;
+  transition: 0.2s;
+}
+.pagination_modal .num:hover {
+  color: #ED1C24;
+  text-decoration: underline;
+}
+
+.active_num {
+  color: #ED1C24 !important;
+  font-weight: bold;
+}
+
+.pagination_modal .arrow {
+  display: block;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 100%;
+  transition: background-color 0.2s;
+  margin: 0 auto;
+}
+.pagination_modal .arrow i {
+  font-size: 18px;
+  color: #ED1C24;
+  background-color: #333;
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+.pagination_modal .arrow:hover i {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}/*# sourceMappingURL=mypage.css.map */

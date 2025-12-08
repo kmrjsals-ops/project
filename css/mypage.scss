@@ -1,0 +1,208 @@
+@use 'common' as *;
+
+// mypage.scss
+
+// main{width: 1200px; margin: 0 auto;}
+// 좌측 네비게이션
+.mypage-nav{
+  margin-top: 5rem;
+  margin-left: 15rem ;
+  width: 25%;
+  position: sticky;
+  top: 100px;
+
+  @media (min-width: 992px) { 
+    margin-left: 15rem ;
+    width: 25%;
+    position: sticky;
+    top: 100px;
+  }
+
+  ul li a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    font-size: $t_size_m; color: $line_color_g; 
+    text-decoration: none;
+    transition: color 0.5s;
+
+    &:hover, &.active, &.active_nav{
+      border-bottom: 0.3rem solid $txt_color1; 
+      color: $txt_color2;
+      background-color: transparent;
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+
+// 내정보 섹션, 내가 쓴 글 섹션, 문의 내역 섹션
+.mypage-section{
+  width: 85%;
+  background: $txt_color2;
+  border-radius: 1rem;
+
+  @media (min-width: 992px) { 
+    width: 85%;
+  }
+
+  h3{
+    width: 13%;
+    background:$txt_color1;
+    font-size: $t_size_t1;
+    margin-bottom: 2rem;
+    padding: 0.6rem;
+    border-radius: 0 0.5rem 0.5rem 0 ;
+  }
+
+  a{
+    text-decoration: none;
+    color: $txt_color3;
+    padding: 0.5rem;
+  }
+}
+
+
+// MY PAGE
+h2{
+  position: relative; left: 9rem;
+
+  @media (min-width: 992px) { 
+    position: relative; 
+    left: 9rem;
+    text-align: left;
+  }
+}
+
+
+// 내가 쓴 글, 문의 내역 테이블
+#my_writing, #inquiries{
+  tr > td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    &:nth-child(2):hover{cursor: pointer;}
+  }
+}
+
+
+// 내정보
+#info{
+  font-size: $t_size_l;
+  @media (min-width: 768px) {
+    padding-left: 15%;
+  }
+}
+.info-table-wrapper{padding-left: 15%;}
+.p_img{
+  width: 8rem;
+  border: 0.1rem solid $line_color_g;
+}
+
+
+// 문의 내역
+#inquiries tbody tr{
+  &:hover{cursor: pointer;}
+  > td:last-child:hover{background: none !important;}
+}
+// 문의 상세 내용 행 호버 효과 제거
+.answer{
+  border-bottom: 1px solid $txt_color3;
+  display: none;
+  :hover{
+    background-color: transparent;
+    --bs-table-hover-bg: transparent;
+    cursor: auto;
+  }
+  td{
+    padding: 1% 5%;
+    background: $txt_color2 !important;
+  }
+}
+// 문의 테이블 - 화살표 회전
+.inquiry-table tr.question.active .fa-sort-down {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+.inquiry-table tr.question .fa-sort-down {
+  transition: transform 0.3s;
+}
+// 문의하기 - 버튼
+.btn_wrap{
+  text-align: end;
+  margin-bottom: 1%;
+}
+.btn_inquiries{
+  padding: 0.5% 1% 0.5% 1%;
+  border: none; border-radius: 0.3rem;
+  background: $txt_color1;
+  font-size: $t_size_m; color: $txt_color2;
+  transition: 0.3s;
+
+  &:hover {filter: brightness(1.13);}
+}
+
+
+// 페이지네이션 pagination
+.page_wrap {text-align: center;}
+.pagination_modal {
+    list-style: none;
+    display: inline-flex;
+    padding: 0;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px 15px;
+
+    li{
+      display: inline;
+      text-align: center;
+      margin: 0 5px;
+    }
+
+    .num {  //숫자 서식
+      display: block;
+      font-size: $t_size_l;
+      width: 30px; height: 30px;
+      padding: 0;
+      line-height: 30px;
+      color: $txt_color3;
+      border-radius: 100%; 
+      transition: 0.2s;
+
+      &:hover { //숫자hover시
+        color: $txt_color1;
+        text-decoration: underline;
+      }
+    }
+}
+.active_num{  //숫자 선택시
+  color: $txt_color1 !important;
+  font-weight: bold;
+}
+// 화살표 버튼
+.pagination_modal .arrow {
+    display: block;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 100%;
+    transition: background-color 0.2s;
+    margin: 0 auto;
+
+    i{  // 화살표 내부의 아이콘 스타일
+      font-size: 18px; 
+      color: $txt_color1;
+      background-color: $txt_color3;
+      border-radius: 100%;
+      width: 100%;
+      height: 100%;
+      display: flex; justify-content: center;
+      align-items: center;
+      transition: background-color 0.2s, opacity 0.2s;
+    }
+
+    &:hover i{
+      background: rgba(255,255,255,0.8);
+      color: #000;
+    }
+}

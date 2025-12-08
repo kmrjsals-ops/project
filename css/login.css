@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  background-color: #333;
+}
+
 .hr-sect {
   display: flex;
   flex-basis: 100%;
@@ -46,7 +54,7 @@
 .btn_red {
   background: #ED1C24;
 }
-.btn_red:hover {
+.btn_red :hover {
   background: #ED1C24;
 }
 
@@ -75,6 +83,7 @@
   height: 20vh;
   left: 50%;
   cursor: pointer;
+  border-radius: 50%;
 }
 .img_upload > input {
   display: none;
