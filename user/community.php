@@ -241,6 +241,70 @@
                             </div>
                         </div>
                     </article>
+                    <article class="post-item">
+                        <div class="post-item-detail">
+                            <a href="#user-profile-c" class="avatar" title="사용자 C 프로필">
+                                <img src="https://placehold.co/40x40/3b82f6/FFFFFF?text=C" alt="프로필 아바타" class="w-full h-full object-cover">
+                            </a>
+                            <div class="flex-grow">
+                                <div class="post-info-header">
+                                    <div>
+                                        <a href="#user-profile-c" class="username">세류</a>
+                                        <p class="text-xs text-gray-500">20XX/11/19</p>
+                                    </div>
+                                    <span class="game-tag">드래곤소드</span>
+                                </div>
+                                <a href="#post-3" class="post-title-link">
+                                    님들 점메추 ㅋㅋㅋ
+                                </a>
+                                <p class="post-summary">
+                                    저는 어제 짜장 먹어서 오늘은 그냥 다른 거 땡겨요. 추천해 주실 만한 메뉴가 있을까요? 맵지 않은 음식 위주로 부탁드립니다!
+                                </p>
+                                <div class="post-meta-actions">
+                                    <a href="javascript:void(0)" class="meta-button" title="좋아요">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                        <span>7</span>
+                                    </a>
+                                    <a href="#post-3-comments" class="meta-button" title="댓글 보기">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C5.385 15.655 6 14.128 6 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                        <span>23</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="post-item">
+                        <div class="post-item-detail">
+                            <a href="#user-profile-c" class="avatar" title="사용자 C 프로필">
+                                <img src="https://placehold.co/40x40/3b82f6/FFFFFF?text=C" alt="프로필 아바타" class="w-full h-full object-cover">
+                            </a>
+                            <div class="flex-grow">
+                                <div class="post-info-header">
+                                    <div>
+                                        <a href="#user-profile-c" class="username">세류</a>
+                                        <p class="text-xs text-gray-500">20XX/11/19</p>
+                                    </div>
+                                    <span class="game-tag">드래곤소드</span>
+                                </div>
+                                <a href="#post-3" class="post-title-link">
+                                    님들 점메추 ㅋㅋㅋ
+                                </a>
+                                <p class="post-summary">
+                                    저는 어제 짜장 먹어서 오늘은 그냥 다른 거 땡겨요. 추천해 주실 만한 메뉴가 있을까요? 맵지 않은 음식 위주로 부탁드립니다!
+                                </p>
+                                <div class="post-meta-actions">
+                                    <a href="javascript:void(0)" class="meta-button" title="좋아요">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                        <span>7</span>
+                                    </a>
+                                    <a href="#post-3-comments" class="meta-button" title="댓글 보기">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C5.385 15.655 6 14.128 6 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                        <span>23</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
 
                 <!-- 페이지네이션 -->
