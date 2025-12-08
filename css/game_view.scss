@@ -1,0 +1,133 @@
+@use 'common' as *;
+ul{padding: 1rem;}
+body{background: $bg_color_3;}
+.details{
+  width: 1200px;
+  margin: 0 auto;
+}
+h2{
+  font-size: 64px;
+  margin: 20px 0px 40px 0px;
+  text-indent: 10px;
+}
+// 상단 그리드 서식
+.top_info{
+  display: flex;
+  justify-content: space-between;
+}
+
+// 트레일러 영역 서식
+.trailer{
+  width: 60%;
+}
+.top_view{
+  width:100%;
+  video, img{
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+.thumb_list{
+  display: flex;
+  width: 100%;
+  margin-top: 50px;
+  gap: 10px;
+}
+.thumb{
+  width: 100%;
+  img{
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+//상단 우측영역 서식
+.right_info{
+  position: relative;
+  right: 2%;
+  >a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $txt_color2;
+    border: 1px solid $txt_color1;
+    border-radius: 10px;
+    background: $txt_color1;
+    width: 100%; height: 40px;
+    margin-bottom: 10px;
+  }
+}
+// 게임 이용정보 서식
+.game_info{
+  border-radius: 10px;
+  border: 1px solid #3c3c3c;
+  background: #3c3c3c;
+}
+.game_info > ul{
+  margin: 10px 5px;
+}
+.game_info > ul > li:first-child{
+  border-top: 2px solid $txt_color2;
+}
+.game_info > ul > li{
+  border-bottom: 2px solid $txt_color2;
+  padding: 10px 5px;
+}
+//하단 텍스트, 이미지 영역 서식
+.infomation{
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+.infomation p{
+  margin: 60px 0px;
+  font-size: $t_size_t2;
+}
+.infomation img{
+  transition: 0.3s;
+  filter: brightness(0.5) blur(2px);
+}
+.infomation img:hover{
+  filter: brightness(1) blur(0px);
+}
+
+// 하단 게임목록 슬라이드
+.mySwiper {
+  width: 100%;
+  padding: 100px 0;
+  height: 40vh;
+  
+}
+
+.mySwiper .swiper-slide {
+  width: 260px;
+  height: 160px;  
+  transition: 0.4s;
+  transform: translateY(40px) scale(0.85);
+  z-index: 1;
+}
+
+.mySwiper .swiper-slide img {
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* 중앙 활성 슬라이드 */
+.mySwiper .swiper-slide-active {
+  transform: translateY(0) scale(1);
+  z-index: 5;
+}
+
+/* 왼쪽 / 오른쪽 첫번째 카드 */
+.mySwiper .swiper-slide-prev,
+.mySwiper .swiper-slide-next {
+  transform: translateY(30px) scale(0.9) !important;
+  z-index: 3;
+}
+
+/* 왼쪽/오른쪽 두번째 이후 카드(멀리 있는 카드) */
+.mySwiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
+  transform: translateY(50px) scale(0.85);
+  z-index: 1;
+}

@@ -1,0 +1,79 @@
+// 관리자 전체 레이아웃
+.admin-wrapper {
+  min-height: 100vh;
+  display: flex;
+}
+
+// 좌측 사이드바
+.admin-sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+  background: #222;
+  color: #fff;
+  padding: 20px;
+
+  h2,
+  a {
+    color: #fff;
+  }
+
+  ul {
+    margin-top: 30px;
+    padding-left: 0;
+
+    li {
+      list-style: none;
+
+      a {
+        display: block;
+        padding: 12px 0;
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+}
+
+// 우측 컨텐츠
+.admin-content {
+  margin-left: 240px;
+  padding: 40px;
+  min-height: 100vh;
+  background: #f6f6f6;
+
+  .page_title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .admin_table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
+
+// 반응형 - 모바일 사이드바
+@media (max-width: 992px) {
+  .admin-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .admin-content {
+    margin-left: 0;
+  }
+}

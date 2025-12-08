@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 @import url(./community.css);
 @import url(./community_write.css);
+@import url(./login.css);
 @import url(./mypage.css);
 body {
   font-family: "Noto Sans KR", sans-serif;
