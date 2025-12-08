@@ -1,161 +1,100 @@
 @use 'common' as *;
 
-// mypage.scss
+// ---------- 좌측 네비게이션 ---------- 
+.side_nav{
+  width: 200px;
+  position:fixed; top: 5rem;
+  > ul li 
+    i {display: none;}
+    a {
+      display: block;
+      padding: 0.5rem 0.8rem;
+      font-size: $t_size_m; color: $line_color_g; 
+      text-decoration: none;
+      transition: color 0.5s;
 
-// main{width: 1200px; margin: 0 auto;}
-// 좌측 네비게이션
-.mypage-nav{
-  margin-top: 5rem;
-  margin-left: 15rem ;
-  width: 25%;
-  position: sticky;
-  top: 100px;
-
-  @media (min-width: 992px) { 
-    margin-left: 15rem ;
-    width: 25%;
-    position: sticky;
-    top: 100px;
-  }
-
-  ul li a {
-    display: block;
-    padding: 0.5rem 0.8rem;
-    font-size: $t_size_m; color: $line_color_g; 
-    text-decoration: none;
-    transition: color 0.5s;
-
-    &:hover, &.active, &.active_nav{
-      border-bottom: 0.3rem solid $txt_color1; 
-      color: $txt_color2;
-      background-color: transparent;
-      padding: 0.5rem 0;
+      &:hover, &.active, &.active_nav{
+        border-bottom: 0.3rem solid $txt_color1; 
+        color: $txt_color2;
+        background-color: transparent;
+        padding: 0.5rem 0;
+      }
     }
-  }
 }
 
-
-// 내정보 섹션, 내가 쓴 글 섹션, 문의 내역 섹션
-.mypage-section{
-  width: 85%;
-  background: $txt_color2;
-  border-radius: 1rem;
-
-  @media (min-width: 992px) { 
-    width: 85%;
-  }
-
-  h3{
-    width: 13%;
-    background:$txt_color1;
-    font-size: $t_size_t1;
-    margin-bottom: 2rem;
-    padding: 0.6rem;
-    border-radius: 0 0.5rem 0.5rem 0 ;
-  }
-
-  a{
-    text-decoration: none;
-    color: $txt_color3;
-    padding: 0.5rem;
-  }
-}
-
-
-// MY PAGE
-h2{
-  position: relative; left: 9rem;
-
-  @media (min-width: 992px) { 
-    position: relative; 
-    left: 9rem;
-    text-align: left;
-  }
-}
-
-
-// 내가 쓴 글, 문의 내역 테이블
-#my_writing, #inquiries{
-  tr > td{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space:nowrap;
-    &:nth-child(2):hover{cursor: pointer;}
-  }
-}
-
-
-// 내정보
-#info{
-  font-size: $t_size_l;
-  @media (min-width: 768px) {
-    padding-left: 15%;
-  }
-}
-.info-table-wrapper{padding-left: 15%;}
-.p_img{
-  width: 8rem;
-  border: 0.1rem solid $line_color_g;
-}
-
-
-// 문의 내역
-#inquiries tbody tr{
-  &:hover{cursor: pointer;}
-  > td:last-child:hover{background: none !important;}
-}
-// 문의 상세 내용 행 호버 효과 제거
-.answer{
-  border-bottom: 1px solid $txt_color3;
-  display: none;
-  :hover{
-    background-color: transparent;
-    --bs-table-hover-bg: transparent;
-    cursor: auto;
-  }
-  td{
-    padding: 1% 5%;
-    background: $txt_color2 !important;
-  }
-}
-// 문의 테이블 - 화살표 회전
-.inquiry-table tr.question.active .fa-sort-down {
-  transform: rotate(180deg);
-  transition: transform 0.3s;
-}
-.inquiry-table tr.question .fa-sort-down {
-  transition: transform 0.3s;
-}
-// 문의하기 - 버튼
+// 문의하기 버튼 서식
 .btn_wrap{
-  text-align: end;
-  margin-bottom: 1%;
+  text-align: right;
+  margin-bottom: 2%;
+  margin-right: 2%;
 }
-.btn_inquiries{
-  padding: 0.5% 1% 0.5% 1%;
-  border: none; border-radius: 0.3rem;
+.btn_red{
+  color: $txt_color2; 
   background: $txt_color1;
-  font-size: $t_size_m; color: $txt_color2;
+  border: none; border-radius: 0.2rem;
+  padding: 1% 2.5%;
+  font-weight: 500;
   transition: 0.3s;
-
   &:hover {filter: brightness(1.13);}
+
+  @media (max-width: 768px){
+    font-size: $t_size_s;
+    &:hover {filter: none;}
+  }
 }
+// ---------- 공통 서식 ---------- 
+// 글자 정렬
+.text_start{text-align:left;}
+.text_center{text-align:center;}
+.text_end{text-align:right;}
 
-
+// main크기
+main{
+  width: 1200px; 
+  margin: 0 auto;
+}
+// mypage 상단 글자
+h2{padding-top: 2%;}
+// 1. 내정보, 2. 내가쓴글, 3. 문의내역
+.page_wrap{ //page_section들 wrap
+  width: 1000px;
+  margin: 0 auto;
+}
+.page_section{
+  width: 80%;
+  margin: 3% auto;
+  padding-top: 10px;
+  background: $txt_color2;
+  border-radius: 0.5rem;
+  color: $txt_color3;
+}
+// h3
+.head_tag {
+  background: $txt_color1;
+  width: 17%; height: 2.5rem;
+  display: flex;
+  align-items: center;
+  
+  p {
+    font-size: $t_size_t1;
+    color: $txt_color2;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+  }
+  
+  i {display: none;}
+}
 // 페이지네이션 pagination
-.page_wrap {text-align: center;}
-.pagination_modal {
+.pagination {text-align: center;}
+.pagination_modal { //숫자,화살표
     list-style: none;
     display: inline-flex;
-    padding: 0;
-    margin-top: 20px;
-    border-radius: 5px;
-    padding: 10px 15px;
-
+    padding: 2% 1.5%;
+    margin: 0 auto;
+    
     li{
       display: inline;
-      text-align: center;
-      margin: 0 5px;
+      a{text-decoration: none;}
     }
 
     .num {  //숫자 서식
@@ -178,31 +117,153 @@ h2{
   color: $txt_color1 !important;
   font-weight: bold;
 }
-// 화살표 버튼
-.pagination_modal .arrow {
+.arrow {  // 화살표 버튼
     display: block;
     padding: 0;
     width: 30px;
     height: 30px;
     line-height: 30px;
-    border-radius: 100%;
     transition: background-color 0.2s;
     margin: 0 auto;
 
     i{  // 화살표 내부의 아이콘 스타일
       font-size: 18px; 
-      color: $txt_color1;
-      background-color: $txt_color3;
-      border-radius: 100%;
+      color: $txt_color3;
       width: 100%;
       height: 100%;
       display: flex; justify-content: center;
       align-items: center;
       transition: background-color 0.2s, opacity 0.2s;
     }
-
     &:hover i{
-      background: rgba(255,255,255,0.8);
-      color: #000;
+      color: $txt_color1;
     }
+}
+// ---------- 1. 내정보 ----------
+// 프로필 이미지
+.profile_img{
+  width: 20%; height: 20%;
+  border: 0.1rem solid $txt_color4;
+  border-radius: 100%;
+  margin: 3% auto;
+  img{width: 100%}
+}
+// 내정보 테이블
+#info table{
+  position: relative; left: 30%; bottom: 1rem;
+  width: 65%;
+  td, th{padding: 0.6rem}
+  td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+  }
+}
+// ---------- 2. 내가 쓴글 ---------- 
+// ---------- 3. 문의내역 ---------- 
+// 문의하기
+tr.question{  // 화살표 회전
+  &.active .fa-sort-down {
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+  }
+  .fa-sort-down {transition: transform 0.3s;}
+  :hover {cursor: pointer;}
+}
+.answer{display: none;} // 답변
+
+// ---------- 2. 내가 쓴글, 3. 문의내역 ----------
+#my_writing table, #inquiries table{
+  margin: 0 auto;
+  width: 98%;
+  td, th{padding: 1em;}
+  td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+  }
+}
+
+
+// --------------- ver. MEDIA ---------------
+@media (max-width: 768px){
+  // ----- 공통 서식 ----- 
+  // main크기
+  main{width: 100%; font-size: $t_size_s;}
+  // mypage 상단 글자
+  h2{display: none;}
+  // ----- 1. 내정보, 2. 내가쓴글, 3. 문의내역 -----
+  .page_wrap{width: 100%;}
+  .page_section{
+    width: 100%;
+    border-radius: 0px;
+  }
+   // h3 모바일 스타일
+  .head_tag {
+    width: 35%; height: 2rem;
+    p {font-size: $t_size_s;}
+    i {
+      color: $txt_color2;
+      display: inline-block;
+      font-size: $t_size_s;
+      padding: 7%;
+      cursor: pointer;
+    }
+  }
+  // ----- 네비게이션 -----
+  .side_nav{
+    width: 100%;
+    position:static; left: 0px;
+    > ul {
+      width: 100%;
+      margin: 0; padding: 0;
+
+      >li{
+        border-top: 0.01rem solid $txt_color2;
+        display: flex;  align-items: center;
+        &:first-child{display: none;}
+        &:last-child{border-bottom: 0.01rem solid $txt_color2;}
+
+        i {
+          color: $txt_color2;
+          display: inline-block;
+          margin-left: 0.5rem;  margin-right: 0.5rem;
+        }
+        a {
+          font-size: $t_size_ss; color: $txt_color2; 
+          text-decoration: none;
+          padding: 0.5rem 0.3rem;
+          transition: none;
+          
+          &:hover{
+            border-bottom: none !important; 
+            color: inherit !important;
+            padding: none;
+          }
+          &:hover, &.active, &.active_nav{padding: 0.5rem 0.3rem;}
+        }
+      }
+    }
+  }
+
+  // ----- 1. 내정보 -----
+  #info table {padding: 0px;}
+
+  // ----- 2. 내가쓴글, 3. 문의내역 -----
+  .table_wrap th:nth-child(3), .table_wrap td:nth-child(3){display: none;}
+  // ----- 페이지네이션 -----
+  .pagination_modal {
+    .num {  //숫자 서식
+      font-size: $t_size_s;
+      width: 15px; height: 15px;
+      line-height: 15px;
+    }
+  }
+  .arrow {  // 화살표 버튼
+      width: 15px; height: 15px;
+      line-height: 15px;
+      i{font-size: 10px;}
+  }
+  
+
 }
