@@ -1,82 +1,156 @@
 <?php
-	include '../common/header.php';
+    include('../common/header.php');
+    include('../db/db_conn.php');
+
+    // -------------------------
+    // 1) 공지 번호 받기
+    // -------------------------
+    $notice_no = isset($_GET['no']) ? intval($_GET['no']) : 0;
+
+    if($notice_no < 1){
+        echo "<script>alert('잘못된 접근입니다.'); location.href='notice.php';</script>";
+        exit;
+    }
+
+    // -------------------------
+    // 2) 조회수 증가
+    // -------------------------
+    $updateView = "UPDATE notice SET view_count = view_count + 1 WHERE notice_no = $notice_no";
+    mysqli_query($conn, $updateView);
+
+    // -------------------------
+    // 3) 공지 상세 가져오기
+    // -------------------------
+    $sql = "SELECT * FROM notice WHERE notice_no = $notice_no";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    if(!$row){
+        echo "<script>alert('공지사항을 찾을 수 없습니다.'); location.href='notice.php';</script>";
+        exit;
+    }
+
+    // 해당 공지사항 데이터 가져오기
+    $title = htmlspecialchars($row['notice_title']);
+    $content = nl2br(htmlspecialchars($row['notice_content']));
+    $date = date("Y.m.d", strtotime($row['create_datetime']));
+    $view = intval($row['view_count']);
+    $img = $row['notice_img'];
+
+    // -------------------------
+    // 4) 이전글 / 다음글 조회
+    // -------------------------
+
+    // 이전글 = 현재 글보다 번호 큰 것 중 가장 작은 번호
+    $prev_sql = "
+        SELECT notice_no, notice_title, create_datetime 
+        FROM notice
+        WHERE notice_no > $notice_no
+        ORDER BY notice_no ASC
+        LIMIT 1
+    ";
+    $prev_result = mysqli_query($conn, $prev_sql);
+    $prev = mysqli_fetch_assoc($prev_result);
+
+    // 다음글 = 현재 글보다 번호 작은 것 중 가장 큰 번호
+    $next_sql = "
+        SELECT notice_no, notice_title, create_datetime 
+        FROM notice
+        WHERE notice_no < $notice_no
+        ORDER BY notice_no DESC
+        LIMIT 1
+    ";
+    $next_result = mysqli_query($conn, $next_sql);
+    $next = mysqli_fetch_assoc($next_result);
 ?>
+
 <link rel="stylesheet" href="../css/notice_view.css" type="text/css">
-<body>
+
 <section class="notice_view">
     <div class="main-container">
+
         <div class="top-nav">
             <div class="page-category">공지사항</div>
-            <a href="index.html" class="btn-list">목록</a>
+            <a href="notice.php" class="btn-list">목록</a>
         </div>
 
         <div class="post-header">
-            <div class="post-title">
-                [상품] 2025년 11월 20일 신규 판매 상품 안내
-            </div>
+            <div class="post-title"><?= $title ?></div>
+
             <div class="post-info">
-                <div class="info-left">R2 ORIGIN</div>
+                <div class="info-left"></div>
                 <div class="info-right">
-                    <span>조회수 / 2025.11.20</span>
+                    <span>조회수 <?= $view ?> / <?= $date ?></span>
                     <svg class="icon-folder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
+                        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 
+                        2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
                     </svg>
                 </div>
             </div>
         </div>
 
         <div class="post-body">
-            <img src="../images/notice/R2_notice 1.png" alt="공지사항 배너" class="post-banner">
-            
-            <div class="text-highlight">
-                No Rules, Just Power! 태초의 힘을 찾아 떠나는 여정.<br>
-                안녕하세요, R2 ORIGIN입니다.
-            </div>
-            <br>
-            <div class="text-sub">
-                2025년 11월 20일(목) 정기 점검 이후 추가된 상품 7종에 대해 안내드립니다.<br><br>
-                자세한 내용은 아래 정보를 확인해 주시기 바랍니다.
-            </div>
+
+            <?php if($img) { ?>
+                <img src="../uploads/notice/<?= $img ?>" alt="공지사항 이미지" class="post-banner">
+            <?php } ?>
+
+            <div class="text-highlight"><?= $content ?></div>
         </div>
 
+        <!-- 이전글 다음 글을 바로가기  -->
         <div class="post-nav-list">
-            <div class="nav-item">
-                <div class="nav-arrow arrow-up"></div>
-                <div class="nav-title nav-left">[상품] 프리미엄 시즌2 변신 소환 카를로스 안내</div>
-                <div class="nav-date">2025.11.19</div>
-            </div>
-            <div class="nav-item">
-                <div class="nav-arrow arrow-down"></div>
-                <div class="nav-title nav-right">[당첨자 발표] R2 ORIGIN의 50일을 축하해주세요!! 이벤트 당첨자 안내</div>
-                <div class="nav-date">2025.11.20</div>
-            </div>
+
+            <!-- 이전글 -->
+            <?php if($prev) { ?>
+                <a href="notice_view.php?no=<?= $prev['notice_no'] ?>" class="nav-item">
+                    <div class="nav-arrow arrow-up"></div>
+                    <div class="nav-title nav-left"><?= htmlspecialchars($prev['notice_title']) ?></div>
+                    <div class="nav-date"><?= date("Y.m.d", strtotime($prev['create_datetime'])) ?></div>
+                </a>
+            <?php } else { ?>
+                <div class="nav-item disabled">
+                    <div class="nav-arrow arrow-up disabled"></div>
+                    <div class="nav-title nav-left">이전글 없음</div>
+                    <div class="nav-date"></div>
+                </div>
+            <?php } ?>
+
+            <!-- 다음글 -->
+            <?php if($next) { ?>
+                <a href="notice_view.php?no=<?= $next['notice_no'] ?>" class="nav-item">
+                    <div class="nav-arrow arrow-down"></div>
+                    <div class="nav-title nav-right"><?= htmlspecialchars($next['notice_title']) ?></div>
+                    <div class="nav-date"><?= date("Y.m.d", strtotime($next['create_datetime'])) ?></div>
+                </a>
+            <?php } else { ?>
+                <div class="nav-item disabled">
+                    <div class="nav-arrow arrow-down disabled"></div>
+                    <div class="nav-title nav-right">다음글 없음</div>
+                    <div class="nav-date"></div>
+                </div>
+            <?php } ?>
+
         </div>
     </div>
 </section>
+
 <script>
 	document.addEventListener('DOMContentLoaded',function(){
 		const titleLeft = document.querySelector('.nav-left');
 		const titleRight = document.querySelector('.nav-right');
 
-
-		if(!titleLeft,!titleRight){
-			return;
-		}
 		const mediaQuery = window.matchMedia('(max-width: 768px)');
 
 		function handleScreenChange(e){
 			if(e.matches){
-				titleLeft.textContent = '이전글';
-				titleRight.textContent = '다음글';
+                if(titleLeft) titleLeft.textContent = '이전글';
+                if(titleRight) titleRight.textContent = '다음글';
 			}
 		}
 		handleScreenChange(mediaQuery);
-
-		mediaQuery.addListener(handleScreenChange);
+		mediaQuery.addEventListener('change', handleScreenChange);
 	});
 </script>
-</body>
 
-<?php
-	include '../common/footer.php';
-?>
+<?php include('../common/footer.php'); ?>

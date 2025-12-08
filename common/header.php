@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // 모든 세션값 안전한 방식으로 불러오기
 $mb_id   = $_SESSION['mb_id'] ?? null;
 $mb_name = $_SESSION['mb_name'] ?? null;
@@ -43,8 +43,8 @@ $login_nick = $mb_nick ?: $mb_name; // 닉네임 없으면 이름 사용
   <!-- 상단 메뉴 -->
   <nav>
     <ul>
-      <li><a href="" title="게임">GAME<span class="under_bar"></span></a></li>
-      <li><a href="" title="뉴스">NEWS<span class="under_bar"></span></a></li>
+      <li><a href="../user/game.php" title="게임">GAME<span class="under_bar"></span></a></li>
+      <li><a href="../user/notice.php" title="뉴스">NEWS<span class="under_bar"></span></a></li>
       <li><a href="../user/community.php" title="라운지">LOUNGE<span class="under_bar"></span></a></li>
       <li><a href="" title="서포트">SUPPORT<span class="under_bar"></span></a></li>
     </ul>
@@ -53,19 +53,23 @@ $login_nick = $mb_nick ?: $mb_name; // 닉네임 없으면 이름 사용
   <!-- 로그인/비로그인 표시 -->
   <div class="user_info">
     <ul>
-      <?php if ($mb_id) { ?>
+      <?php if(isset($_SESSION['mb_id'])) { ?>
+      
+        <!-- 로그인 상태 -->
+        <li><a href="../user/user.php" title="마이페이지"><?=$_SESSION['mb_nick']?></a></li>
+        <li><a href="../php/logout.php" title="로그아웃">로그아웃</a></li>
 
-    <li><a href="../user/user.php"><?=htmlspecialchars($login_nick)?></a></li>
-    <li><a href="../php/logout.php">로그아웃</a></li>
+        <?php if($_SESSION['mb_role'] == 'admin'){ ?>
+          <li><a href="../admin/" title="관리자페이지">| 관리자페이지</a></li>
+        <?php } ?>
 
-    <?php if ($mb_role === 'admin') { ?>
-        <li><a href="../admin/">관리자페이지</a></li>
-    <?php } ?>
+      <?php } else { ?>
 
-    <?php } else { ?>
-    <li><a href="../php/login.php">로그인</a></li>
-    <li><a href="../php/register.php">회원가입</a></li>
-    <?php } ?>
+        <!-- 비로그인 -->
+        <li><a href="../php/login.php" title="로그인하기">로그인</a></li>
+        <li><a href="../php/register.php" title="회원가입">회원가입</a></li>
+
+      <?php } ?>
     </ul>
   </div>
 

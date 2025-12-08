@@ -8,7 +8,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- reset.css -->
   <link href="./css/reset.css" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
+
   <!-- 폰트어썸 cdn -->
 
   <link rel="stylesheet" href="./css/font-awesome.min.css">
@@ -18,18 +18,15 @@ session_start();
   <link rel="stylesheet" href="./css/animate.css">
   <!-- 스와이퍼 슬라이드  -->
   <link rel="stylesheet" href="./css/swiper.css">
-<<<<<<< HEAD:index.html
-=======
-=======
+
   <!-- 섹션 6 스와이퍼 -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
->>>>>>> d940efd104f962ced545cf5a1d8ea224f489bdb0:index.php
-=======
+
   <!-- 섹션 6 스와이퍼 -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <!-- 폰트 어썸 서식 -->
->>>>>>> 2aa1b85383ee071425bd197e5a048e281859266c
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
   <!-- 애니메이션 -->
   <link rel="stylesheet" href="./css/animate.css">
@@ -56,12 +53,12 @@ session_start();
     <nav>
       <ul>
         <li>
-          <a href="" title="게임">
+          <a href="./user/game.php" title="게임">
             GAME<span class="under_bar"></span>
           </a>
         </li>
         <li>
-          <a href="" title="뉴스">
+          <a href="./user/notice.php" title="뉴스">
             NEWS<span class="under_bar"></span>
           </a>
         </li>
