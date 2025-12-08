@@ -56,7 +56,7 @@ $login_nick = $mb_nick ?: $mb_name; // 닉네임 없으면 이름 사용
       <?php if(isset($_SESSION['mb_id'])) { ?>
       
         <!-- 로그인 상태 -->
-        <li><a href="../user/user.php" title="마이페이지"><?=$_SESSION['mb_nick']?></a></li>
+        <li><a href="../user/mypage.php" title="마이페이지"><?=$_SESSION['mb_nick']?></a></li>
         <li><a href="../php/logout.php" title="로그아웃">로그아웃</a></li>
 
         <?php if($_SESSION['mb_role'] == 'admin'){ ?>
