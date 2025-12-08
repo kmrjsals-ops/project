@@ -1,0 +1,269 @@
+@use 'common' as *;
+
+// ---------- 좌측 네비게이션 ---------- 
+.side_nav{
+  width: 200px;
+  position:fixed; top: 5rem;
+  > ul li 
+    i {display: none;}
+    a {
+      display: block;
+      padding: 0.5rem 0.8rem;
+      font-size: $t_size_m; color: $line_color_g; 
+      text-decoration: none;
+      transition: color 0.5s;
+
+      &:hover, &.active, &.active_nav{
+        border-bottom: 0.3rem solid $txt_color1; 
+        color: $txt_color2;
+        background-color: transparent;
+        padding: 0.5rem 0;
+      }
+    }
+}
+
+// 문의하기 버튼 서식
+.btn_wrap{
+  text-align: right;
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
+.btn_red{
+  color: $txt_color2; 
+  background: $txt_color1;
+  border: none; border-radius: 0.2rem;
+  padding: 1% 2.5%;
+  font-weight: 500;
+  transition: 0.3s;
+  &:hover {filter: brightness(1.13);}
+
+  @media (max-width: 768px){
+    font-size: $t_size_s;
+    &:hover {filter: none;}
+  }
+}
+// ---------- 공통 서식 ---------- 
+// 글자 정렬
+.text_start{text-align:left;}
+.text_center{text-align:center;}
+.text_end{text-align:right;}
+
+// main크기
+main{
+  width: 1200px; 
+  margin: 0 auto;
+}
+// mypage 상단 글자
+h2{padding-top: 2%;}
+// 1. 내정보, 2. 내가쓴글, 3. 문의내역
+.page_wrap{ //page_section들 wrap
+  width: 1000px;
+  margin: 0 auto;
+}
+.page_section{
+  width: 80%;
+  margin: 3% auto;
+  padding-top: 10px;
+  background: $txt_color2;
+  border-radius: 0.5rem;
+  color: $txt_color3;
+}
+// h3
+.head_tag {
+  background: $txt_color1;
+  width: 17%; height: 2.5rem;
+  display: flex;
+  align-items: center;
+  
+  p {
+    font-size: $t_size_t1;
+    color: $txt_color2;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+  }
+  
+  i {display: none;}
+}
+// 페이지네이션 pagination
+.pagination {text-align: center;}
+.pagination_modal { //숫자,화살표
+    list-style: none;
+    display: inline-flex;
+    padding: 2% 1.5%;
+    margin: 0 auto;
+    
+    li{
+      display: inline;
+      a{text-decoration: none;}
+    }
+
+    .num {  //숫자 서식
+      display: block;
+      font-size: $t_size_l;
+      width: 30px; height: 30px;
+      padding: 0;
+      line-height: 30px;
+      color: $txt_color3;
+      border-radius: 100%; 
+      transition: 0.2s;
+
+      &:hover { //숫자hover시
+        color: $txt_color1;
+        text-decoration: underline;
+      }
+    }
+}
+.active_num{  //숫자 선택시
+  color: $txt_color1 !important;
+  font-weight: bold;
+}
+.arrow {  // 화살표 버튼
+    display: block;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    transition: background-color 0.2s;
+    margin: 0 auto;
+
+    i{  // 화살표 내부의 아이콘 스타일
+      font-size: 18px; 
+      color: $txt_color3;
+      width: 100%;
+      height: 100%;
+      display: flex; justify-content: center;
+      align-items: center;
+      transition: background-color 0.2s, opacity 0.2s;
+    }
+    &:hover i{
+      color: $txt_color1;
+    }
+}
+// ---------- 1. 내정보 ----------
+// 프로필 이미지
+.profile_img{
+  width: 20%; height: 20%;
+  border: 0.1rem solid $txt_color4;
+  border-radius: 100%;
+  margin: 3% auto;
+  img{width: 100%}
+}
+// 내정보 테이블
+#info table{
+  position: relative; left: 30%; bottom: 1rem;
+  width: 65%;
+  td, th{padding: 0.6rem}
+  td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+  }
+}
+// ---------- 2. 내가 쓴글 ---------- 
+// ---------- 3. 문의내역 ---------- 
+// 문의하기
+tr.question{  // 화살표 회전
+  &.active .fa-sort-down {
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+  }
+  .fa-sort-down {transition: transform 0.3s;}
+  :hover {cursor: pointer;}
+}
+.answer{display: none;} // 답변
+
+// ---------- 2. 내가 쓴글, 3. 문의내역 ----------
+#my_writing table, #inquiries table{
+  margin: 0 auto;
+  width: 98%;
+  td, th{padding: 1em;}
+  td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+  }
+}
+
+
+// --------------- ver. MEDIA ---------------
+@media (max-width: 768px){
+  // ----- 공통 서식 ----- 
+  // main크기
+  main{width: 100%; font-size: $t_size_s;}
+  // mypage 상단 글자
+  h2{display: none;}
+  // ----- 1. 내정보, 2. 내가쓴글, 3. 문의내역 -----
+  .page_wrap{width: 100%;}
+  .page_section{
+    width: 100%;
+    border-radius: 0px;
+  }
+   // h3 모바일 스타일
+  .head_tag {
+    width: 35%; height: 2rem;
+    p {font-size: $t_size_s;}
+    i {
+      color: $txt_color2;
+      display: inline-block;
+      font-size: $t_size_s;
+      padding: 7%;
+      cursor: pointer;
+    }
+  }
+  // ----- 네비게이션 -----
+  .side_nav{
+    width: 100%;
+    position:static; left: 0px;
+    > ul {
+      width: 100%;
+      margin: 0; padding: 0;
+
+      >li{
+        border-top: 0.01rem solid $txt_color2;
+        display: flex;  align-items: center;
+        &:first-child{display: none;}
+        &:last-child{border-bottom: 0.01rem solid $txt_color2;}
+
+        i {
+          color: $txt_color2;
+          display: inline-block;
+          margin-left: 0.5rem;  margin-right: 0.5rem;
+        }
+        a {
+          font-size: $t_size_ss; color: $txt_color2; 
+          text-decoration: none;
+          padding: 0.5rem 0.3rem;
+          transition: none;
+          
+          &:hover{
+            border-bottom: none !important; 
+            color: inherit !important;
+            padding: none;
+          }
+          &:hover, &.active, &.active_nav{padding: 0.5rem 0.3rem;}
+        }
+      }
+    }
+  }
+
+  // ----- 1. 내정보 -----
+  #info table {padding: 0px;}
+
+  // ----- 2. 내가쓴글, 3. 문의내역 -----
+  .table_wrap th:nth-child(3), .table_wrap td:nth-child(3){display: none;}
+  // ----- 페이지네이션 -----
+  .pagination_modal {
+    .num {  //숫자 서식
+      font-size: $t_size_s;
+      width: 15px; height: 15px;
+      line-height: 15px;
+    }
+  }
+  .arrow {  // 화살표 버튼
+      width: 15px; height: 15px;
+      line-height: 15px;
+      i{font-size: 10px;}
+  }
+  
+
+}
