@@ -37,9 +37,11 @@ h2 {
 
 .top_view {
   width: 100%;
+  height: 450px;
 }
-.top_view video, .top_view img {
+.top_view img {
   width: 100%;
+  height: 100%;
   border-radius: 10px;
 }
 
@@ -106,12 +108,7 @@ h2 {
 }
 
 .infomation img {
-  transition: 0.3s;
-  filter: brightness(0.5) blur(2px);
-}
-
-.infomation img:hover {
-  filter: brightness(1) blur(0px);
+  width: 100%;
 }
 
 .mySwiper {

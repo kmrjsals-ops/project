@@ -1,3 +1,9 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+
 <?php 
   $mysql_host='localhost'; //호스트명
   $mysql_user='root'; //사용자명

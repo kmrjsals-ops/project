@@ -3,7 +3,7 @@
 // ---------- 좌측 네비게이션 ---------- 
 .side_nav{
   width: 200px;
-  position:fixed; top: 5rem;
+  position:fixed; top: 11rem;
   > ul li 
     i {display: none;}
     a {
@@ -146,7 +146,10 @@ h2{padding-top: 2%;}
   border: 0.1rem solid $txt_color4;
   border-radius: 100%;
   margin: 3% auto;
-  img{width: 100%}
+  overflow: hidden;
+  img{width: 100%;
+  height :100%;
+  }
 }
 // 내정보 테이블
 #info table{

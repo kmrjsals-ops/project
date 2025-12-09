@@ -80,7 +80,7 @@ if($result_update){
   $_SESSION['mb_name'] = $user_name;
   $_SESSION['mb_nick'] = $user_nickname;
 
-  echo"<script>alert('회원정보가 수정되었습니다.'); location.href='mypage.php';</script>";
+  echo"<script>alert('회원정보가 수정되었습니다.'); location.href='../user/mypage.php';</script>";
 }else{
   echo"<script>alert('수정 중 오류가 발생했습니다.'); history.back();</script>";
 }

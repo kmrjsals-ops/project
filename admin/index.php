@@ -15,6 +15,12 @@ $sql_notice = "SELECT COUNT(*) AS cnt FROM notice";
 $notice_result = mysqli_query($conn, $sql_notice);
 $notice_row = mysqli_fetch_assoc($notice_result);
 $notice_count = $notice_row['cnt'];
+
+// 게임 수 가져오기 
+$sql_game = "SELECT COUNT(*) AS cnt FROM games";
+$game_result = mysqli_query($conn, $sql_game);
+$game_row = mysqli_fetch_assoc($game_result);
+$game_count = $game_row['cnt'];
 ?>
 
 <div class="admin-wrapper d-flex">
@@ -40,7 +46,7 @@ $notice_count = $notice_row['cnt'];
                 <a href="game/game_list.php" class="nav-link">
                     <div class="card p-3 shadow-sm">
                         <h5>게임 등록 수</h5>
-                        <p class="fs-4 fw-bold">12 건</p>
+                        <p class="fs-4 fw-bold"><?=$game_count?>개</p>
                     </div>
                 </a>
             </div>

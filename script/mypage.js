@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- 좌측nav - 클릭 효과 ----------
   const navLinks = document.querySelectorAll('.side_nav a');
     navLinks.forEach(link => {
-      if (link.getAttribute('href') !== './register.html') { // '내 정보 수정' 제외
+      if (link.getAttribute('href') !== '../php/register.php') { // '내 정보 수정' 제외
         link.addEventListener('click', function(event) {
           event.preventDefault(); // 기본 스크롤 동작 방지
 
