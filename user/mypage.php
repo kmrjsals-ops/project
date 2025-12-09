@@ -1,10 +1,11 @@
-
 <?php
 include '../common/header.php';
 ?>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <main>
-  <div>
+  <div class="">
     <h2 class="text_center">MY PAGE</h2>
     <div class="page_wrap">
       <!-- 1. 내정보 섹션 -->
@@ -159,9 +160,9 @@ include '../common/header.php';
       </li>
     </ul>
   </nav>
-  
-  <!-- javascript -->
-  <script src="../script/mypage.js"></script>
+
+  <script src="../script/mypqge.js"></script>
+
 </main>
 
 <?php

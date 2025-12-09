@@ -240,7 +240,10 @@ tr.question{  // 화살표 회전
             color: inherit !important;
             padding: none;
           }
-          &:hover, &.active, &.active_nav{padding: 0.5rem 0.3rem;}
+          &:hover, &.active, &.active_nav{
+            padding: 0.5rem 0.3rem;
+            border-bottom: none !important; 
+          }
         }
       }
     }
