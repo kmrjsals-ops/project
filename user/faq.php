@@ -4,23 +4,28 @@ include '../common/header.php';
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<main>
+<main class="faq_main">
     <section class="faq_section">
     <div>
     <h2 class="text_center">SURPORT</h2>
 
+    <div class="faq_top_wrap">
         <!-- 검색창 -->
-        <div class="search_wrap">
+        <div class="search_wrap02">
         <form action="#" method="get" class="search_form">
+            <button class="btn_gray inquiries_btn" type="button">문의하기</button>
+            <div class="search_wrap01">
             <!-- 아이콘, 입력창 -->
             <div class="search_group">
-            <input type="text" name="search" class="search_input" placeholder="검색어를 입력해주세요.">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" name="search" class="search_input" placeholder="검색어를 입력해주세요.">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </div>
             <!-- 검색버튼 -->
             <button class="btn_red search_btn" type="button">검색</button>
+            </div>
         </form>
         </div>
+    </div>
 
         <!-- 문의 테이블 -->
         <table class="table_wrap02">
