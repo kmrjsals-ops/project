@@ -43,25 +43,25 @@ body {
   filter: brightness(1.13);
 }
 
-.btn_red, .btn_gray {
+.b_btn_red, .b_btn_gray {
   color: #fff;
   transition: 0.3s;
 }
-.btn_red:hover, .btn_gray:hover {
+.b_btn_red:hover, .b_btn_gray:hover {
   filter: brightness(1.13);
 }
 
-.btn_red {
+.b_btn_red {
   background: #ED1C24;
 }
-.btn_red :hover {
+.b_btn_red:hover {
   background: #ED1C24;
 }
 
-.btn_gray {
+.b_btn_gray {
   background: #888;
 }
-.btn_gray:hover {
+.b_btn_gray:hover {
   background: #888;
 }
 
