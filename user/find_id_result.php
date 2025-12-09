@@ -1,7 +1,6 @@
 <?php
 include '../common/header.php';
 ?>
-<link rel="stylesheet" type="text/css" href="../css/game.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <main>
