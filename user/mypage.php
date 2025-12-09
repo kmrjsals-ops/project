@@ -204,7 +204,7 @@ $total_page = ceil($total / $list_num); // 총 페이지 수
 
     <!-- 문의하기 버튼 -->
     <div class="btn_wrap">
-      <button class="btn_red" type="button" onclick="location.href='../support/inquiry_write.php'">문의하기</button>
+      <button class="btn_red" type="button" onclick="location.href='inquiry_write.php'">문의하기</button>
     </div>
 
 <?php
@@ -255,7 +255,7 @@ $inq_total_page = ceil($inq_total / $list_num_inq);
             <tr class="question">
               <td class="text_center"><?= $inq['inquiry_no'] ?></td>
               <td class="text_start"><?= htmlspecialchars($inq['inquiry_title']) ?></td>
-              <td class="text_center"><?= $inq['created_datetime'] ?></td>
+              <td class="text_center"><?= $inq['create_datetime'] ?></td>
               <td class="text_center">
                 <?= ($inq['inquiry_status'] === 'done') ? '처리완료' : '대기중'; ?>
               </td>

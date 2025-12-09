@@ -84,6 +84,7 @@ h2 {
 
 .page_section {
   width: 80%;
+  height: 700px;
   margin: 3% auto;
   padding-top: 10px;
   background: #fff;
@@ -236,6 +237,7 @@ tr.question :hover {
     width: 100%;
   }
   .page_section {
+    height: 300px;
     width: 100%;
     border-radius: 0px;
   }
