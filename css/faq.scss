@@ -1,0 +1,162 @@
+@use 'common' as *;
+
+// ---------- 공통 서식 ---------- 
+// 글자 정렬
+.text_start{text-align:left;}
+.text_center{text-align:center;}
+.text_end{text-align:right;}
+
+// main크기
+main{
+  width: 1200px; 
+  margin: 0 auto;
+}
+// mypage 상단 글자
+h2{padding-top: 2%;}
+// 1. 내정보, 2. 내가쓴글, 3. 문의내역
+.page_wrap{ //page_section들 wrap
+  width: 1000px;
+  margin: 0 auto;
+}
+.page_section{
+  width: 80%;
+  margin: 3% auto;
+  padding-top: 10px;
+  background: $txt_color2;
+  border-radius: 0.5rem;
+  color: $txt_color3;
+}
+// h3
+.head_tag {
+  background: $txt_color1;
+  width: 17%; height: 2.5rem;
+  display: flex;
+  align-items: center;
+  
+  p {
+    font-size: $t_size_t1;
+    color: $txt_color2;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+  }
+  
+  i {display: none;}
+}
+
+// ---------- 검색창 ----------
+.search_wrap{
+  max-width: 1000px;
+  padding: 20px; margin: 0 auto;
+  display: flex; justify-content: flex-end;
+}
+.search_form {
+  width: auto;
+  display: flex;
+  gap: 5%;
+  align-items: center;
+
+}
+.search_group {
+  position: relative; //아이콘의 기준점 설정
+  max-width: 400px;
+  flex-grow: 0; flex-shrink: 1; 
+  
+  > input {
+    width: 100%;
+    padding: 4px 15px 4px 40px;
+    border: none;
+    border-bottom: 0.2rem solid $txt_color2;
+    background: none;
+    font-size: $t_size_ss;
+    box-sizing: border-box;
+    color: $txt_color2;
+  }
+  
+  i {
+    position: absolute; //search_group
+    top: 50%; transform: translateY(-50%);
+    left: 10px;
+    color: $txt_color4;
+    font-size: $t_size_l;
+    pointer-events: none; /* 아이콘 클릭 시 입력창으로 이벤트 통과 */
+  }
+}
+// 버튼
+.btn_red{white-space: nowrap;}
+
+// 문의 테이블
+.table_wrap02 { 
+  width: 1000px;
+  max-width: 100%;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  
+  thead {
+    color: $txt_color2;
+  }
+  th, td {padding: 1em;}
+  td a {
+    display: block; width: 100%; height: 100%; padding: 1em 15px; color:$txt_color3; text-decoration: none; text-align: left;
+  }
+  
+  tr{border-bottom: 1px solid $txt_color2;}
+}
+.answer{background: $txt_color2; color: $txt_color3;}
+
+.pagination02 {
+  text-align: center;
+
+  .pagination_modal { //숫자,화살표
+    list-style: none;
+    display: inline-flex;
+    padding: 2% 1.5%;
+    margin: 0 auto;
+    
+    li{
+      display: inline;
+      a{text-decoration: none;}
+    }
+
+    .num {  //숫자 서식
+      display: block;
+      font-size: $t_size_l;
+      width: 30px; height: 30px;
+      padding: 0;
+      line-height: 30px;
+      color: $txt_color2;
+      border-radius: 100%; 
+      transition: 0.2s;
+
+      &:hover { //숫자hover시
+        color: $txt_color1;
+        text-decoration: underline;
+      }
+    }
+  }
+  .active_num{  //숫자 선택시
+    color: $txt_color1 !important;
+    font-weight: bold;
+  }
+  .arrow {  // 화살표 버튼
+      display: block;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      transition: background-color 0.2s;
+      margin: 0 auto;
+
+      i{  // 화살표 내부의 아이콘 스타일
+        font-size: 18px; 
+        color: $txt_color2;
+        width: 100%;
+        height: 100%;
+        display: flex; justify-content: center;
+        align-items: center;
+        transition: background-color 0.2s, opacity 0.2s;
+      }
+      &:hover i{
+        color: $txt_color1;
+      }
+  }
+}

@@ -38,7 +38,7 @@ $result_inquiry = mysqli_query($conn, $sql_inquiry);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <main>
-  <div>
+  <div class="">
     <h2 class="text_center">MY PAGE</h2>
 
     <div class="page_wrap">

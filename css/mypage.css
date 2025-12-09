@@ -294,6 +294,7 @@ tr.question :hover {
   }
   .side_nav > ul > li a:hover, .side_nav > ul > li a.active, .side_nav > ul > li a.active_nav {
     padding: 0.5rem 0.3rem;
+    border-bottom: none !important;
   }
   #info table {
     padding: 0px;
