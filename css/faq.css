@@ -19,18 +19,13 @@ body {
   text-align: right;
 }
 
-main {
+.faq_main {
   width: 1200px;
   margin: 0 auto;
 }
 
 h2 {
   padding-top: 2%;
-}
-
-.page_wrap {
-  width: 1000px;
-  margin: 0 auto;
 }
 
 .page_section {
@@ -59,26 +54,44 @@ h2 {
   display: none;
 }
 
-.search_wrap {
+.faq_top_wrap {
   max-width: 1000px;
-  padding: 20px;
   margin: 0 auto;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.search_wrap02 {
+  width: 100%;
 }
 
 .search_form {
-  width: auto;
+  width: 100%;
   display: flex;
-  gap: 5%;
+  gap: 1%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inquiries_btn {
+  order: 1;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.search_wrap01 {
+  display: flex;
+  gap: 10px;
+  order: 2;
+  flex-shrink: 0;
   align-items: center;
 }
 
 .search_group {
+  flex-grow: 1;
   position: relative;
   max-width: 400px;
-  flex-grow: 0;
-  flex-shrink: 1;
 }
 .search_group > input {
   width: 100%;
@@ -102,6 +115,10 @@ h2 {
 
 .btn_red {
   white-space: nowrap;
+}
+
+.inquiries_btn {
+  text-align: left;
 }
 
 .table_wrap02 {
@@ -132,6 +149,10 @@ h2 {
 .answer {
   background: #fff;
   color: #333;
+}
+
+.search_wrap01 {
+  display: flex;
 }
 
 .pagination02 {
@@ -189,4 +210,65 @@ h2 {
 }
 .pagination02 .arrow:hover i {
   color: #ED1C24;
+}
+
+@media (max-width: 768px) {
+  .faq_main {
+    width: 100%;
+    font-size: 12px;
+  }
+  .search_wrap {
+    max-width: 1000px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  .search_form {
+    width: 100%;
+    display: flex;
+    gap: 4%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search_group {
+    position: relative;
+    max-width: none;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  .search_group > input {
+    width: 100%;
+    padding: 4px 15px 4px 40px;
+    border: none;
+    border-bottom: 0.2rem solid #fff;
+    background: none;
+    font-size: 14px;
+    box-sizing: border-box;
+    color: #fff;
+  }
+  .search_group i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: #888;
+    font-size: 18px;
+    pointer-events: none; /* 아이콘 클릭 시 입력창으로 이벤트 통과 */
+  }
+  .pagination02 .pagination_modal .num {
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    line-height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .arrow {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+  }
+  .arrow i {
+    font-size: 10px;
+  }
 }/*# sourceMappingURL=faq.css.map */
