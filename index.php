@@ -68,7 +68,7 @@ session_start();
           </a>
         </li>
         <li>
-          <a href="" title="서포트">
+          <a href="./user/faq.php" title="서포트">
             SUPPORT<span class="under_bar"></span>
           </a>
         </li>

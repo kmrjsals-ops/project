@@ -43,10 +43,10 @@
 
             <!-- 4. 로그인 / 회원가입 버튼 -->
             <div class="d-grid gap-3">
-              <button type="submit" class="btn btn_red p-2">로그인</button>
+              <button type="submit" class="btn b_btn_red p-2">로그인</button>
               
               <!-- 회원가입 버튼: 회원가입 페이지로 이동 -->
-              <a href="register.php" class="btn btn_gray p-2 text-center">회원가입</a>
+              <a href="register.php" class="btn b_btn_gray p-2 text-center">회원가입</a>
             </div>
 
             <!-- 5. 다른 방법으로 로그인 -->

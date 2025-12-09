@@ -7,17 +7,13 @@
 .text_end{text-align:right;}
 
 // main크기
-main{
+.faq_main{
   width: 1200px; 
   margin: 0 auto;
 }
 // mypage 상단 글자
 h2{padding-top: 2%;}
 // 1. 내정보, 2. 내가쓴글, 3. 문의내역
-.page_wrap{ //page_section들 wrap
-  width: 1000px;
-  margin: 0 auto;
-}
 .page_section{
   width: 80%;
   margin: 3% auto;
@@ -44,22 +40,42 @@ h2{padding-top: 2%;}
 }
 
 // ---------- 검색창 ----------
-.search_wrap{
+.faq_top_wrap{
   max-width: 1000px;
-  padding: 20px; margin: 0 auto;
+  margin: 0 auto;
   display: flex; justify-content: flex-end;
-}
-.search_form {
-  width: auto;
-  display: flex;
-  gap: 5%;
   align-items: center;
-
 }
+.search_wrap02{width: 100%;}
+.search_form {
+  width: 100%;
+  display: flex;
+  gap: 1%; // 요소 간 최소 간격 (문의하기 버튼과 검색 그룹 사이의 간격은 space-between으로 확보)
+  align-items: center;
+  justify-content: space-between; // [문의하기]와 [검색 그룹]을 양 끝에 배치
+}
+
+// [문의하기] 버튼 (왼쪽 끝)
+.inquiries_btn{
+  order: 1;
+  text-align: left; // 기존 속성 유지
+  flex-shrink: 0; // 줄어들지 않도록
+}
+
+// 검색 입력창 + 검색 버튼 그룹 (오른쪽 끝)
+.search_wrap01{
+  display: flex;  // 내부 요소(입력창, 버튼)를 정렬하기 위해 flex 적용
+  gap: 10px; // 입력창과 버튼 사이의 간격
+  order: 2; // 두 번째 요소로 오른쪽 끝에 위치
+  flex-shrink: 0; // 줄어들지 않도록
+  align-items: center;
+}
+
 .search_group {
+  // .search_wrap01 내부에서 너비가 결정됨
+  flex-grow: 1; // .search_wrap01 내부에서 공간을 채우도록 함
   position: relative; //아이콘의 기준점 설정
-  max-width: 400px;
-  flex-grow: 0; flex-shrink: 1; 
+  max-width: 400px; // 검색 입력창의 최대 크기 제한 유지
   
   > input {
     width: 100%;
@@ -84,6 +100,11 @@ h2{padding-top: 2%;}
 // 버튼
 .btn_red{white-space: nowrap;}
 
+// 문의하기 버튼
+.inquiries_btn{
+  text-align: left;
+}
+
 // 문의 테이블
 .table_wrap02 { 
   width: 1000px;
@@ -103,6 +124,10 @@ h2{padding-top: 2%;}
 }
 .answer{background: $txt_color2; color: $txt_color3;}
 
+.search_wrap01{display: flex;}
+
+
+// 페이지네이션
 .pagination02 {
   text-align: center;
 
@@ -158,5 +183,63 @@ h2{padding-top: 2%;}
       &:hover i{
         color: $txt_color1;
       }
+  }
+}
+
+// --------------- ver. MEDIA ---------------
+@media (max-width: 768px){
+  .faq_main{width: 100%; font-size: $t_size_s;}
+  
+  .search_wrap{
+    max-width: 1000px;
+    padding: 20px; margin: 0 auto;
+  }
+  .search_form {
+    width: 100%;
+    display: flex; 
+    gap: 4%;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  .search_group {
+    position: relative; //아이콘의 기준점 설정
+    max-width: none;
+    flex-grow: 1; flex-shrink: 1; 
+    
+    > input {
+      width: 100%;
+      padding: 4px 15px 4px 40px;
+      border: none;
+      border-bottom: 0.2rem solid $txt_color2;
+      background: none;
+      font-size: $t_size_ss;
+      box-sizing: border-box;
+      color: $txt_color2;
+    }
+    
+    i {
+      position: absolute; //search_group
+      top: 50%; transform: translateY(-50%);
+      left: 10px;
+      color: $txt_color4;
+      font-size: $t_size_l;
+      pointer-events: none; /* 아이콘 클릭 시 입력창으로 이벤트 통과 */
+    }
+  }
+
+  // ----- 페이지네이션 -----
+  .pagination02 .pagination_modal {
+    .num {  //숫자 서식
+      font-size: $t_size_s;
+      width: 30px; height: 30px;
+      line-height: 15px;
+      display: flex; justify-content: center; align-items: center;
+    }
+  }
+  .arrow {  // 화살표 버튼
+      width: 15px; height: 15px;
+      line-height: 15px;
+      i{font-size: 10px;}
   }
 }

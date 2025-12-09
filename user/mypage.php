@@ -257,7 +257,7 @@ $inq_total_page = ceil($inq_total / $list_num_inq);
               <td class="text_start"><?= htmlspecialchars($inq['inquiry_title']) ?></td>
               <td class="text_center"><?= $inq['created_datetime'] ?></td>
               <td class="text_center">
-                <?= ($inq['inquery_status'] === 'done') ? '처리완료' : '대기중'; ?>
+                <?= ($inq['inquiry_status'] === 'done') ? '처리완료' : '대기중'; ?>
               </td>
               <td class="text_center"><i class="fa-solid fa-sort-down"></i></td>
             </tr>
