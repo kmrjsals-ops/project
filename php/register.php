@@ -161,7 +161,7 @@ enctype="multipart/form-data">
               <!-- 버튼 -->
               <div class="d-flex gap-3 justify-content-center pt-4">
                 <input  type="submit" class="btn btn_red flex-fill" value="정보수정">
-                <a href="../index.php" class="btn btn_gray flex-fill text-center">취소하기</a>
+                <a href="../user/mypage.php" class="btn btn_gray flex-fill text-center">취소하기</a>
               </div>
             </div>
             <?php } ?>
