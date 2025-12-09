@@ -4,6 +4,7 @@
 @import url(./login.css);
 @import url(./mypage.css);
 @import url(./faq.css);
+@import url(./faq_write.css);
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;

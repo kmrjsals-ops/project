@@ -27,15 +27,15 @@
   &:hover {filter: brightness(1.13);}
 }
 
-.btn_red, .btn_gray{
+.b_btn_red, .b_btn_gray{
   color: $txt_color2; transition: 0.3s;
   &:hover {filter: brightness(1.13);}
 }
-.btn_red {
+.b_btn_red {
   background: $txt_color1;
-  :hover {background: $txt_color1;}
+  &:hover {background: $txt_color1;}
 }
-.btn_gray {
+.b_btn_gray {
   background: $txt_color4;
   &:hover {background: $txt_color4;}
 }

@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  background-color: #333;
+}
+
+.faq_write_main {
+  width: 100%;
+  max-width: 500px;
+}
+
+.main_write {
+  height: 250px;
+  resize: none;
+}/*# sourceMappingURL=faq_write.css.map */
