@@ -17,7 +17,7 @@ if($isLogin){
 <?php include('../common/header.php'); ?>
 
 <main>  
-  <section class="py-5">
+  <section>
     <div class="container py-5">
       <div class="row justify-content-center">
         <div class="col-12 col-md-5">
@@ -120,8 +120,8 @@ enctype="multipart/form-data">
 
               <!-- 버튼 -->
               <div class="d-flex gap-3 justify-content-center pt-4">
-                <input  type="submit" class="btn btn_red flex-fill" value="회원가입">
-                <a href="../index.php" class="btn btn_gray flex-fill text-center">취소하기</a>
+                <input  type="submit" class="btn b_btn_red flex-fill" value="회원가입">
+                <a href="../index.php" class="btn b_btn_gray flex-fill text-center">취소하기</a>
               </div>
             </div>
             <?php } ?>
@@ -160,8 +160,8 @@ enctype="multipart/form-data">
 
               <!-- 버튼 -->
               <div class="d-flex gap-3 justify-content-center pt-4">
-                <input  type="submit" class="btn btn_red flex-fill" value="정보수정">
-                <a href="../user/mypage.php" class="btn btn_gray flex-fill text-center">취소하기</a>
+                <input  type="submit" class="btn b_btn_red flex-fill" value="정보수정">
+                <a href="../user/mypage.php" class="btn b_btn_gray flex-fill text-center">취소하기</a>
               </div>
             </div>
             <?php } ?>

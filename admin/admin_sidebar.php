@@ -28,8 +28,12 @@
     </ul>
 
     <hr>
-
     <div>
-      <a href="/webzen/php/logout.php" class="text-white">로그아웃</a>
+      <a href="/webzen/index.php" class="text-white">메인페이지 바로가기</a>
     </div>
+    <br>
+    <div>
+      <a href="/webzen/php/logout.php" class="text-white" title="로그아웃">로그아웃</a>
+    </div>
+    <br>
 </nav>

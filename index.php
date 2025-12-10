@@ -68,7 +68,7 @@ session_start();
           </a>
         </li>
         <li>
-          <a href="" title="서포트">
+          <a href="./user/faq.php" title="서포트">
             SUPPORT<span class="under_bar"></span>
           </a>
         </li>
@@ -236,7 +236,7 @@ session_start();
       <img src="./images/index/4_bg_1.png" alt="이미지">
       <div class="grid01">
       <figure>
-        <a href="" title="뮤 포켓나이츠 바로가기">
+        <a href="./user/game.php" title="뮤 포켓나이츠 바로가기">
         <img src="./images/index/4_game1.png" alt="뮤 포켓 나이츠">
         <h3>뮤 : 포켓 나이츠</h3>
         <div class="icon_array">
@@ -249,7 +249,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="테르비스 바로가기">
+        <a href="./user/game.php" title="테르비스 바로가기">
         <img src="./images/index/4_game2.png" alt="테르비스">
         <h3>테르비스</h3>
         <div class="icon_array">
@@ -262,7 +262,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="뮤 모나크2 바로가기">
+        <a href="./user/game.php" title="뮤 모나크2 바로가기">
         <img src="./images/index/4_game3.png" alt="뮤 모나크2">
         <h3>뮤 모나크2</h3>
         <div class="icon_array">
@@ -275,7 +275,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="뮤 오리진3 바로가기">
+        <a href="./user/game.php" title="뮤 오리진3 바로가기">
         <img src="./images/index/4_game4.png" alt="뮤 오리진3">
         <h3>뮤 오리진3</h3>
         <div class="icon_array">
@@ -293,7 +293,7 @@ session_start();
     <div class="layer02">
       <div class="grid02">
       <figure>
-        <a href="" title="썬 클래식 바로가기">
+        <a href="./user/game.php" title="썬 클래식 바로가기">
         <img src="./images/index/4_game5.png" alt="썬 클래식">
         <h3>썬 클래식</h3>
         <div class="icon_array">
@@ -305,7 +305,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="r2 바로가기">
+        <a href="./user/game.php" title="r2 바로가기">
         <img src="./images/index/4_game6.jpg" alt="r2">
         <h3>R2</h3>
         <div class="icon_array">
@@ -317,7 +317,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="뮤 블루 바로가기">
+        <a href="./user/game.php" title="뮤 블루 바로가기">
         <img src="./images/index/4_game7.jpg" alt="뮤 블루">
         <h3>뮤 블루</h3>
         <div class="icon_array">
@@ -329,7 +329,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="썬 리미티드 에디션 바로가기">
+        <a href="./user/game.php" title="썬 리미티드 에디션 바로가기">
         <img src="./images/index/4_game8.jpg" alt="썬 리미티드 에디션">
         <h3>썬:리미티드 에디션</h3>
         <div class="icon_array">
@@ -348,7 +348,7 @@ session_start();
       <img src="./images/index/4_bg_3.png" alt="이미지">
       <div class="grid03">
       <figure>
-        <a href="" title="드래곤소드 바로가기">
+        <a href="./user/game.php" title="드래곤소드 바로가기">
         <img src="./images/index/4_game9.png" alt="드래곤소드">
         <h3>드래곤소드</h3>
         <div class="icon_array">
@@ -361,7 +361,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="r2 online 바로가기">
+        <a href="./user/game.php" title="r2 online 바로가기">
         <img src="./images/index/4_game10.png" alt="r2 online">
         <h3>R2</h3>
         <div class="icon_array">
@@ -374,7 +374,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="r2m 바로가기">
+        <a href="./user/game.php" title="r2m 바로가기">
         <img src="./images/index/4_game11.jpg" alt="r2m">
         <h3>R2M</h3>
         <div class="icon_array">
@@ -387,7 +387,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="뮤 모나크 바로가기">
+        <a href="./user/game.php" title="뮤 모나크 바로가기">
         <img src="./images/index/4_game12.png" alt="뮤 모나크">
         <h3>뮤 모나크</h3>
         <div class="icon_array">
@@ -405,7 +405,7 @@ session_start();
     <div class="layer04">
       <div class="grid04">
       <figure>
-        <a href="" title="뮤 아크엔젤 바로가기">
+        <a href="./user/game.php" title="뮤 아크엔젤 바로가기">
         <img src="./images/index/4_game13.jpg" alt="뮤 아크엔젤">
         <h3>뮤 아크엔젤</h3>
         <div class="icon_array">
@@ -418,7 +418,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="뮤 온라인 바로가기">
+        <a href="./user/game.php" title="뮤 온라인 바로가기">
         <img src="./images/index/4_game14.jpg" alt="뮤 온라인">
         <h3>뮤 온라인</h3>
         <div class="icon_array">
@@ -430,7 +430,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="메틴 바로가기">
+        <a href="./user/game.php" title="메틴 바로가기">
         <img src="./images/index/4_game15.jpg" alt="메틴">
         <h3>메틴</h3>
         <div class="icon_array">
@@ -442,7 +442,7 @@ session_start();
         </a>
       </figure>
       <figure>
-        <a href="" title="샷온라인 바로가기">
+        <a href="./user/game.php" title="샷온라인 바로가기">
         <img src="./images/index/4_game16.jpg" alt="샷온라인">
         <h3>샷온라인</h3>
         <div class="icon_array">
@@ -513,13 +513,13 @@ session_start();
   <!-- 푸터 영역 시작 -->
   <footer>
     <ul>
-      <li><a href="" title="about">about</a></li>
-      <li><a href="" title="copyright">copyright</a></li>
-      <li><a href="" title="privacy policy">privacy policy</a></li>
-      <li><a href="" title="terms">terms</a></li>
+      <li><a href="#" title="about">about</a></li>
+      <li><a href="#" title="copyright">copyright</a></li>
+      <li><a href="#" title="privacy policy">privacy policy</a></li>
+      <li><a href="#" title="terms">terms</a></li>
     </ul>
     <div class="f_logo">
-      <a href="" title="페이지 상단 바로가기">
+      <a href="#" title="페이지 상단 바로가기">
         <img src="./images/footer_logo.png" alt="푸터 로고">
       </a>
       <span class="location">

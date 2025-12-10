@@ -35,7 +35,7 @@ $sql_inquiry = "SELECT * FROM support_inquiry
 $result_inquiry = mysqli_query($conn, $sql_inquiry);
 ?>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <main>
   <div class="">
@@ -204,7 +204,7 @@ $total_page = ceil($total / $list_num); // 총 페이지 수
 
     <!-- 문의하기 버튼 -->
     <div class="btn_wrap">
-      <button class="btn_red" type="button" onclick="location.href='../support/inquiry_write.php'">문의하기</button>
+      <button class="btn_red" type="button" onclick="location.href='inquiry_write.php'">문의하기</button>
     </div>
 
 <?php
@@ -255,9 +255,9 @@ $inq_total_page = ceil($inq_total / $list_num_inq);
             <tr class="question">
               <td class="text_center"><?= $inq['inquiry_no'] ?></td>
               <td class="text_start"><?= htmlspecialchars($inq['inquiry_title']) ?></td>
-              <td class="text_center"><?= $inq['created_datetime'] ?></td>
+              <td class="text_center"><?= $inq['create_datetime'] ?></td>
               <td class="text_center">
-                <?= ($inq['inquery_status'] === 'done') ? '처리완료' : '대기중'; ?>
+                <?= ($inq['inquiry_status'] === 'done') ? '처리완료' : '대기중'; ?>
               </td>
               <td class="text_center"><i class="fa-solid fa-sort-down"></i></td>
             </tr>
@@ -344,7 +344,7 @@ $inq_total_page = ceil($inq_total / $list_num_inq);
       </li>
       <li>
         <i class="fa-regular fa-circle-xmark"></i>
-        <a href="#" onclick="leaveFunction()" class="leave">탈퇴하기</a>
+        <a href="#" onclick="location.href='mypage_withdraw.php'" class="leave">탈퇴하기</a>
       </li>
     </ul>
   </nav>

@@ -21,6 +21,12 @@ $sql_game = "SELECT COUNT(*) AS cnt FROM games";
 $game_result = mysqli_query($conn, $sql_game);
 $game_row = mysqli_fetch_assoc($game_result);
 $game_count = $game_row['cnt'];
+
+// 공지사항 가져오기 
+$sql_inquiry = "SELECT COUNT(*) AS cnt FROM support_inquiry";
+$inquiry_result = mysqli_query($conn, $sql_inquiry);
+$inquiry_row = mysqli_fetch_assoc($inquiry_result);
+$inquiry_count = $inquiry_row['cnt']
 ?>
 
 <div class="admin-wrapper d-flex">
@@ -60,12 +66,12 @@ $game_count = $game_row['cnt'];
                     </div>
                 </a>
             </div>
-
+            <!-- 3. 사용자 문의하기 수 연결  -->
             <div class="col-md-3">
                 <a href="inquiry/inquiry_list.php" class="nav-link">
                     <div class="card p-3 shadow-sm">
                         <h5>문의</h5>
-                        <p class="fs-4 fw-bold">3 건</p>
+                        <p class="fs-4 fw-bold"><?= $inquiry_count?>개</p>
                     </div>
                 </a>
             </div>

@@ -46,7 +46,7 @@ $login_nick = $mb_nick ?: $mb_name; // 닉네임 없으면 이름 사용
       <li><a href="../user/game.php" title="게임">GAME<span class="under_bar"></span></a></li>
       <li><a href="../user/notice.php" title="뉴스">NEWS<span class="under_bar"></span></a></li>
       <li><a href="../user/community.php" title="라운지">LOUNGE<span class="under_bar"></span></a></li>
-      <li><a href="" title="서포트">SUPPORT<span class="under_bar"></span></a></li>
+      <li><a href="../user/faq.php" title="서포트">SUPPORT<span class="under_bar"></span></a></li>
     </ul>
   </nav>
 

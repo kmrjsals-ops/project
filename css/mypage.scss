@@ -62,6 +62,7 @@ h2{padding-top: 2%;}
 }
 .page_section{
   width: 80%;
+  height: 700px;
   margin: 3% auto;
   padding-top: 10px;
   background: $txt_color2;
@@ -142,24 +143,25 @@ h2{padding-top: 2%;}
 // ---------- 1. 내정보 ----------
 // 프로필 이미지
 .profile_img{
-  width: 20%; height: 20%;
-  border: 0.1rem solid $txt_color4;
-  border-radius: 100%;
+  width: 150px; height: 150px;
   margin: 3% auto;
   overflow: hidden;
   img{width: 100%;
-  height :100%;
+    border: 0.1rem solid $txt_color4;
+    height: 100%;
+    border-radius: 50%;
+    object-position: center;
+    object-fit: cover;
+  
   }
 }
 // 내정보 테이블
-#info table{
-  position: relative; left: 30%; bottom: 1rem;
+#info table {
   width: 65%;
-  td, th{padding: 0.6rem}
-  td{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space:nowrap;
+  margin: 0 auto;     // 정중앙!
+  padding-bottom: 1rem;
+  td, th {
+    padding: 1rem;
   }
 }
 // ---------- 2. 내가 쓴글 ---------- 
@@ -198,6 +200,7 @@ tr.question{  // 화살표 회전
   // ----- 1. 내정보, 2. 내가쓴글, 3. 문의내역 -----
   .page_wrap{width: 100%;}
   .page_section{
+    height: 300px;
     width: 100%;
     border-radius: 0px;
   }
