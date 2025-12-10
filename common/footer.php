@@ -20,7 +20,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
   <!-- 스와이퍼 js -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const catSwiper = new Swiper('.categorySwiper', {
       slidesPerView: 'auto',
@@ -44,6 +44,6 @@
     e.target.classList.add('active');
   }
 });
-  </script>
+</script>
 </body>
 </html>

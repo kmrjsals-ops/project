@@ -395,4 +395,154 @@ body {
   width: 50px;
   background: #ED1C24;
   border-radius: 10px;
+}
+
+/* ===============================
+      Mobile Responsive (max 767px)
+   =============================== */
+@media screen and (max-width: 767px) {
+  /* 공통 */
+  body {
+    overflow-x: hidden;
+  }
+  #visual_area {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  #visual_area .visual_main {
+    width: 100%;
+    height: auto;
+  }
+  #visual_area .visual_main img {
+    height: auto;
+  }
+  #visual_area .visual_main .visual_text {
+    left: 20px;
+    bottom: 20px;
+  }
+  #visual_area .visual_main .visual_text h2 {
+    font-size: 22px;
+  }
+  #visual_area .visual_main .visual_text p {
+    font-size: 14px;
+  }
+  #visual_area .visual_thumbs {
+    width: 100%;
+    margin-top: 15px;
+  }
+  #visual_area .visual_thumbs ul {
+    flex-direction: row;
+    gap: 10px;
+  }
+  #visual_area .visual_thumbs li {
+    width: 100px;
+    height: 60px;
+  }
+  /* 신규 출시 게임 */
+  .newgame {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .newgame h2 {
+    font-size: 20px;
+  }
+  .newgame p {
+    margin-bottom: 0px !important;
+  }
+  .newgame .newGameSwiper .swiper-slide {
+    width: 47% !important;
+  }
+  .newgame .newGameSwiper .swiper-slide .game_card {
+    padding: 10px;
+  }
+  .newgame .newGameSwiper .swiper-slide .game_card img {
+    width: 200px;
+    height: 120px;
+  }
+  .newgame .newGameSwiper .swiper-slide .game_card h3 {
+    font-size: 16px;
+  }
+  .newgame .icons {
+    display: none;
+  }
+  .newgame .swiper-button-prev,
+  .newgame .swiper-button-next {
+    display: none; /* 모바일에서는 버튼 제거 */
+  }
+  /* TOP 3 */
+  .top3 {
+    display: none;
+  }
+  /* 전체 게임 리스트 */
+  .gamelist {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .gamelist h2 {
+    font-size: 22px;
+  }
+  .gamelist p {
+    font-size: 14px !important;
+    margin-bottom: 15px !important;
+  }
+  .gamelist .layer01, .gamelist .layer02, .gamelist .layer03, .gamelist .layer04 {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  .gamelist .layer01 > img, .gamelist .layer02 > img, .gamelist .layer03 > img, .gamelist .layer04 > img {
+    display: none;
+    width: 100%;
+    height: auto;
+    top: 0 !important;
+  }
+  .gamelist .icon_array > span {
+    display: none;
+  }
+  .gamelist .grid01, .gamelist .grid02, .gamelist .grid03, .gamelist .grid04 {
+    width: 100%;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto;
+    gap: 12px;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  .gamelist .grid01 figure img, .gamelist .grid02 figure img, .gamelist .grid03 figure img, .gamelist .grid04 figure img {
+    width: 100%;
+  }
+  /* 프로모션 영상 */
+  .promotion {
+    display: none;
+    height: auto;
+  }
+  .promotion img {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+  .promotion video {
+    width: 100%;
+    position: static;
+    transform: none;
+    margin-top: -20px;
+  }
+  /* 커뮤니티 */
+  .community {
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+  }
+  .community h2 {
+    font-size: 22px;
+  }
+  .community .commu_container {
+    position: static;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .community .commu_box {
+    width: 100%;
+  }
 }/*# sourceMappingURL=main.css.map */

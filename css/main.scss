@@ -426,3 +426,160 @@
     }
   }
 }
+
+/* ===============================
+      Mobile Responsive (max 767px)
+   =============================== */
+@media screen and (max-width: 767px) {
+
+  /* 공통 */
+  body {
+    overflow-x: hidden;
+  }
+
+  #visual_area {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+
+    .visual_main {
+      width: 100%;
+      height: auto;
+
+      img {
+        height: auto;
+      }
+      .visual_text {
+        left: 20px;
+        bottom: 20px;
+
+        h2 { font-size: 22px; }
+        p { font-size: 14px; }
+      }
+    }
+
+    .visual_thumbs {
+      width: 100%;
+      margin-top: 15px;
+
+      ul {
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      li {
+        width: 100px;
+        height: 60px;
+      }
+    }
+  }
+
+  /* 신규 출시 게임 */
+  .newgame {
+    width: 100%;
+    padding: 0 10px;
+    h2 { font-size: 20px; }
+    p{margin-bottom: 0px !important;}
+    .newGameSwiper {
+      .swiper-slide {
+        width: 47% !important;
+        .game_card {
+          padding: 10px;
+          img {
+            width: 200px;
+            height: 120px;
+          }
+          h3 { font-size: 16px; }
+        }
+      }
+    }
+.icons{
+  display: none;
+}
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;  /* 모바일에서는 버튼 제거 */
+    }
+  }
+
+  /* TOP 3 */
+  .top3 {
+   display: none;
+  }
+
+  /* 전체 게임 리스트 */
+  .gamelist {
+    width: 100%;
+    padding: 0 10px;
+
+    h2 { font-size: 22px; }
+    p { font-size: 14px !important; margin-bottom: 15px !important; }
+
+    .layer01, .layer02, .layer03, .layer04 {
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 20px;
+
+      > img {
+        display: none;
+        width: 100%;
+        height: auto;
+        top: 0 !important;
+      }
+    }
+.icon_array>span{display: none;}
+
+    .grid01, .grid02, .grid03, .grid04 {
+      width: 100%;
+      grid-template-columns: 1fr 1fr !important;
+      grid-template-rows: auto;
+      gap: 12px;
+      left: 0 !important;
+      right: 0 !important;
+
+      figure img {
+        width: 100%;
+      }
+    }
+  }
+
+  /* 프로모션 영상 */
+  .promotion {
+    display: none;
+    height: auto;
+
+    img {
+      position: static;
+      width: 100%;
+      height: auto;
+    }
+
+    video {
+      width: 100%;
+      position: static;
+      transform: none;
+      margin-top: -20px;
+    }
+  }
+
+  /* 커뮤니티 */
+  .community {
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+
+    h2 { font-size: 22px; }
+
+    .commu_container {
+      position: static;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .commu_box {
+      width: 100%;
+    }
+  }
+
+}

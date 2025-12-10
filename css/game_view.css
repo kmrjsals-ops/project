@@ -62,6 +62,11 @@ h2 {
   border-radius: 10px;
 }
 
+.thumb img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 .right_info {
   position: relative;
   right: 2%;

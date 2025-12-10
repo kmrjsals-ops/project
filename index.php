@@ -136,77 +136,80 @@ session_start();
 </section>
 
 <section class="newgame">
-      <!-- 2 신규출시게임 영역 -->
-      <h2>신규 출시 게임</h2>
-      <div class="swiper newGameSwiper">
-        <div class="swiper-wrapper">
+  <h2>전체 게임 목록</h2>
 
-        <!-- 슬라이드 1영역  -->
-        <div class="swiper-slide">
-            <a href="해당상세페이지" title="게이트오브게이츠" class="game_card">
-              <img src="./images/index/2_game1.png" alt="게이트오브 게이츠">
-              <h3>게이트 오브 게이츠</h3>
-              <p> 전략 디펜스</p>
-              <div class="icons">
-                <img src="./images/index/android.png" alt="모바일안드로이드">
-                <img src="./images/index/ios.png" alt="모바일애플">
-              </div>
-            </a>
-        </div>
-        <!-- 슬라이드 2영역  -->
-        <div class="swiper-slide">
-            <a href="해당상세페이지" title="R2 Origin" class="game_card">
-              <img src="./images/index/2_game2.png" alt="R2 Origin">
-              <h3>R2 Origin</h3>
-              <p> MMORPG</p>
-              <div class="icons">
-                <img src="./images/index/android.png" alt="모바일안드로이드">
-                <img src="./images/index/ios.png" alt="모바일애플">
-              </div>
-            </a>
-        </div>
-        <!-- 슬라이드 3영역  -->
-        <div class="swiper-slide">
-            <a href="해당상세페이지" title="테르비스" class="game_card">
-              <img src="./images/index/2_game3.png" alt="테르비스">
-              <h3>테르비스</h3>
-              <p> RPG</p>
-              <div class="icons">
-                <img src="./images/index/android.png" alt="모바일안드로이드">
-                <img src="./images/index/ios.png" alt="모바일애플">
-              </div>
-            </a>
-        </div>
-        <!-- 슬라이드 4영역  -->
-        <div class="swiper-slide">
-            <a href="해당상세페이지" title="드래곤소드" class="game_card">
-              <img src="./images/index/2_game4.png" alt="드래곤소드">
-              <h3>드래곤소드</h3>
-              <p>오픈월드 RPG</p>
-              <div class="icons">
-                <img src="./images/index/android.png" alt="모바일안드로이드">
-                <img src="./images/index/ios.png" alt="모바일애플">
-              </div>
-            </a>
-        </div>
-        <!-- 슬라이드 5영역  -->
-        <div class="swiper-slide">
-            <a href="해당상세페이지" title="뮤포켓나이츠" class="game_card">
-              <img src="./images/index/2_game5.png" alt="뮤포켓나이츠">
-              <h3>뮤 포켓 나이츠</h3>
-              <p>오픈월드 RPG</p>
-              <div class="icons">
-                <img src="./images/index/android.png" alt="모바일안드로이드">
-                <img src="./images/index/ios.png" alt="모바일애플">
-              </div>
-            </a>
-        </div>
+  <div class="swiper newGameSwiper">
+    <div class="swiper-wrapper">
+
+      <?php
+      include __DIR__ . '/db/db_conn.php';
+
+      // 전체 게임 최신순 출력
+      $sql = "
+        SELECT 
+          g.game_no,
+          g.game_title,
+          g.game_platform,
+          g.game_summary,
+          (
+            SELECT image_url
+            FROM game_images 
+            WHERE game_no = g.game_no 
+              AND image_type = 'thumbnail'
+            ORDER BY image_no ASC
+            LIMIT 1
+          ) AS thumb
+        FROM games g
+        ORDER BY g.created_datetime DESC
+      ";
+
+      $result = mysqli_query($conn, $sql);
+
+      while($row = mysqli_fetch_assoc($result)) {
+
+          // 썸네일이 없으면 gallery 1개라도 가져오기
+          if(!$row['thumb']){
+            $backup_sql = "
+              SELECT image_url 
+              FROM game_images 
+              WHERE game_no = {$row['game_no']}
+              ORDER BY image_no ASC
+              LIMIT 1
+            ";
+            $backup_result = mysqli_query($conn, $backup_sql);
+            $backup = mysqli_fetch_assoc($backup_result);
+            $row['thumb'] = $backup['image_url'];
+          }
+      ?>
+      <div class="swiper-slide">
+        <a href="./user/game_view.php?no=<?= $row['game_no'] ?>" class="game_card">
+
+          <!-- 이미지 출력 -->
+          <img src="./uploads/games/<?= $row['thumb'] ?>" 
+               alt="<?= $row['game_title'] ?>">
+
+          <h3><?= $row['game_title'] ?></h3>
+          <p><?= mb_substr($row['game_summary'], 0, 10) ?>...</p>
+
+          <div class="icons">
+            <?php if($row['game_platform'] === 'mobile'){ ?>
+              <img src="./images/index/android.png" alt="android">
+              <img src="./images/index/ios.png" alt="ios">
+            <?php } ?>
+
+            <?php if($row['game_platform'] === 'pc'){ ?>
+              <img src="./images/index/microsoft.png" alt="pc">
+            <?php } ?>
+          </div>
+        </a>
       </div>
-      <!-- 좌우 스크롤 버튼  -->
+      <?php } ?>
     </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </section>
+
     <section class="top3">
       <h2>모두가 선택한 웹젠의 하이라이트</h2>
       <p>웹젠을 대표하는 불멸의 top3</p>

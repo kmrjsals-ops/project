@@ -42,7 +42,12 @@ img{
     width: 100%;
     height: 100%;
     border-radius: 10px;
+
   }
+}
+.thumb img:hover{
+  cursor: pointer;
+  transform: scale(1.1);
 }
 //상단 우측영역 서식
 .right_info{
