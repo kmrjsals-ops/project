@@ -30,6 +30,7 @@ error_reporting(E_ALL);
       $_SESSION['mb_name'] = $row['user_name'];
       $_SESSION['mb_nick'] = $row['user_nickname'];
       $_SESSION['mb_role'] = $row['user_role']; //user / admin 
+      $_SESSION['mb_img'] = $row['user_img']; //user / admin 
       
       echo"<script>alert('로그인 성공'); location.href='../index.php';</script>";
       exit;

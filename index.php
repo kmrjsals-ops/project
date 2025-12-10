@@ -10,26 +10,14 @@ session_start();
   <link href="./css/reset.css" rel="stylesheet" type="text/css">
 
   <!-- 폰트어썸 cdn -->
-
-  <link rel="stylesheet" href="./css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
   <!-- 애니메이션 -->
   <link rel="stylesheet" href="./css/animate.css">
-  <!-- 스와이퍼 슬라이드  -->
-  <link rel="stylesheet" href="./css/swiper.css">
 
   <!-- 섹션 6 스와이퍼 -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-
-  <!-- 섹션 6 스와이퍼 -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <!-- 폰트 어썸 서식 -->
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
-  <!-- 애니메이션 -->
-  <link rel="stylesheet" href="./css/animate.css">
   <!-- 스와이퍼 슬라이드  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <!-- 기본서식 -->
@@ -43,61 +31,123 @@ session_start();
 </head>
 <body>
   <!-- 헤더 영역 시작 -->
-  <header>
+<header>
+  <!-- 모바일 네비게이션용 -->
+  <div class="m_nav_btn">
+    <!-- 버튼 -->
+    <i class="fa-solid fa-bars" id="open_tab"></i>
+    <i class="fa-solid fa-xmark" id="clo_tab"></i>
+  </div>
+  
+  <div class="log_nav_wrap">
     <h1>
-      <a href="index.php" title="메인페이지 바로가기">
+      <a href="./index.php" title="메인페이지 바로가기">
         <img src="./images/header_logo.png" alt="메인로고">
       </a>
     </h1>
-<!-- 상단메뉴 -->
+    
+    
+    <!-- 상단 메뉴 -->
     <nav>
       <ul>
-        <li>
-          <a href="./user/game.php" title="게임">
-            GAME<span class="under_bar"></span>
-          </a>
-        </li>
-        <li>
-          <a href="./user/notice.php" title="뉴스">
-            NEWS<span class="under_bar"></span>
-          </a>
-        </li>
-        <li>
-          <a href="./user/community.php" title="라운지">
-            LOUNGE<span class="under_bar"></span>
-          </a>
-        </li>
-        <li>
-          <a href="./user/faq.php" title="서포트">
-            SUPPORT<span class="under_bar"></span>
-          </a>
-        </li>
+        <li><a href="./user/game.php" title="게임">GAME<span class="under_bar"></span></a></li>
+        <li><a href="./user/notice.php" title="뉴스">NEWS<span class="under_bar"></span></a></li>
+        <li><a href="./user/community.php" title="라운지">LOUNGE<span class="under_bar"></span></a></li>
+        <li><a href="" title="서포트">SUPPORT<span class="under_bar"></span></a></li>
       </ul>
     </nav>
-    <!-- 헤더 우측 로그인/비로그인 -->
-    <!-- 로그인/비로그인 표시 -->
+  </div>
+
+  <!-- 로그인/비로그인 표시 -->
   <div class="user_info">
     <ul>
       <?php if(isset($_SESSION['mb_id'])) { ?>
-      
+
         <!-- 로그인 상태 -->
         <li><a href="./user/mypage.php" title="마이페이지"><?=$_SESSION['mb_nick']?></a></li>
         <li><a href="./php/logout.php" title="로그아웃">로그아웃</a></li>
 
         <?php if($_SESSION['mb_role'] == 'admin'){ ?>
-          <li><a href="./admin/" title="관리자페이지">| 관리자페이지</a></li>
+          <li><a href="./admin/" title="관리자페이지">&#x007C; 관리자페이지</a></li>
         <?php } ?>
 
-      <?php } else { ?>
-
-        <!-- 비로그인 -->
-        <li><a href="./php/login.php" title="로그인하기">로그인</a></li>
-        <li><a href="./php/register.php" title="회원가입">회원가입</a></li>
-
-      <?php } ?>
+        <?php } else { ?>
+          <!-- 비로그인 -->
+          <li><a href="./php/login.php" title="로그인하기">로그인</a></li>
+          <li><a href="./php/register.php" title="회원가입">회원가입</a></li>
+        <?php } ?>
     </ul>
   </div>
-  </header>
+  
+<div class="m_user_info">
+  <ul>
+    <?php if(isset($_SESSION['mb_id'])) { ?>
+
+      <!-- 로그인: 프로필 + 마이페이지 -->
+      <li>
+        <a href="./user/mypage.php" title="마이페이지">
+          <img src="<?php 
+            // 프로필 이미지가 있으면 출력
+            echo $_SESSION['mb_img'] 
+              ? './uploads/profile/'.$_SESSION['mb_img'] 
+              : './images/user_admin/img_upload.png'; 
+          ?>" alt="프로필이미지">
+        </a>
+      </li>
+
+
+
+    <?php } else { ?>
+
+      <!-- 비로그인 -->
+      <li><a href="./php/login.php" title="로그인하기">로그인</a></li>
+
+    <?php } ?>
+  </ul>
+</div>
+  
+  <!-- 모바일 버전 -->
+ <div class="m_nav_panel">
+
+  <!-- 환영 메시지 -->
+  <div class="m_user_welcome">
+    <?php if(isset($_SESSION['mb_id'])) { ?>
+      <?= $_SESSION['mb_nick'] ?> 님 반갑습니다!
+    <?php } else { ?>
+      방문자님 환영합니다!
+    <?php } ?>
+  </div>
+
+  <nav class="m_nav_list">
+    <ul>
+      <li><a href="./user/game.php">GAME</a></li>
+      <li><a href="./user/notice.php">NEWS</a></li>
+      <li><a href="./user/community.php">LOUNGE</a></li>
+      <li><a href="./user/faq.php">SUPPORT</a></li>
+    </ul>
+  </nav>
+
+  <?php if(isset($_SESSION['mb_id'])) { ?>
+    <!-- 로그인 상태 -->
+    <div class="m_logout_btn_wrap">
+      <a href="./php/logout.php" class="m_logout_btn">로그아웃</a>
+    </div>
+
+    <?php if($_SESSION['mb_role'] == 'admin'){ ?>
+      <div class="m_logout_btn_wrap">
+        <a href="./admin/" class="m_logout_btn">관리자 페이지</a>
+      </div>
+    <?php } ?>
+
+  <?php } else { ?>
+    <!-- 비로그인 상태 -->
+    <div class="m_logout_btn_wrap">
+      <a href="./php/login.php" class="m_logout_btn">로그인</a>
+    </div>
+  <?php } ?>
+
+</div>
+</header>
   <!-- 메인 영역 시작 -->
   <main>
 <!-- 1 메인 슬라이드 영역  -->
@@ -186,7 +236,7 @@ session_start();
 
           <!-- 이미지 출력 -->
           <img src="./uploads/games/<?= $row['thumb'] ?>" 
-               alt="<?= $row['game_title'] ?>">
+          alt="<?= $row['game_title'] ?>">
 
           <h3><?= $row['game_title'] ?></h3>
           <p><?= mb_substr($row['game_summary'], 0, 10) ?>...</p>
@@ -514,22 +564,69 @@ session_start();
   </section>
   </main>
   <!-- 푸터 영역 시작 -->
-  <footer>
-    <ul>
-      <li><a href="#" title="about">about</a></li>
-      <li><a href="#" title="copyright">copyright</a></li>
-      <li><a href="#" title="privacy policy">privacy policy</a></li>
-      <li><a href="#" title="terms">terms</a></li>
-    </ul>
-    <div class="f_logo">
-      <a href="#" title="페이지 상단 바로가기">
-        <img src="./images/footer_logo.png" alt="푸터 로고">
-      </a>
-      <span class="location">
-        <a href="https://maps.app.goo.gl/zyh4ZD2e4ZCoW8gd8" title="위치 알아보기" target="_blank">
-          KOREA &nbsp;37.402652, 127.101576
+<footer>
+    <div class="fd_wrap">
+      <ul>
+        <li><a href="" title="about">about</a></li>
+        <li><a href="" title="copyright">copyright</a></li>
+        <li><a href="" title="privacy policy">privacy policy</a></li>
+        <li><a href="" title="terms">terms</a></li>
+      </ul>
+      
+      <div class="f_logo">
+        <a href="" title="페이지 상단 바로가기">
+          <img src="./images/footer_logo.png" alt="푸터 로고">
         </a>
-      </span>
+        <span class="location">
+          <a href="https://maps.app.goo.gl/zyh4ZD2e4ZCoW8gd8" title="위치 알아보기" target="_blank">
+            KOREA&nbsp;37.402652, 127.101576
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <div class="fm_wrap">
+      <div class="fm_logo">
+        <a href="" title="메인페이지 바로가기">
+          <img src="./images/header_logo.png" alt="푸터 로고">
+        </a>
+      </div>
+
+      <div class="info_wrap">
+        <ul class="link_group_wrapper">
+          <li>
+            <ul class="link_group">
+              <li><a href="" title="이용약관">이용약관</a></li>
+              <li><a href="" title="개인정보처리방침">개인정보처리방침</a></li>
+              <li><a href="" title="청소년보호정책">청소년보호정책</a></li>
+            </ul>
+          </li>
+          <li>
+            <ul class="link_group">
+              <li><a href="" title="회사소개">회사소개</a></li>
+              <li><a href="" title="웹젠PC방">웹젠PC방</a></li>
+            </ul>
+          </li>
+        </ul>
+        
+        <div class="company_info">
+          <p>상호명 : (주)웹젠&nbsp;대표이사 : 김태영&nbsp;사업자등록 : 214-86-57130</p>
+          <p>통신판매업 신고번호 : 제2012-경기성남-0753호</p>
+          <p>주소 : 경기도 성남시 분당구 판교로 242 (주)웹젠</p>
+          <p>웹마스터메일 : <a href="mailto:webzen-help@webzen.co.kr">webzen-help@webzen.co.kr</a></p>
+          <p>고객지원센터 : 1566-3003 <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=2148657130">사업자정보확인</a></p>
+        </div>
+
+      </div>
+      
+      <div class="top_btn">
+        <i class="fa-solid fa-angle-up"></i>
+      </div>
+      
+      <div class="copyright">
+        Webzen Inc. Global Digital Entertainment Leader<br>
+        COPYRIGHT&copy; Webzen Inc. ALL RIGHTS RESERVED.
+      </div>
     </div>
   </footer>
   <!-- 스크립트 관련  -->
@@ -541,13 +638,9 @@ session_start();
   <script src="./script/jquery.scrollUp.min.js"></script>
 
   <!-- swiper.js  -->
-<<<<<<< HEAD
-  <script src="./script/swiper.js"></script>
-  <!-- 섹션6 스와이퍼 -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-=======
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
->>>>>>> e7ae73ab9ef1245d3ab53aa6c440c0bceeda7c24
+
 
   <!-- SECTION 1 스크립트 -->
   <script>
@@ -678,6 +771,25 @@ session_start();
     }
   });
 });
+
+    // 모바일 메뉴 탭
+    document.addEventListener("DOMContentLoaded", () => {
+      const openBtn = document.getElementById("open_tab");
+      const closeBtn = document.getElementById("clo_tab");
+      const mPanel = document.querySelector(".m_nav_panel");
+
+      openBtn.addEventListener("click", () => {
+        mPanel.style.display = "block";
+        openBtn.style.display = "none";
+        closeBtn.style.display = "block";
+      });
+
+      closeBtn.addEventListener("click", () => {
+        mPanel.style.display = "none";
+        closeBtn.style.display = "none";
+        openBtn.style.display = "block";
+      });
+    });
   </script>
 </body>
 </html>

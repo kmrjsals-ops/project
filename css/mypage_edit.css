@@ -9,7 +9,7 @@ body {
 .side_nav {
   width: 200px;
   position: fixed;
-  top: 11rem;
+  top: 5rem;
 }
 .side_nav > ul li i {
   display: none;
@@ -84,7 +84,6 @@ h2 {
 
 .page_section {
   width: 80%;
-  height: 700px;
   margin: 3% auto;
   padding-top: 10px;
   background: #fff;
@@ -170,29 +169,29 @@ h2 {
 }
 
 .profile_img {
-  width: 150px;
-  height: 150px;
+  width: 20%;
+  height: 20%;
+  border: 0.1rem solid #888;
+  border-radius: 100%;
   margin: 3% auto;
-  overflow: hidden;
 }
 .profile_img img {
   width: 100%;
-  border: 0.1rem solid #888;
-  height: 100%;
-  border-radius: 50%;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 #info table {
+  position: relative;
+  left: 30%;
+  bottom: 1rem;
   width: 65%;
-  margin: 0 auto;
-  padding-bottom: 1rem;
 }
 #info table td, #info table th {
-  padding: 1rem;
+  padding: 0.6rem;
+}
+#info table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 tr.question.active .fa-sort-down {
@@ -235,19 +234,15 @@ tr.question :hover {
     width: 100%;
   }
   .page_section {
-    height: 100%;
     width: 100%;
     border-radius: 0px;
   }
-  table th {
-    font-size: 12px !important;
-  }
   .head_tag {
-    width: 35% !important;
-    height: 2rem !important;
+    width: 35%;
+    height: 2rem;
   }
   .head_tag p {
-    font-size: 12px !important;
+    font-size: 12px;
   }
   .head_tag i {
     color: #fff;
@@ -297,7 +292,6 @@ tr.question :hover {
   }
   .side_nav > ul > li a:hover, .side_nav > ul > li a.active, .side_nav > ul > li a.active_nav {
     padding: 0.5rem 0.3rem;
-    border-bottom: none !important;
   }
   #info table {
     padding: 0px;
@@ -319,4 +313,4 @@ tr.question :hover {
   .arrow i {
     font-size: 10px;
   }
-}/*# sourceMappingURL=mypage.css.map */
+}/*# sourceMappingURL=mypage_edit.css.map */
