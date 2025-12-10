@@ -53,11 +53,14 @@ $result = mysqli_query($conn, $sql);
                     <span class="badge bg-secondary">대기중</span>
                   <?php } ?>
                 </td>
-
                 <td>
-                  <a href="inquiry_view.php?no=<?= $row['inquiry_no']; ?>"
-                     class="btn btn-sm btn-primary">
-                    답변하기
+                  <a href="inquiry_view.php?no=<?= $row['inquiry_no'] ?>" 
+                    class="btn btn-sm btn-primary">답변하기</a>
+
+                  <a href="inquiry_delete.php?no=<?= $row['inquiry_no'] ?>"
+                    class="btn btn-sm btn-danger"
+                    onclick="return confirm('정말 삭제하시겠습니까?');">
+                    삭제
                   </a>
                 </td>
               </tr>

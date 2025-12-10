@@ -170,31 +170,29 @@ h2 {
 }
 
 .profile_img {
-  width: 20%;
-  height: 20%;
-  border: 0.1rem solid #888;
-  border-radius: 100%;
+  width: 150px;
+  height: 150px;
   margin: 3% auto;
   overflow: hidden;
 }
 .profile_img img {
   width: 100%;
+  border: 0.1rem solid #888;
   height: 100%;
+  border-radius: 50%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #info table {
-  position: relative;
-  left: 30%;
-  bottom: 1rem;
   width: 65%;
+  margin: 0 auto;
+  padding-bottom: 1rem;
 }
 #info table td, #info table th {
-  padding: 0.6rem;
-}
-#info table td {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  padding: 1rem;
 }
 
 tr.question.active .fa-sort-down {

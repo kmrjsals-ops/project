@@ -35,7 +35,7 @@ $sql_inquiry = "SELECT * FROM support_inquiry
 $result_inquiry = mysqli_query($conn, $sql_inquiry);
 ?>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <main>
   <div class="">
@@ -344,7 +344,7 @@ $inq_total_page = ceil($inq_total / $list_num_inq);
       </li>
       <li>
         <i class="fa-regular fa-circle-xmark"></i>
-        <a href="#" onclick="leaveFunction()" class="leave">탈퇴하기</a>
+        <a href="#" onclick="location.href='mypage_withdraw.php'" class="leave">탈퇴하기</a>
       </li>
     </ul>
   </nav>

@@ -35,9 +35,9 @@
                 <label for="ch_login" class="form-check-label">로그인유지</label>
               </div>
               <div class="find_account">
-                <a href="#" class="text-white">아이디찾기</a>
+                <a href="../user/find_id.php" class="text-white">아이디찾기</a>
                 <span class="text-white mx-2">|</span>
-                <a href="#" class="text-white">비밀번호 찾기</a>
+                <a href="../user/find_pw.php" class="text-white">비밀번호 찾기</a>
               </div>
             </div>
 
