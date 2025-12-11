@@ -29,6 +29,7 @@ $login_nick = $mb_nick ?: $mb_name; // 닉네임 없으면 이름 사용
   <!-- sub css -->
   <link rel="stylesheet" href="../css/sub.css" type="text/css">
 
+  <link rel="icon" href="../images/favicon_logo.ico">
   <title>webzen</title>
 </head>
 <body>
