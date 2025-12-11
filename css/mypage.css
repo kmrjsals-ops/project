@@ -293,7 +293,7 @@ tr.question :hover {
   .side_nav > ul > li a:hover {
     border-bottom: none !important;
     color: inherit !important;
-    padding: none;
+    padding: 0;
   }
   .side_nav > ul > li a:hover, .side_nav > ul > li a.active, .side_nav > ul > li a.active_nav {
     padding: 0.5rem 0.3rem;

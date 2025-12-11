@@ -249,7 +249,7 @@ tr.question{  // 화살표 회전
           &:hover{
             border-bottom: none !important; 
             color: inherit !important;
-            padding: none;
+            padding: 0;
           }
           &:hover, &.active, &.active_nav{
             padding: 0.5rem 0.3rem;
