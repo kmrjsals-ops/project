@@ -1,7 +1,7 @@
 ul{padding: 0rem;}
 
 main {
-    background-color: linear-gradient(0deg,rgba(238, 49, 36, 1) 0%, rgba(51, 51, 51, 1) 40%) !important;;
+    background: linear-gradient(0deg,rgba(238, 49, 36, 1) 0%, rgba(51, 51, 51, 1) 40%) !important;
     display: flex;
     flex-direction: column;
     align-items: center;

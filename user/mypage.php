@@ -116,10 +116,10 @@ $inquiry = mysqli_query($conn, $sql_inquiry);
   <div class="page_wrap">
 
     <!-- ===============================
-         1. 내 정보
+        1. 내 정보
     =============================== -->
     <section id="info" class="page_section">
-      <h3 class="head_tag"><p>내 정보</p></h3>
+      <h3 class="head_tag">내 정보</h3>
 
       <div class="profile_img">
         <img src="<?= $profile_img ?>" alt="프로필 이미지" class="p_img">
@@ -139,12 +139,12 @@ $inquiry = mysqli_query($conn, $sql_inquiry);
 
 
     <!-- ===============================
-         2. 내가 쓴 글
+        2. 내가 쓴 글
     =============================== -->
     <section id="my_writing" class="page_section">
       <h3 class="head_tag">
         <i class="fa-solid fa-angle-left" onclick="infoPage()"></i>
-        <p>내가 쓴 글</p>
+        내가 쓴 글
       </h3>
 
       <table class="table_wrap">
@@ -180,12 +180,12 @@ $inquiry = mysqli_query($conn, $sql_inquiry);
 
 
     <!-- ===============================
-         3. 문의 내역
+        3. 문의 내역
     =============================== -->
     <section id="inquiries" class="page_section">
       <h3 class="head_tag">
         <i class="fa-solid fa-angle-left" onclick="infoPage()"></i>
-        <p>문의 내역</p>
+        문의 내역
       </h3>
 
       <div class="btn_wrap">
@@ -232,7 +232,7 @@ $inquiry = mysqli_query($conn, $sql_inquiry);
 
 
   <!-- ===============================
-       좌측 네비게이션
+      좌측 네비게이션
   =============================== -->
   <nav class="side_nav" id="side-nav">
     <ul>
