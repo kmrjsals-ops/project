@@ -1,5 +1,5 @@
 <?
-session_start();
+
 include('../../db/db_conn.php');
 
 $admin_no = intval($_POST['admin_no']);

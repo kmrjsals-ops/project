@@ -1,6 +1,11 @@
 <?php
+// 세션이 아직 시작되지 않았다면만 시작 
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+
 // 관리자 권한 체크
-session_start();
+
 if(!isset($_SESSION['mb_role']) || $_SESSION['mb_role'] != 'admin'){
     echo "<script>alert('관리자만 접근 가능합니다.'); location.href='../index.php';</script>";
     exit;

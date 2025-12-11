@@ -5,62 +5,36 @@
 
 .admin-sidebar {
   width: 240px;
-  height: 100vh;
-  position: fixed;
-  overflow-y: auto;
-  background: #222;
+  min-height: 100vh;
+  background: #0f0f0f;
+}
+.admin-sidebar .nav-link {
+  color: #ccc;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.admin-sidebar .nav-link:hover {
+  background: #495057;
   color: #fff;
-  padding: 20px;
 }
-.admin-sidebar h2,
-.admin-sidebar a {
+.admin-sidebar .nav-link.active {
+  background: #e60012;
   color: #fff;
+  font-weight: bold;
 }
-.admin-sidebar ul {
-  margin-top: 30px;
-  padding-left: 0;
+.admin-sidebar hr {
+  border-color: #424242;
 }
-.admin-sidebar ul li {
-  list-style: none;
+.admin-sidebar .footer-links {
+  margin-top: auto;
 }
-.admin-sidebar ul li a {
+.admin-sidebar .footer-links a {
   display: block;
-  padding: 12px 0;
   color: #fff;
+  margin-bottom: 8px;
   text-decoration: none;
 }
-.admin-sidebar ul li a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.admin-content {
-  margin-left: 240px;
-  padding: 40px;
-  min-height: 100vh;
-  background: #f6f6f6;
-}
-.admin-content .page_title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-.admin-content .admin_table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.admin-content .admin_table th,
-.admin-content .admin_table td {
-  padding: 12px;
-  border-bottom: 1px solid #ccc;
-}
-
-@media (max-width: 992px) {
-  .admin-sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-  .admin-content {
-    margin-left: 0;
-  }
+.admin-sidebar .footer-links a:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=admin_style.css.map */

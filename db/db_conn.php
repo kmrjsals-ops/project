@@ -19,8 +19,5 @@ error_reporting(E_ALL);
   }
 
   //php 8.x이상에서는 변수선언시 값을 넣어주지 않을 시 무조건 에러가 뜨는데 이것을 안보이게 숨기는 함수.
-  ini_set('display_errors', 'off');
 
-  //db연결 성공시 세션시작
-  session_start();
 ?>

@@ -88,7 +88,7 @@ body {
   padding: 15px;
   border-radius: 10px;
   color: #fff;
-  transition: 0.2 ease;
+  transition: 0.2s ease;
 }
 .newgame .newGameSwiper .swiper-slide .game_card:hover {
   background-color: #3b3b3b;
@@ -199,12 +199,13 @@ body {
 .gamelist h2 {
   font-size: 28px;
   margin: 15px auto;
+  margin-top: 50px;
   text-align: center;
 }
-.gamelist h2 + p {
+.gamelist p {
   font-size: 16px;
   margin: 15px auto;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   text-align: center;
 }
 .gamelist .layer01, .gamelist .layer02, .gamelist .layer03, .gamelist .layer04 {

@@ -1,36 +1,30 @@
 <?php
 include('../db/db_conn.php');
-include('admin_header.php'); 
+include('admin_header.php');
 
-// 회원 수 가져오기 
-$sql_user = "SELECT COUNT(*) AS cnt FROM users";
-// 검색 결과 담아줌 
-$user_result = mysqli_query($conn, $sql_user);
-// 결과값 즉 cnt 조건으로 검색 결과값 총 회원수 를 row로 담아준다 
-$user_row = mysqli_fetch_assoc($user_result);
-$user_count = $user_row['cnt'];
+// -----------------------------
+// 공통 카운트 함수 (중복 제거)
+// -----------------------------
+function getCount($conn, $table) {
+    $sql = "SELECT COUNT(*) AS cnt FROM {$table}";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    return intval($row['cnt']);
+}
 
-// 공지사항 수 가져오기 
-$sql_notice = "SELECT COUNT(*) AS cnt FROM notice";
-$notice_result = mysqli_query($conn, $sql_notice);
-$notice_row = mysqli_fetch_assoc($notice_result);
-$notice_count = $notice_row['cnt'];
+// -----------------------------
+// 1) 카운트 데이터 가져오기
+// -----------------------------
+$user_count    = getCount($conn, 'users');
+$notice_count  = getCount($conn, 'notice');
+$game_count    = getCount($conn, 'games');
+$inquiry_count = getCount($conn, 'support_inquiry');
 
-// 게임 수 가져오기 
-$sql_game = "SELECT COUNT(*) AS cnt FROM games";
-$game_result = mysqli_query($conn, $sql_game);
-$game_row = mysqli_fetch_assoc($game_result);
-$game_count = $game_row['cnt'];
-
-// 공지사항 가져오기 
-$sql_inquiry = "SELECT COUNT(*) AS cnt FROM support_inquiry";
-$inquiry_result = mysqli_query($conn, $sql_inquiry);
-$inquiry_row = mysqli_fetch_assoc($inquiry_result);
-$inquiry_count = $inquiry_row['cnt']
+// 게시판 글 수 (DB 적용 원하면 테이블명 알려줘)
+$board_count   = getCount($conn, 'board_posts'); 
 ?>
 
 <div class="admin-wrapper d-flex">
-    <!-- 관리자 사이드바 연결 -->
     <?php include('admin_sidebar.php'); ?>
 
     <main class="p-4 admin-content w-100">
@@ -38,55 +32,57 @@ $inquiry_count = $inquiry_row['cnt']
 
         <div class="row g-3">
 
-        <!-- 1. 회원카드에 회원수 연결  -->
+            <!-- 1) 회원 수 -->
             <div class="col-md-3">
                 <a href="member/member_list.php" class="nav-link">
                     <div class="card p-3 shadow-sm">
                         <h5>회원 수</h5>
-                        <p class="fs-4 fw-bold"><?= $user_count?>명</p>
+                        <p class="fs-4 fw-bold"><?= $user_count ?>명</p>
                     </div>
                 </a>
             </div>
-            <!-- 2. 게임 수 연결 -->
+
+            <!-- 2) 게임 등록 수 -->
             <div class="col-md-3">
                 <a href="game/game_list.php" class="nav-link">
                     <div class="card p-3 shadow-sm">
                         <h5>게임 등록 수</h5>
-                        <p class="fs-4 fw-bold"><?=$game_count?>개</p>
+                        <p class="fs-4 fw-bold"><?= $game_count ?>개</p>
                     </div>
                 </a>
             </div>
 
-            <!-- 3. 공지사항에 공지사항 수 연결  -->
+            <!-- 3) 공지사항 수 -->
             <div class="col-md-3">
                 <a href="notice/notice_list.php" class="nav-link">
                     <div class="card p-3 shadow-sm">
                         <h5>공지사항</h5>
-                        <p class="fs-4 fw-bold"><?= $notice_count?>개</p>
-                    </div>
-                </a>
-            </div>
-            <!-- 3. 사용자 문의하기 수 연결  -->
-            <div class="col-md-3">
-                <a href="inquiry/inquiry_list.php" class="nav-link">
-                    <div class="card p-3 shadow-sm">
-                        <h5>문의</h5>
-                        <p class="fs-4 fw-bold"><?= $inquiry_count?>개</p>
+                        <p class="fs-4 fw-bold"><?= $notice_count ?>개</p>
                     </div>
                 </a>
             </div>
 
+            <!-- 4) 문의 수 -->
+            <div class="col-md-3">
+                <a href="inquiry/inquiry_list.php" class="nav-link">
+                    <div class="card p-3 shadow-sm">
+                        <h5>문의</h5>
+                        <p class="fs-4 fw-bold"><?= $inquiry_count ?>개</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 5) 게시판 글 수 -->
             <div class="col-md-3">
                 <a href="board/board_list.php" class="nav-link">
                     <div class="card p-3 shadow-sm">
-                        <h5>게시판 등록글 수 </h5>
-                        <p class="fs-4 fw-bold">3 건</p>
+                        <h5>게시판 등록글 수</h5>
+                        <p class="fs-4 fw-bold"><?= $board_count ?>건</p>
                     </div>
                 </a>
             </div>
 
         </div>
-
     </main>
 </div>
 

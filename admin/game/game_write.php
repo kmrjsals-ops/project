@@ -1,12 +1,14 @@
-<?
+<?php
 include('../admin_header.php');
 include('../../db/db_conn.php');
 ?>
 
 <div class="admin-wrapper d-flex">
-  <? include('../admin_sidebar.php'); ?>
+
+  <?php include('../admin_sidebar.php'); ?>
 
   <main class="admin-content p-4 w-100">
+
     <h2 class="mb-4">게임 등록</h2>
 
     <div class="card shadow-sm">
@@ -59,29 +61,31 @@ include('../../db/db_conn.php');
             <input type="url" name="game_url" class="form-control" required placeholder="https://example.com/play">
           </div>
 
-          <!-- 썸네일 이미지(필수) -->
+          <!-- 썸네일 이미지 -->
           <div class="mb-3">
             <label class="form-label">게임 썸네일 이미지</label>
             <input type="file" name="thumbnail" class="form-control" required>
             <small class="text-muted">게임 카드에 표시될 대표 이미지</small>
           </div>
 
-          <!-- 갤러리 이미지(선택, 여러개 가능) -->
+          <!-- 갤러리 이미지(여러개 가능) -->
           <div class="mb-3">
             <label class="form-label">게임 갤러리 이미지 (여러 개 가능)</label>
             <input type="file" name="gallery[]" class="form-control" multiple>
           </div>
 
+          <!-- 버튼 -->
           <div class="mt-4">
             <button type="submit" class="btn btn-primary">등록하기</button>
             <a href="game_list.php" class="btn btn-secondary">취소</a>
           </div>
 
         </form>
+
       </div>
     </div>
 
   </main>
 </div>
 
-<? include('../admin_footer.php'); ?>
+<?php include('../admin_footer.php'); ?>

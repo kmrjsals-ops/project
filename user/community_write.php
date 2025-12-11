@@ -1,109 +1,74 @@
 <?php
-// 커뮤니티 글쓰기 
-session_start();
-  include('../common/header.php');
+include('../common/header.php');
 ?>
 
 <main>
-  <section class="lounge-category-bar pb-3 pt-3">
+
+<!-- ================================
+      🔥 카테고리 스와이퍼 영역
+================================ -->
+<section class="lounge-category-bar pb-3 pt-3">
   <div class="container">
     <div class="d-flex align-items-center">
-      <!-- 왼쪽화살표 -->
+
+      <!-- 좌측 화살표 -->
       <button class="cat-arrow cat-prev swiper-cat-prev">
         <span>&lt;</span>
       </button>
 
-      <!-- 카테고리 스와이퍼 영역 -->
+      <!-- 카테고리 슬라이드 -->
       <div class="swiper categorySwiper flex-grow-1">
         <div class="swiper-wrapper">
 
-        <!-- 각 카테고리 하나 = slide 하나  -->
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn active" title="뮤 포켓 나이츠">뮤 포켓 나이츠</a>
-        </div>
+          <?php
+          // 카테고리 목록 배열로 관리 → 유지보수 쉬움
+          $categories = [
+            "뮤 포켓 나이츠", "테르비스", "뮤 오리진3", "드래곤 소드",
+            "샷온라인", "R2 ORIGIN", "썬 리미티드 에디션", "뮤 블루",
+            "R2M", "뮤 모나크", "뮤 아크엔젤", "메틴",
+            // 여분 슬라이드 제거 → 원하는 만큼만 추가 가능
+          ];
 
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="테르비스">테르비스</a>
-        </div>
+          foreach ($categories as $index => $cat): ?>
+            <div class="swiper-slide">
+              <a href="#" 
+                class="cat-btn <?= $index === 0 ? 'active' : '' ?>" 
+                title="<?= $cat ?>">
+                <?= $cat ?>
+              </a>
+            </div>
+          <?php endforeach; ?>
 
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="뮤 오리진3">뮤 오리진3</a>
         </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="드래곤 소드">드래곤 소드</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="샷 온라인">샷온라인 </a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="R2 ORIGIN">R2 ORIGIN</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="썬 리미티드 에디션">썬 리미티드 에디션</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="뮤 블루">뮤 블루</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="R2M">R2M</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="뮤 모나크">뮤 모나크</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="뮤 아크엔젤">뮤 아크엔젤</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="메틴">메틴</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="뮤 아크엔젤">뮤 아크엔젤</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="메틴">메틴</a>
-        </div>
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="뮤 아크엔젤">뮤 아크엔젤</a>
-        </div>
-
-        <div class="swiper-slide">
-          <a href="#" class="cat-btn" title="메틴">메틴</a>
-        </div>
-
-
-        </div>    
       </div>
 
-        <!-- 오른쪽 화살표 -->
+      <!-- 우측 화살표 -->
       <button class="cat-arrow cat-next swiper-cat-next">
         <span>&gt;</span>
       </button>
+
     </div>
   </div>
 </section>
+
+<!-- ================================
+      🔥 글쓰기 UI
+================================ -->
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-lg-8">
 
-      <!-- 글쓰기 카드 -->
       <div class="card shadow-sm border-0">
         <div class="card-body p-4">
 
           <!-- 유저 정보 + 카테고리 + 첨부파일 -->
           <div class="d-flex align-items-center mb-4">
 
-            <!-- 프로필 -->
-            <img src="../images/user_admin/user_default.png" class="rounded-circle me-3" width="45" height="45" alt="profile">
+            <!-- 프로필 이미지 -->
+            <img src="../images/user_admin/user_default.png" 
+                 width="45" height="45" 
+                 class="rounded-circle me-3"
+                 alt="profile">
 
             <!-- 닉네임 -->
             <div class="fw-semibold me-3">
@@ -113,24 +78,25 @@ session_start();
             <!-- 카테고리 선택 -->
             <select class="form-select w-auto me-auto" name="category">
               <option selected disabled>카테고리 선택</option>
-              <option value="뮤 포켓 나이츠">뮤 포켓 나이츠</option>
-              <option value="테르비스">테르비스</option>
-              <option value="뮤 오리진3">뮤 오리진3</option>
-              <option value="드래곤 소드">드래곤 소드</option>
+              <?php foreach ($categories as $cat): ?>
+                <option value="<?= $cat ?>"><?= $cat ?></option>
+              <?php endforeach; ?>
             </select>
 
-            <!-- 첨부파일 버튼 -->
+            <!-- 파일 업로드 -->
             <label class="btn btn-danger px-3 mb-0">
               첨부파일
               <input type="file" name="upload_file" hidden>
             </label>
-
           </div>
 
           <!-- 제목 -->
           <div class="mb-3">
             <label class="form-label fw-semibold">제목을 입력해주세요</label>
-            <input type="text" class="form-control" name="title" placeholder="제목을 입력해주세요">
+            <input type="text" 
+                   class="form-control" 
+                   name="title" 
+                   placeholder="제목을 입력해주세요">
           </div>
 
           <!-- 내용 -->
@@ -153,8 +119,7 @@ session_start();
     </div>
   </div>
 </div>
+
 </main>
 
-<?php
-  include('../common/footer.php');
-?>
+<?php include('../common/footer.php'); ?>

@@ -89,7 +89,7 @@
         padding: 15px;
         border-radius: 10px;
         color: $txt_color2;
-        transition: 0.2 ease;
+        transition: 0.2s ease;
         &:hover{
           background-color: #3b3b3b;
           text-decoration: none;
@@ -214,12 +214,13 @@
   h2{
     font-size: $t_size_t3;
     margin: 15px auto;
+    margin-top: 50px;
     text-align: center;
   }
-  h2+p{
+  p{
     font-size: $t_size_m;
     margin: 15px auto;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     text-align: center;
   }
 

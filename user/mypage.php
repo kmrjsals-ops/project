@@ -1,346 +1,253 @@
 <?php
-session_start();
-include '../db/db_conn.php';
 include '../common/header.php';
+include '../db/db_conn.php';
 
-// 로그인 체크
-if(!isset($_SESSION['mb_no'])){
-  echo "<script>alert('로그인이 필요합니다.'); location.href='../auth/login.php';</script>";
-  exit;
+// 🔒 로그인 체크
+if (!isset($_SESSION['mb_no'])) {
+    echo "<script>alert('로그인이 필요합니다.'); location.href='../auth/login.php';</script>";
+    exit;
 }
 
 $user_no = intval($_SESSION['mb_no']);
 
-// 1. 내 정보 불러오기
+// =============================================
+// 🔧 1) 유틸 함수들
+// =============================================
+function h($str) { return htmlspecialchars($str ?? '', ENT_QUOTES, 'UTF-8'); }
+
+// 페이지네이션 HTML 생성
+function pagination($now, $total, $paramName = 'page') {
+    if ($total <= 1) return '';
+
+    $html = '<div class="pagination"><ul class="pagination_modal">';
+
+    // 이전
+    if ($now > 1) {
+        $prev = $now - 1;
+        $html .= "<li><a href=\"?{$paramName}={$prev}\" class=\"arrow\"><i class=\"fa-solid fa-angle-left\"></i></a></li>";
+    } else {
+        $html .= "<li><a class='arrow disabled'><i class='fa-solid fa-angle-left'></i></a></li>";
+    }
+
+    // 번호
+    for ($i=1; $i <= $total; $i++) {
+        $active = ($i == $now) ? 'active_num' : '';
+        $html .= "<li><a href=\"?{$paramName}={$i}\" class=\"num {$active}\">{$i}</a></li>";
+    }
+
+    // 다음
+    if ($now < $total) {
+        $next = $now + 1;
+        $html .= "<li><a href=\"?{$paramName}={$next}\" class=\"arrow\"><i class=\"fa-solid fa-angle-right\"></i></a></li>";
+    } else {
+        $html .= "<li><a class='arrow disabled'><i class='fa-solid fa-angle-right'></i></a></li>";
+    }
+
+    return $html . "</ul></div>";
+}
+
+
+// =============================================
+// 🔧 2) 사용자 정보 가져오기
+// =============================================
 $sql_user = "SELECT * FROM users WHERE user_no = $user_no";
-$result_user = mysqli_query($conn, $sql_user);
-$user = mysqli_fetch_assoc($result_user);
+$user = mysqli_fetch_assoc(mysqli_query($conn, $sql_user));
 
-// 프로필 이미지
 $profile_img = (!empty($user['user_img'])) 
-  ? "../uploads/profile/" . $user['user_img'] 
-  : "../images/user_admin/img_upload.png";
+    ? "../uploads/profile/" . $user['user_img']
+    : "../images/user_admin/img_upload.png";
 
-// 2. 내가 쓴 글 불러오기
-$sql_posts = "SELECT post_no, post_title, view_count, created_datetime
-              FROM board_posts
-              WHERE user_no = $user_no
-              ORDER BY post_no DESC";
-$result_posts = mysqli_query($conn, $sql_posts);
 
-// 3. 문의 내역 불러오기
-$sql_inquiry = "SELECT * FROM support_inquiry 
-                WHERE user_no = $user_no 
-                ORDER BY inquiry_no DESC";
-$result_inquiry = mysqli_query($conn, $sql_inquiry);
+// =============================================
+// 🔧 3) 내가 쓴 글 페이지네이션 + 목록
+// =============================================
+$post_per_page = 10;
+$page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+$start = ($page - 1) * $post_per_page;
+
+// 총 개수
+$total_posts = mysqli_fetch_assoc(mysqli_query(
+    $conn,
+    "SELECT COUNT(*) AS total FROM board_posts WHERE user_no = $user_no"
+))['total'];
+
+$total_post_page = ceil($total_posts / $post_per_page);
+
+// 목록
+$sql_posts = "
+    SELECT post_no, title, created_at
+    FROM board_posts
+    WHERE user_no = $user_no
+    ORDER BY post_no DESC
+    LIMIT $start, $post_per_page
+";
+$posts = mysqli_query($conn, $sql_posts);
+
+
+// =============================================
+// 🔧 4) 문의 목록 페이지네이션 + 목록
+// =============================================
+$inq_per_page = 10;
+$page_inq = isset($_GET['inq_page']) ? max(1, intval($_GET['inq_page'])) : 1;
+$start_inq = ($page_inq - 1) * $inq_per_page;
+
+$total_inq = mysqli_fetch_assoc(mysqli_query(
+    $conn,
+    "SELECT COUNT(*) AS total FROM support_inquiry WHERE user_no = $user_no"
+))['total'];
+
+$total_inq_page = ceil($total_inq / $inq_per_page);
+
+$sql_inquiry = "
+    SELECT *
+    FROM support_inquiry
+    WHERE user_no = $user_no
+    ORDER BY inquiry_no DESC
+    LIMIT $start_inq, $inq_per_page
+";
+$inquiry = mysqli_query($conn, $sql_inquiry);
 ?>
 
 
 
 <main>
-  <div class="">
-    <h2 class="text_center">MY PAGE</h2>
+  <h2 class="text_center">MY PAGE</h2>
 
-    <div class="page_wrap">
+  <div class="page_wrap">
 
-      <!-- 1. 내정보 섹션 -->
-      <section id="info" class="page_section">
-        <h3 class="head_tag">
-          <p>내 정보</p>
-        </h3>
+    <!-- ===============================
+         1. 내 정보
+    =============================== -->
+    <section id="info" class="page_section">
+      <h3 class="head_tag"><p>내 정보</p></h3>
 
-        <!-- 프로필 이미지 -->
-        <div class="profile_img">
-          <img src="<?= $profile_img ?>" alt="프로필 이미지" class="p_img">
-        </div>
+      <div class="profile_img">
+        <img src="<?= $profile_img ?>" alt="프로필 이미지" class="p_img">
+      </div>
 
-        <!-- 정보 테이블 -->
-        <table>
-          <tbody>
-            <tr>
-              <th class="text_end">이름</th>
-              <td class="text_start"><?= $user['user_name'] ?></td>
-            </tr>
-            <tr>
-              <th class="text_end">전화번호</th>
-              <td class="text_start"><?= $user['user_phone'] ?></td>
-            </tr>
-            <tr>
-              <th class="text_end">닉네임</th>
-              <td class="text_start"><?= $user['user_nickname'] ?></td>
-            </tr>
-            <tr>
-              <th class="text_end">아이디</th>
-              <td class="text_start"><?= $user['user_id'] ?></td>
-            </tr>
-            <tr>
-              <th class="text_end">이메일</th>
-              <td class="text_start"><?= $user['user_email'] ?></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <table>
+        <tbody>
+          <tr><th class="text_end">이름</th>       <td class="text_start"><?= h($user['user_name']) ?></td></tr>
+          <tr><th class="text_end">전화번호</th>   <td class="text_start"><?= h($user['user_phone']) ?></td></tr>
+          <tr><th class="text_end">닉네임</th>     <td class="text_start"><?= h($user['user_nickname']) ?></td></tr>
+          <tr><th class="text_end">아이디</th>     <td class="text_start"><?= h($user['user_id']) ?></td></tr>
+          <tr><th class="text_end">이메일</th>     <td class="text_start"><?= h($user['user_email']) ?></td></tr>
+        </tbody>
+      </table>
+    </section>
 
 
 
-<!-- 2. 내가 쓴 글 섹션 -->
-<section id="my_writing" class="page_section">
-  <h3 class="head_tag">
-    <i class="fa-solid fa-angle-left" onclick='infoPage()'></i>
-    <p>내가 쓴 글</p>
-  </h3>
+    <!-- ===============================
+         2. 내가 쓴 글
+    =============================== -->
+    <section id="my_writing" class="page_section">
+      <h3 class="head_tag">
+        <i class="fa-solid fa-angle-left" onclick="infoPage()"></i>
+        <p>내가 쓴 글</p>
+      </h3>
 
-<?php
-// 페이지네이션 설정
-$list_num = 10; // 한 페이지당 10개
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$start = ($page - 1) * $list_num;
-
-// 게시글 목록 가져오기
-$sql_posts = "
-  SELECT post_no, title, created_at
-  FROM board_posts
-  WHERE user_no = $user_no
-  ORDER BY post_no DESC
-  LIMIT $start, $list_num
-";
-$result_posts = mysqli_query($conn, $sql_posts);
-
-// 게시글 총 개수 구하기
-$sql_total = "
-  SELECT COUNT(*) AS total
-  FROM board_posts
-  WHERE user_no = $user_no
-";
-$total_result = mysqli_query($conn, $sql_total);
-$total_row = mysqli_fetch_assoc($total_result);
-$total = $total_row['total'];
-
-$total_page = ceil($total / $list_num); // 총 페이지 수
-?>
-
-  <table class="table_wrap">
-    <thead>
-      <tr>
-        <th class="text_center">No.</th>
-        <th class="text_center">제목</th>
-        <th class="text_center">작성일</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <?php 
-      if ($total > 0) {
-        while ($post = mysqli_fetch_assoc($result_posts)) { ?>
+      <table class="table_wrap">
+        <thead>
           <tr>
-            <td class="text_center"><?= $post['post_no'] ?></td>
+            <th class="text_center">No.</th>
+            <th class="text_center">제목</th>
+            <th class="text_center">작성일</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <?php if ($total_posts == 0): ?>
+          <tr><td colspan="3" class="text_center">작성한 게시글이 없습니다.</td></tr>
+        <?php else: 
+          while ($p = mysqli_fetch_assoc($posts)): ?>
+          <tr>
+            <td class="text_center"><?= h($p['post_no']) ?></td>
             <td class="text_start">
-              <a href="../community/board_view.php?no=<?= $post['post_no'] ?>">
-                <?= htmlspecialchars($post['title']) ?>
+              <a href="../community/board_view.php?no=<?= $p['post_no'] ?>">
+                <?= h($p['title']) ?>
               </a>
             </td>
-            <td class="text_center"><?= $post['created_at'] ?></td>
+            <td class="text_center"><?= h($p['created_at']) ?></td>
           </tr>
-      <?php }
-      } else { ?>
-        <tr>
-          <td colspan="3" class="text_center">작성한 게시글이 없습니다.</td>
-        </tr>
-      <?php } ?>
-    </tbody>
-  </table>
+        <?php endwhile; endif; ?>
+        </tbody>
+      </table>
 
-  <!-- 페이지네이션 -->
-  <?php if ($total_page > 1) { ?>
-  <div class="pagination">
-    <ul class="pagination_modal">
+      <?= pagination($page, $total_post_page, 'page') ?>
+    </section>
 
-      <!-- 이전 버튼 -->
-      <li>
-        <?php if ($page > 1) { ?>
-          <a href="?page=<?= $page - 1 ?>" class="arrow">
-            <i class="fa-solid fa-angle-left"></i>
-          </a>
-        <?php } else { ?>
-          <a class="arrow disabled"><i class="fa-solid fa-angle-left"></i></a>
-        <?php } ?>
-      </li>
 
-      <!-- 페이지 번호 -->
-      <?php
-      // 페이지 번호는 1~10개씩만 보이도록 구성 가능 (원하면 개선해줄게)
-      for ($i = 1; $i <= $total_page; $i++) { ?>
-        <li>
-          <a href="?page=<?= $i ?>" class="num <?= ($i == $page) ? 'active_num' : '' ?>">
-            <?= $i ?>
-          </a>
-        </li>
-      <?php } ?>
 
-      <!-- 다음 버튼 -->
-      <li>
-        <?php if ($page < $total_page) { ?>
-          <a href="?page=<?= $page + 1 ?>" class="arrow">
-            <i class="fa-solid fa-angle-right"></i>
-          </a>
-        <?php } else { ?>
-          <a class="arrow disabled"><i class="fa-solid fa-angle-right"></i></a>
-        <?php } ?>
-      </li>
+    <!-- ===============================
+         3. 문의 내역
+    =============================== -->
+    <section id="inquiries" class="page_section">
+      <h3 class="head_tag">
+        <i class="fa-solid fa-angle-left" onclick="infoPage()"></i>
+        <p>문의 내역</p>
+      </h3>
 
-    </ul>
-  </div>
-  <?php } ?>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button" onclick="location.href='inquiry_write.php'">문의하기</button>
+      </div>
 
-</section>
-
-<!-- 3. 문의 내역 섹션 -->
-<section id="inquiries" class="page_section">
-  <div>
-    <h3 class="head_tag">
-      <i class="fa-solid fa-angle-left" onclick='infoPage()'></i>
-      <p>문의 내역</p>
-    </h3>
-
-    <!-- 문의하기 버튼 -->
-    <div class="btn_wrap">
-      <button class="btn_red" type="button" onclick="location.href='inquiry_write.php'">문의하기</button>
-    </div>
-
-<?php
-// 페이지네이션 설정
-$list_num_inq = 10;
-$page_inq = isset($_GET['inq_page']) ? intval($_GET['inq_page']) : 1;
-$start_inq = ($page_inq - 1) * $list_num_inq;
-
-// 문의 목록 가져오기
-$sql_inquiry = "
-  SELECT * 
-  FROM support_inquiry
-  WHERE user_no = $user_no
-  ORDER BY inquiry_no DESC
-  LIMIT $start_inq, $list_num_inq
-";
-$result_inquiry = mysqli_query($conn, $sql_inquiry);
-
-// 총 문의 수
-$sql_inquiry_total = "
-  SELECT COUNT(*) AS total_inq
-  FROM support_inquiry
-  WHERE user_no = $user_no
-";
-$inq_count_result = mysqli_query($conn, $sql_inquiry_total);
-$inq_total = mysqli_fetch_assoc($inq_count_result)['total_inq'];
-
-$inq_total_page = ceil($inq_total / $list_num_inq);
-?>
-
-    <!-- 문의 테이블 -->
-    <table class="table_wrap">
-      <thead>
-        <tr>
-          <th class="text_center">No.</th>
-          <th class="text_center">제목</th>
-          <th class="text_center">작성일</th>
-          <th class="text_center">처리상태</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <?php
-        if (mysqli_num_rows($result_inquiry) > 0) {
-          while ($inq = mysqli_fetch_assoc($result_inquiry)) { ?>
-          
-            <tr class="question">
-              <td class="text_center"><?= $inq['inquiry_no'] ?></td>
-              <td class="text_start"><?= htmlspecialchars($inq['inquiry_title']) ?></td>
-              <td class="text_center"><?= $inq['create_datetime'] ?></td>
-              <td class="text_center">
-                <?= ($inq['inquiry_status'] === 'done') ? '처리완료' : '대기중'; ?>
-              </td>
-              <td class="text_center"><i class="fa-solid fa-sort-down"></i></td>
-            </tr>
-
-            <tr class="answer text_center">
-              <td colspan="5">
-                <?= !empty($inq['inquiry_reply']) ? nl2br($inq['inquiry_reply']) : '아직 답변이 등록되지 않았습니다.' ?>
-              </td>
-            </tr>
-
-        <?php }
-        } else { ?>
+      <table class="table_wrap">
+        <thead>
           <tr>
-            <td colspan="5" class="text_center">문의 내역이 없습니다.</td>
+            <th class="text_center">No.</th>
+            <th class="text_center">제목</th>
+            <th class="text_center">작성일</th>
+            <th class="text_center">상태</th>
+            <th></th>
           </tr>
-        <?php } ?>
-      </tbody>
-    </table>
+        </thead>
 
-    <!-- 페이지네이션 -->
-    <?php if ($inq_total_page > 1) { ?>
-    <div class="pagination">
-      <ul class="pagination_modal">
+        <tbody>
+        <?php if ($total_inq == 0): ?>
+          <tr><td colspan="5" class="text_center">문의 내역이 없습니다.</td></tr>
+        <?php else: 
+          while ($q = mysqli_fetch_assoc($inquiry)): ?>
+          <tr class="question">
+            <td class="text_center"><?= h($q['inquiry_no']) ?></td>
+            <td class="text_start"><?= h($q['inquiry_title']) ?></td>
+            <td class="text_center"><?= h($q['create_datetime']) ?></td>
+            <td class="text_center"><?= ($q['inquiry_status'] === 'done') ? '처리완료' : '대기중' ?></td>
+            <td class="text_center"><i class="fa-solid fa-sort-down"></i></td>
+          </tr>
+          <tr class="answer text_center">
+            <td colspan="5">
+              <?= !empty($q['inquiry_reply']) ? nl2br(h($q['inquiry_reply'])) : '아직 답변이 등록되지 않았습니다.' ?>
+            </td>
+          </tr>
+        <?php endwhile; endif; ?>
+        </tbody>
+      </table>
 
-        <!-- 이전 버튼 -->
-        <li>
-          <?php if ($page_inq > 1) { ?>
-            <a href="?inq_page=<?= $page_inq - 1 ?>" class="arrow">
-              <i class="fa-solid fa-angle-left"></i>
-            </a>
-          <?php } else { ?>
-            <a class="arrow disabled"><i class="fa-solid fa-angle-left"></i></a>
-          <?php } ?>
-        </li>
-
-        <!-- 페이지 번호 -->
-        <?php for ($i = 1; $i <= $inq_total_page; $i++) { ?>
-          <li>
-            <a href="?inq_page=<?= $i ?>" class="num <?= ($i == $page_inq) ? 'active_num' : '' ?>">
-              <?= $i ?>
-            </a>
-          </li>
-        <?php } ?>
-
-        <!-- 다음 버튼 -->
-        <li>
-          <?php if ($page_inq < $inq_total_page) { ?>
-            <a href="?inq_page=<?= $page_inq + 1 ?>" class="arrow">
-              <i class="fa-solid fa-angle-right"></i>
-            </a>
-          <?php } else { ?>
-            <a class="arrow disabled"><i class="fa-solid fa-angle-right"></i></a>
-          <?php } ?>
-        </li>
-
-      </ul>
-    </div>
-    <?php } ?>
+      <?= pagination($page_inq, $total_inq_page, 'inq_page') ?>
+    </section>
 
   </div>
-</section>
 
 
 
-
-    </div>
-  </div>
-
-  <!-- 좌측 네비게이션  -->
+  <!-- ===============================
+       좌측 네비게이션
+  =============================== -->
   <nav class="side_nav" id="side-nav">
     <ul>
       <li><a href="#info" class="active_nav">내 정보</a></li>
-      <li id="nav_register">
+      <li>
         <i class="fa-regular fa-user"></i>
-        <a href="../php/register.php" title="정보 수정">내 정보 수정</a>
+        <a href="../php/register.php">내 정보 수정</a>
       </li>
       <li>
         <i class="fa-regular fa-file-lines"></i>
-        <a href="#my_writing" title="내가 쓴 글">내가 쓴 글</a>
+        <a href="#my_writing">내가 쓴 글</a>
       </li>
       <li>
         <i class="fa-regular fa-headphones"></i>
-        <a href="#inquiries" title="문의 내역">문의 내역</a>
+        <a href="#inquiries">문의 내역</a>
       </li>
       <li>
         <i class="fa-regular fa-circle-xmark"></i>

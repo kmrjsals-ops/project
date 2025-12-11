@@ -1,67 +1,70 @@
 <?php
-    include('../common/header.php');
-    include('../db/db_conn.php');
+include('../common/header.php');
+include('../db/db_conn.php');
 
-    // -------------------------
-    // 1) 공지 번호 받기
-    // -------------------------
-    $notice_no = isset($_GET['no']) ? intval($_GET['no']) : 0;
+// -------------------------
+// 1) 공지 번호 확인
+// -------------------------
+$notice_no = isset($_GET['no']) ? intval($_GET['no']) : 0;
 
-    if($notice_no < 1){
-        echo "<script>alert('잘못된 접근입니다.'); location.href='notice.php';</script>";
-        exit;
-    }
+if ($notice_no < 1) {
+    echo "<script>alert('잘못된 접근입니다.'); location.href='notice.php';</script>";
+    exit;
+}
 
-    // -------------------------
-    // 2) 조회수 증가
-    // -------------------------
-    $updateView = "UPDATE notice SET view_count = view_count + 1 WHERE notice_no = $notice_no";
-    mysqli_query($conn, $updateView);
+// -------------------------
+// 2) 조회수 증가
+// -------------------------
+$updateViewSql = "UPDATE notice SET view_count = view_count + 1 WHERE notice_no = $notice_no";
+mysqli_query($conn, $updateViewSql);
 
-    // -------------------------
-    // 3) 공지 상세 가져오기
-    // -------------------------
-    $sql = "SELECT * FROM notice WHERE notice_no = $notice_no";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+// -------------------------
+// 3) 공지 상세 정보 가져오기
+// -------------------------
+$sql = "SELECT * FROM notice WHERE notice_no = $notice_no";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
 
-    if(!$row){
-        echo "<script>alert('공지사항을 찾을 수 없습니다.'); location.href='notice.php';</script>";
-        exit;
-    }
+if (!$row) {
+    echo "<script>alert('공지사항을 찾을 수 없습니다.'); location.href='notice.php';</script>";
+    exit;
+}
 
-    // 해당 공지사항 데이터 가져오기
-    $title = htmlspecialchars($row['notice_title']);
-    $content = nl2br(htmlspecialchars($row['notice_content']));
-    $date = date("Y.m.d", strtotime($row['create_datetime']));
-    $view = intval($row['view_count']);
-    $img = $row['notice_img'];
+// 데이터 가공
+$title   = htmlspecialchars($row['notice_title'], ENT_QUOTES, 'UTF-8');
+$content = nl2br(htmlspecialchars($row['notice_content'], ENT_QUOTES, 'UTF-8'));
+$date    = date("Y.m.d", strtotime($row['create_datetime']));
+$view    = intval($row['view_count']);
+$img     = !empty($row['notice_img']) ? $row['notice_img'] : null;
 
-    // -------------------------
-    // 4) 이전글 / 다음글 조회
-    // -------------------------
+// 날짜 포맷 함수
+function formatDate($d) {
+    return date("Y.m.d", strtotime($d));
+}
 
-    // 이전글 = 현재 글보다 번호 큰 것 중 가장 작은 번호
-    $prev_sql = "
-        SELECT notice_no, notice_title, create_datetime 
-        FROM notice
-        WHERE notice_no > $notice_no
-        ORDER BY notice_no ASC
-        LIMIT 1
-    ";
-    $prev_result = mysqli_query($conn, $prev_sql);
-    $prev = mysqli_fetch_assoc($prev_result);
+// -------------------------
+// 4) 이전글 / 다음글
+// -------------------------
 
-    // 다음글 = 현재 글보다 번호 작은 것 중 가장 큰 번호
-    $next_sql = "
-        SELECT notice_no, notice_title, create_datetime 
-        FROM notice
-        WHERE notice_no < $notice_no
-        ORDER BY notice_no DESC
-        LIMIT 1
-    ";
-    $next_result = mysqli_query($conn, $next_sql);
-    $next = mysqli_fetch_assoc($next_result);
+// 이전글(번호 큰 것 중 가장 작은 번호)
+$prev_sql = "
+    SELECT notice_no, notice_title, create_datetime
+    FROM notice
+    WHERE notice_no > $notice_no
+    ORDER BY notice_no ASC
+    LIMIT 1
+";
+$prev = mysqli_fetch_assoc(mysqli_query($conn, $prev_sql));
+
+// 다음글(번호 작은 것 중 가장 큰 번호)
+$next_sql = "
+    SELECT notice_no, notice_title, create_datetime
+    FROM notice
+    WHERE notice_no < $notice_no
+    ORDER BY notice_no DESC
+    LIMIT 1
+";
+$next = mysqli_fetch_assoc(mysqli_query($conn, $next_sql));
 ?>
 
 <link rel="stylesheet" href="../css/notice_view.css" type="text/css">
@@ -90,23 +93,24 @@
         </div>
 
         <div class="post-body">
-
-            <?php if($img) { ?>
-                <img src="../uploads/notice/<?= $img ?>" alt="공지사항 이미지" class="post-banner">
+            <?php if ($img && file_exists("../uploads/notice/$img")) { ?>
+                <img src="../uploads/notice/<?= htmlspecialchars($img) ?>" 
+                     alt="공지사항 이미지" 
+                     class="post-banner">
             <?php } ?>
 
             <div class="text-highlight"><?= $content ?></div>
         </div>
 
-        <!-- 이전글 다음 글을 바로가기  -->
+        <!-- 이전글 / 다음글 -->
         <div class="post-nav-list">
 
             <!-- 이전글 -->
-            <?php if($prev) { ?>
+            <?php if ($prev) { ?>
                 <a href="notice_view.php?no=<?= $prev['notice_no'] ?>" class="nav-item">
                     <div class="nav-arrow arrow-up"></div>
                     <div class="nav-title nav-left"><?= htmlspecialchars($prev['notice_title']) ?></div>
-                    <div class="nav-date"><?= date("Y.m.d", strtotime($prev['create_datetime'])) ?></div>
+                    <div class="nav-date"><?= formatDate($prev['create_datetime']) ?></div>
                 </a>
             <?php } else { ?>
                 <div class="nav-item disabled">
@@ -117,11 +121,11 @@
             <?php } ?>
 
             <!-- 다음글 -->
-            <?php if($next) { ?>
+            <?php if ($next) { ?>
                 <a href="notice_view.php?no=<?= $next['notice_no'] ?>" class="nav-item">
                     <div class="nav-arrow arrow-down"></div>
                     <div class="nav-title nav-right"><?= htmlspecialchars($next['notice_title']) ?></div>
-                    <div class="nav-date"><?= date("Y.m.d", strtotime($next['create_datetime'])) ?></div>
+                    <div class="nav-date"><?= formatDate($next['create_datetime']) ?></div>
                 </a>
             <?php } else { ?>
                 <div class="nav-item disabled">
@@ -136,21 +140,21 @@
 </section>
 
 <script>
-	document.addEventListener('DOMContentLoaded',function(){
-		const titleLeft = document.querySelector('.nav-left');
-		const titleRight = document.querySelector('.nav-right');
+document.addEventListener('DOMContentLoaded',function(){
+    const titleLeft = document.querySelector('.nav-left');
+    const titleRight = document.querySelector('.nav-right');
 
-		const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
 
-		function handleScreenChange(e){
-			if(e.matches){
-                if(titleLeft) titleLeft.textContent = '이전글';
-                if(titleRight) titleRight.textContent = '다음글';
-			}
-		}
-		handleScreenChange(mediaQuery);
-		mediaQuery.addEventListener('change', handleScreenChange);
-	});
+    function handleScreenChange(e){
+        if(e.matches){
+            if(titleLeft)  titleLeft.textContent  = '이전글';
+            if(titleRight) titleRight.textContent = '다음글';
+        }
+    }
+    handleScreenChange(mediaQuery);
+    mediaQuery.addEventListener('change', handleScreenChange);
+});
 </script>
 
 <?php include('../common/footer.php'); ?>
