@@ -34,6 +34,7 @@ $profileImg = ($isLogin && !empty($_SESSION['mb_img']))
   <!-- 메인서식 -->
   <link rel="stylesheet" href="./css/main.css" type="text/css">
 
+  <link rel="icon" href="../images/favicon_logo.ico">
   <title>webzen</title>
 </head>
 <body>
