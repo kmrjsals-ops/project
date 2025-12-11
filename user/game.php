@@ -30,7 +30,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 ?>
 
 <link rel="stylesheet" href="../css/game.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <main>
 <div class="main-container">
