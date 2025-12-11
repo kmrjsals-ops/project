@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
            
            <!-- 글쓰기 버튼 -->
            <div class="write-button-container">
-             <a href="#" id="writeButton" class="write-button">
+             <a href="community_writeee.php" id="writeButton" class="write-button">
           <span>글쓰기</span>
         </a>
       </div>
@@ -108,20 +108,20 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3 style="visibility:hidden">카테고리 영역</h3>
           <div class="post-item-detail">
 
-            <a class="avatar" href="#" title="사용자 A">
+            <a class="avatar" href="no" title="사용자 A">
               <img src="https://placehold.co/40x40/f43f5e/fff?text=A" alt="이미지" class="w-full h-full object-cover">
             </a>
 
             <div class="flex-grow">
               <div class="post-info-header">
                 <div>
-                  <a class="username" href="#">집가고싶다</a>
+                  <a class="username" href="no">집가고싶다</a>
                   <p class="text-xs text-gray-500">20XX/11/20</p>
                 </div>
                 <span class="game-tag">뮤오리진3</span>
               </div>
 
-              <a class="post-title-link" href="#">님들 이거 어케함</a>
+              <a class="post-title-link" href="no">님들 이거 어케함</a>
 
               <p class="post-summary">
                 ㄹㅇ 뭐하고 있는건가 싶네요. 도저히 답이 안나와서 하루종일 붙잡고 있는데 저만 이런가요?
@@ -147,11 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <!-- 페이지네이션 -->
       <div class="pagination-container">
-        <a href="#" class="pagination-arrow">〈</a>
-        <a href="#" class="pagination-link pagination-current">1</a>
-        <a href="#" class="pagination-link">2</a>
-        <a href="#" class="pagination-link">3</a>
-        <a href="#" class="pagination-arrow">〉</a>
+        <a href="no" class="pagination-arrow">〈</a>
+        <a href="no" class="pagination-link pagination-current">1</a>
+        <a href="no" class="pagination-link">2</a>
+        <a href="no" class="pagination-link">3</a>
+        <a href="no" class="pagination-arrow">〉</a>
       </div>
 
     </div>
