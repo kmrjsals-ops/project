@@ -42,12 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
       🔥 카테고리 영역
 ====================== -->
 <section class="lounge-category-bar py-3">
+  <h2 style="visibility:hidden">카테고리 영역</h2>
   <div class="container">
     <div class="d-flex align-items-center">
-
+      
       <!-- 왼쪽 화살표 -->
       <button class="cat-arrow cat-prev swiper-cat-prev"><span>&lt;</span></button>
-
+      
       <!-- 카테고리 슬라이더 -->
       <div class="swiper categorySwiper flex-grow-1">
         <div class="swiper-wrapper">
@@ -75,20 +76,21 @@ document.addEventListener('DOMContentLoaded', () => {
      alt="커뮤니티 배경 이미지"
      class="community_bg">
 
-<!-- ======================
-      🔥 커뮤니티 메인 레이아웃
-====================== -->
-<section class="community-content">
-  <div class="community-layout">
-
-    <!-- ======================
-          📌 왼쪽 게시글 목록
-    ======================= -->
-    <div class="post-list-area mt-[-20rem]">
-
-      <!-- 글쓰기 버튼 -->
-      <div class="write-button-container">
-        <a href="#" id="writeButton" class="write-button">
+     <!-- ======================
+     🔥 커뮤니티 메인 레이아웃
+     ====================== -->
+     <section class="community-content">
+       <h2 style="visibility:hidden">최신글</h2>
+       <div class="community-layout">
+         
+         <!-- ======================
+         📌 왼쪽 게시글 목록
+         ======================= -->
+         <div class="post-list-area mt-[-20rem]">
+           
+           <!-- 글쓰기 버튼 -->
+           <div class="write-button-container">
+             <a href="#" id="writeButton" class="write-button">
           <span>글쓰기</span>
         </a>
       </div>
@@ -103,10 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <!-- 게시글 1 -->
         <article class="post-item">
+          <h3 style="visibility:hidden">카테고리 영역</h3>
           <div class="post-item-detail">
 
             <a class="avatar" href="#" title="사용자 A">
-              <img src="https://placehold.co/40x40/f43f5e/fff?text=A" class="w-full h-full object-cover">
+              <img src="https://placehold.co/40x40/f43f5e/fff?text=A" alt="이미지" class="w-full h-full object-cover">
             </a>
 
             <div class="flex-grow">
@@ -178,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <!-- 광고 -->
       <div class="ad-banner-placeholder">
         <a href="#">
-          <img src="../images/notice/ad_banner01.png" class="w-full h-full object-cover">
+          <img src="../images/notice/ad_banner01.png" alt="광고" class="w-full h-full object-cover">
         </a>
       </div>
 
@@ -199,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li>
               <a href="#" class="new-game-item">
                 <div class="game-thumb">
-                  <img src="<?= $g[1] ?>" class="w-full h-full object-cover">
+                  <img src="<?= $g[1] ?>" class="w-full h-full object-cover" alt="이미지">
                 </div>
                 <span><?= $g[0] ?></span>
               </a>
